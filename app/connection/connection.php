@@ -25,7 +25,7 @@ class Connection {
             }
 
         }
-#kkkkk
+
         return self::$conn;
     }
 
