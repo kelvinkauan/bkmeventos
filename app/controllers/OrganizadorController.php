@@ -134,7 +134,7 @@
 
         }
 
-        private function deleteOrganidorById(){
+        private function deleteOrganizadorById(){
 
         $idParam = $_GET['id'];
 
@@ -166,7 +166,7 @@
 
             $data['organizadores'][0] = $organizador;
 
-            $this->loadView("organizador/EditarOrganizador.php", $data);
+            $this->loadView("organizadores/EditarOrganizador.php", $data);
 
         }
 

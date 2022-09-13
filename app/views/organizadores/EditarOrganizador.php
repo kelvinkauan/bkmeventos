@@ -16,7 +16,7 @@
 <h2> Editar cliente </h2>
  <p/>
   <?php foreach($data['organizadores'] as $org): ?> <!-- $organizadores -->
-   <form action="./OrganizadorController.php?action=update&id=<?= $org->getId()?>" method="POST"> <!--  &id= -->
+   <form action="./OrganizadorController.php?action=updatet&id=<?= $org->getId()?>" method="POST"> <!--  &id= -->
 	<label for="idn">Nome: </label> 
      <input type="text" name="nome" id="idn" value="<?= $org->getNome(); ?>">
 	  <br>
