@@ -17,7 +17,7 @@ return $this-> idOrganizador;
  
 public function setId(int $id){
 
-$this->id = $id;
+$this->idOrganizador = $id;
 //return $this;
 
 }
@@ -32,7 +32,7 @@ return $this-> nc_Organizador;
 
 public function setNome(string $nome){
 
-$this->nome = $nome;
+$this->nc_Organizador = $nome;
 
 //return $this;
 
@@ -48,7 +48,7 @@ return $this->email_Organizador;
 
 public function setEmail(string $email){
 
-$this->email = $email;
+$this->email_Organizador= $email;
 
 //return $this;
 
@@ -64,7 +64,7 @@ return $this->senha_Organizador;
 
 public function setSenha(string $senha){
 
-$this->senha = $senha;
+$this->senha_Organizador = $senha;
 
 //return $this;
 
