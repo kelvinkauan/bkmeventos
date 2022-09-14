@@ -13,10 +13,10 @@
   <form action="./OrganizadorController.php?action=create" method="POST">
    <label for="idn">Nome:</label>
 	<input type="text" name="nome" id="idn">
-	 <br>
+    <p/>
       <label for="ide">Email: </label>
 	   <input type="text" name="email" id="ide/">
-	  <br>
+	  <p/> 
      <label for="ids">Senha: </label>
 	<input type="password" name="senha" id="ids">
    <p/>
