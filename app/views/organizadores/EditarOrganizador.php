@@ -13,7 +13,7 @@
 
 ?>
 
-<h2> Editar cliente </h2>
+<h2> Editar Organizadores </h2>
  
   <?php foreach($data['organizadores'] as $org): ?> <!-- $organizadores -->
    <form action="./OrganizadorController.php?action=update&id=<?= $org->getId()?>" method="POST"> <!--  &id= -->

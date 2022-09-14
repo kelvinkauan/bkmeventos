@@ -22,11 +22,11 @@ $this->id = $id;
 
 }
 
-/*<!-- getters e setters do email--> */
+/*<!-- getters e setters do nome --> */
 
 public function getNome(): string{
     
-return $this->nc_Organizador;
+return $this-> nc_Organizador;
 
 }
 
