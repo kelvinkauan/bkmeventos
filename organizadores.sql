@@ -11,5 +11,5 @@ use projeto_integrador;
  #nome_Adm varchar(10),
  #senha_Adm varchar(10),
  #);
- 
+ alter table administradores change senhaAdm senha_Adm varchar(10) ;
 desc administradores;
