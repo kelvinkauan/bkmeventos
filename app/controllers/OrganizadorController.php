@@ -163,6 +163,7 @@
             $organizadorRepository = new OrganizadorRepository();
 
             $organizador = $organizadorRepository->findOrganizadorById($idParam);
+            
 
             $data['organizadores'][0] = $organizador;
 

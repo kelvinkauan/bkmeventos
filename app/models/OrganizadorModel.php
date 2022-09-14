@@ -11,7 +11,7 @@ private $senha;
 
 public function getId(): int{ // esse "int" indica que vai retornar um int
 
-return $this->id;
+return $this-> idOrganizador;
 
 }
  
@@ -26,7 +26,7 @@ $this->id = $id;
 
 public function getNome(): string{
     
-return $this->nome;
+return $this->nc_Organizador;
 
 }
 
@@ -42,7 +42,7 @@ $this->nome = $nome;
 
 public function getEmail(): string{
 
-return $this->email;
+return $this->email_Organizador;
 
 }
 
@@ -58,7 +58,7 @@ $this->email = $email;
 
 public function getSenha(): string{
 
-return $this->senha;
+return $this->senha_Organizador;
 
 }
 
