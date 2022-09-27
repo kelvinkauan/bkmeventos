@@ -101,9 +101,9 @@ class OrganizadorRepository{
             return $result;
 
         }
+        public function login(){
 
-    
-
+        }
 
 
     
