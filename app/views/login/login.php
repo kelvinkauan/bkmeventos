@@ -13,6 +13,8 @@
        <p/>
        <label for="idpass"> Senha: </label>
       <input type="password" name="senha" id="idpass">
-    </div>
+     <br>
+    <a href="../organizadores/CadastroOrganizador.php">Cadastre-se aqui</a>
+ </div>
 </body>
 </html>
