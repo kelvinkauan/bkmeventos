@@ -164,7 +164,6 @@
 
             $organizador = $organizadorRepository->findOrganizadorById($idParam);
             
-
             $data['organizadores'][0] = $organizador;
 
             $this->loadView("organizadores/EditarOrganizador.php", $data);

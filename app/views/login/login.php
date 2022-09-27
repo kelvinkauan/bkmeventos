@@ -11,18 +11,16 @@
     <h2>Login Organizador</h2>
 
     <div class="login">
-     <form action="./organizadorController.php?action=login" method="POST">
+     <form action="./OrganizadorController.php?action=login" method="POST">
       <label for="idlog"> Login: </label>
-       <input type="text" name="nome" id="idlog" required placeholder="Nome Completo...">
+       <input type="text" name="email" id="idlog" required placeholder="Email...">
         <p/>
          <label for="idpass"> Senha: </label>
-           <input type="password" name="senha" id="idpass" required placeholder="Senha...">
-          <br>
-         <input type="submit" value="login">
-       <br>
-      <a href="../organizadores/CadastroOrganizador.php">Cadastre-se aqui</a>
+         <input type="password" name="senha" id="idpass" required placeholder="Senha...">
+        <p/>
+       <input type="submit" value="login">
      </form>
     </div>
-    
+    <a href="./OrganizadorController.php?action=loadForm">Cadastrar novo</a>
 </body>
 </html>

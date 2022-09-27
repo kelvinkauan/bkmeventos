@@ -101,7 +101,20 @@ class OrganizadorRepository{
             return $result;
 
         }
-        public function login(){
+
+        public function login(OrganizadorModel $organizador){
+
+            try{
+
+                $query = "SELECT idOrganziador , email_Organizador, senha_Organizador FROM organizadores WHERE email_Organizador = :email AND  senha_Organizador = :senha ";
+
+                $prepare = $this->conn->prepare($query);
+
+            }catch(Exception $e){
+
+                print("Login não encontrado no banco de dados");
+
+            }
 
         }
 
