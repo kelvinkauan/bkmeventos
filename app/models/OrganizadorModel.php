@@ -58,13 +58,13 @@ $this->email_Organizador= $email;
 
 public function getSenha(): string{
 
-return $this->senha_Organizador = sha1("senha_Organizador");
+return $this->senha_Organizador;
 
 }
 
 public function setSenha(string $senha){
 
-$this->senha_Organizador = $senha;
+$this->senha_Organizador = sha1($senha);
 
 //return $this;
 
