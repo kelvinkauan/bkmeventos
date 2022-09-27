@@ -58,7 +58,7 @@ $this->email_Organizador= $email;
 
 public function getSenha(): string{
 
-return $this->senha_Organizador;
+return $this->senha_Organizador = sha1("senha_Organizador");
 
 }
 

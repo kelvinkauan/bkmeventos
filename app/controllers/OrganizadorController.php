@@ -72,13 +72,13 @@
 
         private function create(){
 
-        $organizador = new OrganizadorModel();
+        $organizador = new OrganizadorModel(); //usar como referencia
 
 		$organizador->setNome($_POST["nome"]);
 
 		$organizador->setEmail($_POST["email"]);
 
-        $organizador->setSenha($_POST["senha"]);
+        $organizador->setSenha($_POST["senha"]); //$organizador->setSenha($_POST["senha"]);
 
         $organizadorRepository = new OrganizadorRepository();
 
@@ -181,7 +181,7 @@
 
             $organizador->setEmail($_POST["email"]);
 
-            $organizador->setSenha($_POST["senha"]);
+            $organizador->setSenha($_POST["senha"]); // $organizador->setSenha($_POST["senha"]);
 
             $organizadorRepository = new OrganizadorRepository();
            
@@ -204,6 +204,17 @@
         private function preventDefault() {
 
             print ("Ação indefinida...");
+
+        }
+
+        private function login(){
+
+            $organizador = new OrganizadorModel();
+            
+            $organizador->setNome($_POST["nome"]);
+
+            $organizador->setSenha($_POST["senha"]);
+            
 
         }
 
