@@ -21,6 +21,5 @@
        <input type="submit" value="login">
      </form>
     </div>
-    <a href="./OrganizadorController.php?action=loadForm">Cadastrar novo</a>
 </body>
 </html>
