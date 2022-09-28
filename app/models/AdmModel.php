@@ -19,7 +19,7 @@ class AdmModel{
 
         return $this-> nome_Adm;
     }
-    public function serNome(string $nome){
+    public function setNome(string $nome){
 
         $this-> nome_Adm = $nome;
     }

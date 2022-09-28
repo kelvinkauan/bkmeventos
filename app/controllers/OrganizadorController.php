@@ -54,6 +54,9 @@
             }
         }
 
+
+
+        
         public function loadView(string $path, array $data = null, string $msg = null){
 
             $caminho = __DIR__ . "./../views/" . $path;
@@ -68,6 +71,9 @@
 
             }
         }
+
+
+
 
 
         private function create(){
@@ -98,11 +104,16 @@
 
        }
 
+
+
         private function loadForm(){ //loadFormNew
 
             $this->loadView("Organizadores/CadastroOrganizador.php", null, "teste");
 
         }
+
+
+
 
         private function findAll(string $msg = null){
 

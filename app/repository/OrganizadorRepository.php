@@ -14,7 +14,6 @@ class OrganizadorRepository{
     }
 
     public function create(OrganizadorModel $organizador): int {
-        
         try{
 
             $query = "INSERT INTO organizadores (nc_Organizador, email_Organizador, senha_Organizador) VALUES (:nome, :email, :senha)";
