@@ -8,17 +8,17 @@
 </head>
 <body>
 
-    <h2>Login Organizador</h2>
+    <h2>Login </h2>
 
     <div class="login">
-     <form action="./OrganizadorController.php?action=login" method="POST">
+     <form action="" method="POST"> <!-- ./OrganizadorController.php?action=login -->
       <label for="idlog"> Login: </label>
        <input type="text" name="email" id="idlog" required placeholder="Email...">
         <p/>
          <label for="idpass"> Senha: </label>
          <input type="password" name="senha" id="idpass" required placeholder="Senha...">
         <p/>
-       <input type="submit" value="login">
+       <input type="submit" value="fazer login" name="entrar">
      </form>
     </div>
 </body>

@@ -14,6 +14,7 @@
 </head>
 <body>
 <?php
+
 	include_once __DIR__ . "/../helpers/mensagem.php";
 
 ?>
@@ -34,7 +35,9 @@
     </ul>
 
     <p>
-    [ <a href="./OrganizadorController.php?action=loadForm">Cadastrar novo</a> ]  <!-- colocar no view principal -->
+    [ <a href="./OrganizadorController.php?action=loadForm"> Cadastrar-se </a> ]  <!-- colocar no view principal -->
+
+    <a href="./OrganizadorController.php?action=login"> login</a>
 
 </body>
 </html>
