@@ -56,7 +56,7 @@ require_once __DIR__ . "/../repository/AdmRepository.php";
 
         public function loadView(string $path, array $data = null, string $msg = null){
 
-            $caminho = __DIR__ . "./../views/" . $path;
+            $caminho = __DIR__ . "/../views/" . $path;
 
             if(file_exists($caminho)){
 
