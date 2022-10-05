@@ -7,6 +7,7 @@
     <title>Login bkmeventos </title>
 </head>
 <body>
+    <form method="POST" action="/../controller/OrganizadorController.php"></form>
     <div class="login">
      <label for="idlog"> Login: </label>
       <input type="text" name="nome" id="idlog">

@@ -35,6 +35,6 @@
 
     <p>
     [ <a href="./OrganizadorController.php?action=loadForm">Cadastrar novo</a> ]  <!-- colocar no view principal -->
-    [<a href="./AdmController.php?action=loadForm">Login admin</a>]    
+    [<a href="./AdmController.php?action=loadForm">Login admin</a>]   
 </body>
 </html>
