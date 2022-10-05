@@ -64,7 +64,7 @@ return $this->senha_Organizador;
 
 public function setSenha(string $senha){
 
-$this->senha_Organizador = $senha;
+$this->senha_Organizador = sha1 ($senha);
 
 //return $this;
 
