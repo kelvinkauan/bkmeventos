@@ -219,6 +219,33 @@
         }
 
 
+
+        private function login(){
+
+            $organizador = new OrganizadorRepository();
+
+            if(isset($_POST['login'])){
+
+                $organizador->loginOfOrg($_POST['']);
+            }
+
+            /*$organizador->setNome($_POST["nome"]);
+            $organizador->setSenha($_POST["senha"]); 
+            $organizadorRepository = new OrganizadorRepository();
+            $e = $organizadorRepository->login($organizador);
+            /*if($e){
+                print ("bem vindo ao bkmeventos!");
+            } else {
+                print ("Erro ao fazer o login");
+            }*/
+
+        $this->loadView("login/login.php" /*,$data*/);
+
+
+        }
+
+
+
 }
 
 ?>

@@ -101,6 +101,54 @@ class OrganizadorRepository{
 
         }
 
+
+
+        public function loginOfOrg(OrganizadorModel $organizador){
+
+            /*this->nome = $organizador['nome'];
+            this->senha = $organizador['senha'];*/
+
+            try{
+
+                $query = "SELECT idOrganziador, nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND senha_Organizador = :senha ";
+
+                $prepare = $this->conn->prepare($query);
+
+                $prepare->bindValue(":nome", $organizador->getNome());
+
+                $prepare->bindValue(":senha", $organizador->getSenha());
+
+                $prepare->execute();
+
+                if($prepare->rowCount() == 0){
+
+                    header("Location: login/login.php");
+
+                }else{
+
+                    session_start();
+
+                    $result  = $prepare->fetch();
+
+                    $_SESSION['Logado'] = "Login realizado com sucesso!";
+
+                    $_SESSION['Org'] = $result['ididOrganziador'];
+
+                    header ("Location: organizadores/PaginaOrganizador.php ");
+                }
+
+                return $result;
+
+            }catch(Exception $e){
+
+
+                print("Erro, dados não convem com o banco de dados!");
+
+            }
+
+        }
+
+
     
 
 
