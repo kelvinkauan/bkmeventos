@@ -26,7 +26,7 @@ $this->idOrganizador = $id;
 
 public function getNome(): string{
     
-return $this-> nc_Organizador;
+return $this->nc_Organizador;
 
 }
 

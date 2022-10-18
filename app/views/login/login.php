@@ -11,15 +11,16 @@
     <h2>Login </h2>
 
     <div class="login">
-     <form action="" method="POST"> <!-- ./OrganizadorController.php?action=login -->
+     <form action="./OrganizadorController.php?action=login" method="POST"> <!-- ./OrganizadorController.php?action=login -->
       <label for="idlog"> Login: </label>
-       <input type="text" name="email" id="idlog" required placeholder="Email...">
+       <input type="text" name="email" id="idlog" placeholder="Email..."> <!-- required-->
         <p/>
          <label for="idpass"> Senha: </label>
-         <input type="password" name="senha" id="idpass" required placeholder="Senha...">
+         <input type="password" name="senha" id="idpass"   placeholder="Senha...">
         <p/>
        <input type="submit" value="fazer login" name="entrar">
      </form>
+      <a href="./OrganizadorController.php?action=voltar">voltar</a>
     </div>
 </body>
 </html>

@@ -1,7 +1,5 @@
 <?php 
 
-session_start();
-ob_start();
 require_once __DIR__ . "./../connection/connection.php";
 require_once __DIR__ . "./../models/OrganizadorModel.php";
 
@@ -106,73 +104,52 @@ class OrganizadorRepository{
 
         }
 
-        public function loginByid(OrganizadorModel $organizador){
+        public function loginOfOrg(OrganizadorModel $organizador){
 
-            if(!empty($organizador['entrar'])){   
+            /*this->nome = $organizador['nome'];
+            this->senha = $organizador['senha'];*/
 
-           //  var_dump($organizador);
+            try{
 
-              $query =  "SELECT idOrganziador , nc_Organizador, email_Organizador, senha_Organizador FROM organizadores WHERE email_Organizador = :email LIMIT 1 "; //'".$organizador['email']."' 
-
-              $prepare = $this->conn->prepare($query);
-
-              $prepare->bindParam(':email', $organizador->getEmail());
-
-              $prepare->execute();
-
-              if(($prepare) AND ($prepare->rowCount() != 0 )){
-
-                $row = $prepare->fetch(PDO::FETCH_ASSOC);
-
-               // var_dump($row);
-
-                if(password_verify($organizador['senha_Organizador'], $row['senha_Organizador'])){
-
-                    $_SESSION ['id'] =  $row['idOrganizador'];
-
-                    $_SESSION ['nome'] =  $row['nc_Organizador'];
-
-                    header("location: /organizadores/PaginaOrganizador.php");
-                   // echo "Login bem sucessedido";
-
-                }else{
-
-                    $_SESSION ['msg'] = "Usuário ou senha inválida!";
-                }
-
-              }else{
-
-                $_SESSION ['msg'] = "Usúario ou senha inválida!";
-
-              }
-
-             
-            }
-             if(isset($_SESSION['msg'])){
-                echo $_SESSION['msg'];
-                unset ($_SESSION['msg']);
-             }
-
-           /* try{
-
-                $query = "SELECT idOrganziador , nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND  senha_Organizador = :senha ";
-
+                $query = "SELECT idOrganziador, nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND senha_Organizador = :senha ";
+     
                 $prepare = $this->conn->prepare($query);
 
                 $prepare->bindValue(":nome", $organizador->getNome());
 
                 $prepare->bindValue(":senha", $organizador->getSenha());
 
+                $prepare->execute();
+
+                if($prepare->rowCount() == 0){
+                       
+                    header("Location: login/login.php");
+
+                }else{
+
+                    session_start();
+
+                    $result  = $prepare->fetch();
+
+                    $_SESSION['Logado'] = "Login realizado com sucesso!";
+
+                    $_SESSION['Org'] = $result['ididOrganziador'];
+
+                    header ("Location: organizadores/PaginaOrganizador.php ");
+                }
+
+                return $result;
 
             }catch(Exception $e){
 
-                print("Login não encontrado no banco de dados");
+
+                print("Erro, dados não convem com o banco de dados!");
 
             }
-*/
-        }
+         
 
+         }
 
-    
-}
+         }
+        
 ?>
