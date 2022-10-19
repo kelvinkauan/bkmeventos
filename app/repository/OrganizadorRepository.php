@@ -107,7 +107,6 @@ class OrganizadorRepository{
 
             /*this->nome = $organizador['nome'];
             this->senha = $organizador['senha'];*/
-
             try{
 
                 $query = "SELECT idOrganziador, nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND senha_Organizador = :senha ";

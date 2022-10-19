@@ -15,7 +15,8 @@
          <label for="idpass"> Senha: </label>
          <input type="password" name="senha" id="idpass"  placeholder="Senha...">
         <p/>
-       <input type="submit" value="login">
+       <input type="submit" value="Entrar">
+       <input value="1" name="login" type="hidden">
        <a href="./OrganizadorController.php?action=voltar">voltar</a>
        
      </form>
