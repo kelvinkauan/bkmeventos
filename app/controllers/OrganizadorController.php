@@ -221,19 +221,17 @@
 
 
         private function login(){
-
             $organizador = new OrganizadorRepository();
-
+            
             if(isset($_POST['login'])){
-
+                
                 var_dump($organizador);
+                
                 $organizador->loginOfOrg($_POST['nome']);
 
                 $organizador->loginOfOrg($_POST['senha']);
             }
-
-
-        $this->loadView("login/login.php");
+           $this->loadView("login/login.php");
 
 
         }
