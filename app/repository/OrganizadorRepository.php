@@ -123,9 +123,11 @@ class OrganizadorRepository{
                 var_dump($result);
 
                 if(!$result){
-                    print("Erro, dados não convem com o banco de dados!");
 
-                    header("Location: login/login.php");
+                    $msg="Erro, dados não convem com o banco de dados!";
+                   
+
+                    header("Location: ./OrganizadorController.php?action=login");
 
                 }else{
 
@@ -144,7 +146,7 @@ class OrganizadorRepository{
                 print("Erro, dados não convem com o banco de dados!");
 
             }
-
+                $this->findAll($msg);
         }
 
 

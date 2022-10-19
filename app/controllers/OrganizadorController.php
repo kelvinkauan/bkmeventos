@@ -259,7 +259,7 @@
                 $this->loadView("organizadores/PaginaOrganizador.php");
 
             }else{
-                header("location: login/login.php");
+                header("Location: ./OrganizadorController.php?action=login");
             }
             
 
