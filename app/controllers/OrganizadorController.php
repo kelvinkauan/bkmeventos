@@ -231,6 +231,8 @@
 
                     header("location: ./OrganizadorController.php?action=PaginaOrganizador");
 
+                }else{
+                     
                 }
 
               
@@ -259,14 +261,12 @@
                 $this->loadView("organizadores/PaginaOrganizador.php");
 
             }else{
+                
                 header("Location: ./OrganizadorController.php?action=login");
             }
             
-
-            
-            
-
         }
+        
 
 
        /*private function VoltarLogin(){

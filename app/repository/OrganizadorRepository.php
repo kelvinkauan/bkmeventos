@@ -104,7 +104,7 @@ class OrganizadorRepository{
 
 
         public function loginOfOrg($nome, $senha){
-
+             
             /*this->nome = $organizador['nome'];
             this->senha = $organizador['senha'];*/
             try{
@@ -124,11 +124,9 @@ class OrganizadorRepository{
 
                 if(!$result){
 
-                    $msg="Erro, dados não convem com o banco de dados!";
-                   
-
-                    header("Location: ./OrganizadorController.php?action=login");
-
+                   print("senha ou conta incorreta") ;                  
+                         
+                
                 }else{
 
                     session_start();
@@ -140,13 +138,10 @@ class OrganizadorRepository{
                 return $result;
 
             }catch(Exception $e){
-                var_dump($e);
-
-
+                
                 print("Erro, dados não convem com o banco de dados!");
-
+                
             }
-                $this->findAll($msg);
         }
 
 
