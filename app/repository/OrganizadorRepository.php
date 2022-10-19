@@ -103,42 +103,42 @@ class OrganizadorRepository{
 
 
 
-        public function loginOfOrg(OrganizadorModel $organizador){
+        public function loginOfOrg($nome, $senha){
 
             /*this->nome = $organizador['nome'];
             this->senha = $organizador['senha'];*/
             try{
 
-                $query = "SELECT idOrganziador, nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND senha_Organizador = :senha ";
+                $query = "SELECT idOrganizador, nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND senha_Organizador = :senha ";
 
                 $prepare = $this->conn->prepare($query);
 
-                $prepare->bindValue(":nome", $organizador->getNome());
+                $prepare->bindValue(":nome", $nome);
 
-                $prepare->bindValue(":senha", $organizador->getSenha());
+                $prepare->bindValue(":senha", $senha);
 
                 $prepare->execute();
+            
+                $result  = $prepare->fetch();
+                var_dump($result);
 
-                if($prepare->rowCount() == 0){
+                if(!$result){
+                    print("Erro, dados não convem com o banco de dados!");
 
                     header("Location: login/login.php");
 
                 }else{
 
                     session_start();
+                    $_SESSION['Logado'] = true;
 
-                    $result  = $prepare->fetch();
-
-                    $_SESSION['Logado'] = "Login realizado com sucesso!";
-
-                    $_SESSION['Org'] = $result['ididOrganziador'];
-
-                    header ("Location: organizadores/PaginaOrganizador.php ");
+                    $_SESSION['Org'] = $result['idOrganizador'];
                 }
 
                 return $result;
 
             }catch(Exception $e){
+                var_dump($e);
 
 
                 print("Erro, dados não convem com o banco de dados!");

@@ -224,12 +224,16 @@
             $organizador = new OrganizadorRepository();
             
             if(isset($_POST['login'])){
-                
-                var_dump($organizador);
-                
-                $organizador->loginOfOrg($_POST['nome']);
 
-                $organizador->loginOfOrg($_POST['senha']);
+                
+                $login = $organizador->loginOfOrg($_POST['nome'],$_POST['senha'] );
+                if($login){
+
+                    header("location: ./OrganizadorController.php?action=PaginaOrganizador");
+
+                }
+
+              
             }
            $this->loadView("login/login.php");
 
@@ -242,6 +246,26 @@
             $data['titulo'] = "listar organizadores"; 
             $data['organizadores'] = $organizadores;
             $this->loadView("organizadores/list.php", $data, $msg );
+        }
+
+
+        private function PaginaOrganizador(){
+
+            session_start();
+            $organizador = new OrganizadorRepository();
+
+            if($_SESSION ["Logado"] == true){
+
+                $this->loadView("organizadores/PaginaOrganizador.php");
+
+            }else{
+                header("location: login/login.php");
+            }
+            
+
+            
+            
+
         }
 
 
