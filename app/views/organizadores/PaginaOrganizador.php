@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> BEM-VINDO</h1>
+    <h1> BEM-VINDO </h1>
+
+    <a href="./OrganizadorController.php?action=login">sair</a>
+
+    <a href="./OrganizadorController.php?action=loadForm">Cadastrar evento</a>
+
+
 </body>
 </html>

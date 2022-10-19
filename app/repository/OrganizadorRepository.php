@@ -104,52 +104,53 @@ class OrganizadorRepository{
 
         }
 
-        public function loginOfOrg(OrganizadorModel $organizador){
-
-            /*this->nome = $organizador['nome'];
-            this->senha = $organizador['senha'];*/
+        public function loginOfOrg($nome, $senha){
 
             try{
 
-                $query = "SELECT idOrganziador, nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND senha_Organizador = :senha ";
-     
+                $query = "SELECT idOrganizador, nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND senha_Organizador = :senha ";
+
                 $prepare = $this->conn->prepare($query);
 
-                $prepare->bindValue(":nome", $organizador->getNome());
+                $prepare->bindValue(":nome", $nome);
 
-                $prepare->bindValue(":senha", $organizador->getSenha());
+                $prepare->bindValue(":senha", $senha);
 
                 $prepare->execute();
+            
+                $result = $prepare->fetch();
 
-                if($prepare->rowCount() == 0){
-                       
-                    header("Location: login/login.php");
+                //var_dump($result);
+
+                if(!$result){
+
+                    $msg = "Erro, dados não convem com o banco de dados!";
+                   
+                    header("Location: ./OrganizadorController.php?action=login");
 
                 }else{
 
                     session_start();
 
-                    $result  = $prepare->fetch();
+                    $_SESSION['Logado'] = true;
 
-                    $_SESSION['Logado'] = "Login realizado com sucesso!";
-
-                    $_SESSION['Org'] = $result['ididOrganziador'];
-
-                    header ("Location: organizadores/PaginaOrganizador.php ");
+                    $_SESSION['Org'] = $result['idOrganizador'];
                 }
 
                 return $result;
 
             }catch(Exception $e){
+                //var_dump($e);
 
-
-                print("Erro, dados não convem com o banco de dados!");
+                print ("Erro, dados não convem com o banco de dados!");
 
             }
-         
+                $this->findAll($msg);
+        
 
          }
+    
 
-         }
+    }
         
 ?>
