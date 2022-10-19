@@ -16,7 +16,7 @@
          <input type="password" name="senha" id="idpass"  placeholder="Senha...">
         <p/>
        <input type="submit" value="login">
-       <input type="submit" value="voltar">
+       <a href="./OrganizadorController.php?action=voltar">voltar</a>
        
      </form>
     </div>
