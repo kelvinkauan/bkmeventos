@@ -16,6 +16,8 @@
          <input type="password" name="senha" id="idpass"  placeholder="Senha...">
         <p/>
        <input type="submit" value="login">
+       <input type="submit" value="voltar">
+       
      </form>
     </div>
 </body>

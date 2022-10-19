@@ -226,23 +226,35 @@
 
             if(isset($_POST['login'])){
 
-                $organizador->loginOfOrg($_POST['']);
+                var_dump($organizador);
+                $organizador->loginOfOrg($_POST['nome']);
+
+                $organizador->loginOfOrg($_POST['senha']);
             }
 
-            /*$organizador->setNome($_POST["nome"]);
-            $organizador->setSenha($_POST["senha"]); 
-            $organizadorRepository = new OrganizadorRepository();
-            $e = $organizadorRepository->login($organizador);
-            /*if($e){
-                print ("bem vindo ao bkmeventos!");
-            } else {
-                print ("Erro ao fazer o login");
-            }*/
 
-        $this->loadView("login/login.php" /*,$data*/);
+        $this->loadView("login/login.php");
 
 
         }
+        private function voltar(string $msg = null){
+
+            $organizadorRepository = new OrganizadorRepository();
+            $organizadores = $organizadorRepository->findAll();
+            $data['titulo'] = "listar organizadores"; 
+            $data['organizadores'] = $organizadores;
+            $this->loadView("organizadores/list.php", $data, $msg );
+        }
+
+
+       /*private function VoltarLogin(){
+            $organizador = new OrganizadorRepository;
+            $organizador = $oganizadorRepository -> findAll();
+
+            $this ->loadView("organizadores/list.php");
+
+
+        }*/
 
 
 
