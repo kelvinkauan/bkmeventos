@@ -237,13 +237,6 @@
 
                     header("location: ./OrganizadorController.php?action=PaginaOrganizador");
 
-                }else{
-
-
-                    header("location: ./OrganizadorController.php?action=login");
-
-                    print ("ERRO");
-
                 }
 
             }

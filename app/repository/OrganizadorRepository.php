@@ -120,14 +120,12 @@ class OrganizadorRepository{
             
                 $result = $prepare->fetch();
 
-                //var_dump($result);
 
                 if(!$result){
 
-                    $msg = "Erro, dados não convem com o banco de dados!";
-                   
-                    header("Location: ./OrganizadorController.php?action=login");
+                    print("Senha ou nome incorretos");
 
+                   
                 }else{
 
                     session_start();
@@ -140,12 +138,12 @@ class OrganizadorRepository{
                 return $result;
 
             }catch(Exception $e){
-                //var_dump($e);
+               
 
-                print ("Erro, dados não convem com o banco de dados!");
+              $e = print ("Erro");
 
             }
-                $this->findAll($msg);
+                //$this->findAll($msg);
         
 
          }
