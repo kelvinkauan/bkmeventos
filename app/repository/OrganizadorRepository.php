@@ -123,7 +123,7 @@ class OrganizadorRepository{
 
                 if(!$result){
 
-                    print("Senha ou nome incorretos");
+                  $msg =  print("Senha ou nome incorretos");
 
                    
                 }else{
@@ -143,7 +143,7 @@ class OrganizadorRepository{
               $e = print ("Erro");
 
             }
-                //$this->findAll($msg);
+                $this->findAll($msg);
         
 
          }
