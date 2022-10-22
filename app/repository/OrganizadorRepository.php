@@ -104,7 +104,7 @@ class OrganizadorRepository{
 
         }
 
-        public function loginOfOrg($nome, $senha){
+        public function loginOfOrg( $nome, $senha){
 
             try{
 
@@ -124,7 +124,6 @@ class OrganizadorRepository{
                 if(!$result){
 
                   $msg =  print("Senha ou nome incorretos");
-
                    
                 }else{
 
@@ -138,9 +137,9 @@ class OrganizadorRepository{
                 return $result;
 
             }catch(Exception $e){
-               
 
-              $e = print ("Erro");
+
+                $e = print ("Erro!"); // criar uma parametro caso o usuário não exista
 
             }
                 $this->findAll($msg);
