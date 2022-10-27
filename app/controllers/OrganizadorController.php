@@ -72,13 +72,13 @@
 
         private function create(){
 
-        $organizador = new OrganizadorModel(); //usar como referencia
+        $organizador = new OrganizadorModel(); 
 
 		$organizador->setNome($_POST["nome"]);
 
 		$organizador->setEmail($_POST["email"]);
 
-        $organizador->setSenha($_POST["senha"]); //$organizador->setSenha($_POST["senha"]);
+        $organizador->setSenha($_POST["senha"]); 
 
         $organizadorRepository = new OrganizadorRepository();
 
@@ -100,7 +100,7 @@
 
         private function loadForm(){ //loadFormNew
 
-            $this->loadView("Organizadores/CadastroOrganizador.php", null, "teste");
+            $this->loadView("../login/login.php", null, "teste");
 
         }
 
@@ -210,6 +210,7 @@
         private function PaginaOrganizador(){
 
             session_start();
+            
             $organizador = new OrganizadorRepository();
 
             if($_SESSION ["Logado"] == true){
@@ -231,7 +232,7 @@
             if(isset($_POST['login'])){
 
                 
-                $login = $organizador->loginOfOrg($_POST['nome'], $_POST['senha']);
+                $login = $organizador->loginOfOrg($_POST['email'], $_POST['senha']);
 
                 if($login){
 
@@ -241,8 +242,7 @@
 
             }
            
-
-            $this->loadView("login/login.php");
+            $this->loadView("../login/login.php");
 
 
         }

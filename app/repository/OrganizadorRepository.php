@@ -104,15 +104,15 @@ class OrganizadorRepository{
 
         }
 
-        public function loginOfOrg( $nome, $senha){
+        public function loginOfOrg( $email, $senha){
 
             try{
 
-                $query = "SELECT idOrganizador, nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND senha_Organizador = :senha ";
+                $query = "SELECT idOrganizador, email_Organizador, senha_Organizador FROM organizadores WHERE email_Organizador = :email AND senha_Organizador = :senha ";
 
                 $prepare = $this->conn->prepare($query);
 
-                $prepare->bindValue(":nome", $nome);
+                $prepare->bindValue(":email", $email);
 
                 $prepare->bindValue(":senha", $senha);
 
@@ -120,10 +120,9 @@ class OrganizadorRepository{
             
                 $result = $prepare->fetch();
 
-
                 if(!$result){
 
-                  $msg =  print("Senha ou nome incorretos");
+                  $msg =  print("Senha ou email incorretos");
                    
                 }else{
 
