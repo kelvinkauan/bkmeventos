@@ -123,6 +123,7 @@ class OrganizadorRepository{
                 if(!$result){
 
                   $msg =  print("Senha ou email incorretos");
+                      
                    
                 }else{
 
