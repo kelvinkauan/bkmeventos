@@ -100,7 +100,7 @@
 
         private function loadForm(){ //loadFormNew
 
-            $this->loadView("../login/login.php", null, "teste");
+            $this->loadView("../views/login/login.php", null, "teste");
 
         }
 
@@ -242,7 +242,7 @@
 
             }
            
-            $this->loadView("../login/login.php");
+            $this->loadView("../views/login/login.php");
 
 
         }
