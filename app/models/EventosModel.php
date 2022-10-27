@@ -17,18 +17,10 @@ private $descricao;
 
 
 
-/**
- * Get the value of id
- */ 
+
 public function getId():int{
 return $this->idCadastrar;
 }
-
-/**
- * Set the value of id
- *
- * @return  self
- */ 
 public function setId(int $id)
 {
 $this->idCadastrar = $id;
@@ -36,19 +28,20 @@ $this->idCadastrar = $id;
 return $this;
 }
 
-/**
- * Get the value of nome
- */ 
+
+
+
+
+
+
+
+
+
+
 public function getNome():string
 {
 return $this->nome_evento;
 }
-
-/**
- * Set the value of nome
- *
- * @return  self
- */ 
 public function setNome(String $nome)
 {
 $this->nome_evento = $nome;
@@ -56,162 +49,152 @@ $this->nome_evento = $nome;
 return $this;
 }
 
-/**
- * Get the value of data
- */ 
-public function getData():IntlDateFormatter
-{
-return $this->data_evento;
-}
 
-/**
- * Set the value of data
- *
- * @return  self
- */ 
-public function setData(IntlDateFormatter $data)
+
+
+
+
+
+
+
+
+
+public function getData():string
 {
-$this->data = $data;
+return $this-> data_evento;
+}
+public function setData(string $data)
+{
+$this-> data_evento = $data;
 
 return $this;
 }
 
-/**
- * Get the value of horarioI
- */ 
-public function getHorarioI():DateTime
-{
-return $this->horarioI;
-}
 
-/**
- * Set the value of horarioI
- *
- * @return  self
- */ 
-public function setHorarioI(Datetime $horarioI)
+
+
+
+
+
+
+
+
+
+
+public function getHorarioI():string
 {
-$this->horarioI = $horarioI;
+return $this->horaI_evento;
+}
+public function setHorarioI(string $horarioI)
+{
+$this->horaI_evento = $horarioI;
 
 return $this;
 }
 
-/**
- * Get the value of horarioF
- */ 
-public function getHorarioF():time
-{
-return $this->horarioF;
-}
 
-/**
- * Set the value of horarioF
- *
- * @return  self
- */ 
-public function setHorarioF($horarioF)
+
+
+
+
+
+public function getHorarioF():string
 {
-$this->horarioF = $horarioF;
+return $this->horaF_evento;
+}
+public function setHorarioF(string $horarioF)
+{
+$this->horaF_evento = $horarioF;
 
 return $this;
 }
 
-/**
- * Get the value of nomeRua
- */ 
+
+
+
+
+
+
+
+
+
 public function getNomeRua():string
 {
-return $this->nomeRua;
+return $this->endereco_rua;
 }
-
-/**
- * Set the value of nomeRua
- *
- * @return  self
- */ 
-public function setNomeRua($nomeRua)
+public function setNomeRua(String $nomeRua)
 {
-$this->nomeRua = $nomeRua;
+$this->endereco_rua = $nomeRua;
 
 return $this;
 }
 
-/**
- * Get the value of bairro
- */ 
+
+
+
+
+
+
+
 public function getBairro():string
 {
-return $this->bairro;
+return $this->endereco_bairro;
 }
-
-/**
- * Set the value of bairro
- *
- * @return  self
- */ 
-public function setBairro($bairro)
+public function setBairro(String $bairro)
 {
-$this->bairro = $bairro;
+$this->bendereco_bairro= $bairro;
 
 return $this;
 }
 
-/**
- * Get the value of numRua
- */ 
+
+
+
+
+
+
+
 public function getNumRua():string
 {
-return $this->numRua;
+return $this->endereco_num;
 }
-
-/**
- * Set the value of numRua
- *
- * @return  self
- */ 
-public function setNumRua($numRua)
+ function setNumRua($numRua)
 {
-$this->numRua = $numRua;
+$this->endereco_num = $numRua;
 
 return $this;
 }
 
-/**
- * Get the value of CEP
- */ 
+
+
+
+
+
 public function getCEP():string
 {
-return $this->CEP;
+return $this->cep_evento;
 }
 
-/**
- * Set the value of CEP
- *
- * @return  self
- */ 
-public function setCEP($CEP)
+public function setCEP(string $CEP)
 {
-$this->CEP = $CEP;
+$this->cep_evento = $CEP;
 
 return $this;
 }
 
-/**
- * Get the value of descricao
- */ 
+
+
+
+
+
 public function getDescricao():string
 {
-return $this->descricao;
+return $this->descricao_evento;
 }
 
-/**
- * Set the value of descricao
- *
- * @return  self
- */ 
-public function setDescricao($descricao)
+public function setDescricao(string $descricao)
 {
-$this->descricao = $descricao;
+$this->descricao_evento = $descricao;
 
 return $this;
 }
