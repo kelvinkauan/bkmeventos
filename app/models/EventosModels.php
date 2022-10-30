@@ -32,7 +32,7 @@ return $this;
 
 public function getNome():string{
 
-return $this->nome_evento;
+return $this->nome_evento; 
 
 }
 
@@ -46,13 +46,13 @@ return $this;
 
 /*<!-- getters e setters da data --> */
 
-public function getData(): string {
+public function getData(): int {
 
 return $this-> data_evento;
 
 }
 
-public function setData(string $data){
+public function setData(int $data){
 
 $this-> data_evento = $data;
 
@@ -62,13 +62,13 @@ return $this;
 
 /*<!-- getters e setters do horario inicial --> */
 
-public function getHorarioI():string{
+public function getHorarioI(): int { 
 
 return $this->horaI_evento;
 
 }
 
-public function setHorarioI(string $horarioI){
+public function setHorarioI(int $horarioI){
 
 $this->horaI_evento = $horarioI;
 
@@ -78,13 +78,13 @@ return $this;
 
 /*<!-- getters e setters do hoaria final--> */
 
-public function getHorarioF():string{
+public function getHorarioF(): int {
 
 return $this->horaF_evento;
 
 }
 
-public function setHorarioF(string $horarioF){
+public function setHorarioF(int $horarioF){
 
 $this->horaF_evento = $horarioF;
 

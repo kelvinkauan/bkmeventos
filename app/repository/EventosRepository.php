@@ -3,7 +3,7 @@
 require_once __DIR__ . "./../connection/connection.php";
 require_once __DIR__ . "./../models/EventosModels.php";
 
-class Repostiry {
+class EventosRepostiry {
 
     public PDO $conn;
 
@@ -17,7 +17,9 @@ class Repostiry {
 
         try {
               
-            $query = "";
+            $query = "INSERT INTO  ";
+
+            $prepare = $this->conn->prepare($query);
 
         } catch (\Throwable $th) {
             //throw $th;
