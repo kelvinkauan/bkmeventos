@@ -16,7 +16,9 @@ class Repostiry {
     public function create(OrganizadorModel $evento){
 
         try {
-            //code...
+              
+            $query = "";
+
         } catch (\Throwable $th) {
             //throw $th;
         }
