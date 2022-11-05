@@ -27,7 +27,7 @@
 
             }else{
 
-                $msg = "Nenhuma ação a ser processada...";
+                $msg = "Nenhuma ação a ser processada..."; // criar uma view para isso
 
                 print_r($msg);
 
@@ -64,7 +64,7 @@
 
             } else {
 
-                print "Erro ao carregar a view";
+                print "Erro ao carregar a view"; // criar uma view para isso
 
             }
         }
@@ -90,7 +90,7 @@
 
 		}else{
 
-			$msg = "Erro ao inserir o registro no banco de dados.";
+			$msg = "Erro ao inserir o registro no banco de dados."; // criar uma view para isso
 
 		}
 
@@ -148,7 +148,7 @@
 
 		}else{
 
-			$msg = "Erro ao excluir o registro no banco de dados.";
+			$msg = "Erro ao excluir o registro no banco de dados."; 
 
 		}
 
@@ -166,7 +166,7 @@
             
             $data['organizadores'][0] = $organizador;
 
-            $this->loadView("organizadores/EditarOrganizador.php", $data);
+            $this->loadView("organizadores/EditarOrganizador.php", $data); // criar uma view para issoa
 
         }
 
