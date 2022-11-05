@@ -8,6 +8,7 @@ private $horarioI;
 private $horarioF;
 private $nomeRua;
 private $bairro;
+private $cidade;
 private $numRua;
 private $CEP;
 private $descricao;
@@ -46,13 +47,13 @@ return $this;
 
 /*<!-- getters e setters da data --> */
 
-public function getData(): int {
+public function getData(): string {
 
 return $this-> data_evento;
 
 }
 
-public function setData(int $data){
+public function setData(string $data){
 
 $this-> data_evento = $data;
 
@@ -118,7 +119,7 @@ return $this->endereco_bairro;
 
 public function setBairro(String $bairro){
 
-$this->bendereco_bairro= $bairro;
+$this->endereco_bairro= $bairro;
 
 return $this;
 
@@ -132,7 +133,7 @@ return $this->endereco_num;
 
 }
 
- function setNumRua($numRua){
+function setNumRua($numRua){
 
 $this->endereco_num = $numRua;
 
@@ -169,6 +170,21 @@ $this->descricao_evento = $descricao;
 
 return $this;
 
+}
+
+/*<!-- getters e setters da cidade --> */
+
+public function getCidade():string {
+
+    return $this->cidade_evento;
+
+}
+
+public function setCidade(string $cidade){
+
+    $this->cidade_evento = $cidade;
+    
+    return $this;
 }
 
 }

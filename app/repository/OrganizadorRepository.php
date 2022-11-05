@@ -9,7 +9,7 @@ class OrganizadorRepository{
 
     public PDO $conn;
 
-    function __construct(){   // estudar esse connection / método
+    function __construct(){  
 
         $this->conn = Connection::getConnection();
 
@@ -35,7 +35,7 @@ class OrganizadorRepository{
 
         }catch (Exception $e){
             
-            print("Erro ao inserir organizador no banco de dados");
+            print("Erro ao inserir organizador no banco de dados!");
 
             }
 
