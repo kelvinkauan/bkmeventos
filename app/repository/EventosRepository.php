@@ -17,7 +17,7 @@ class EventosRepostiry {
 
         try {
               
-            $query = "INSERT INTO cadastrar_evento (data_eventos, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento) VALUES (:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao) ";
+            $query = "INSERT INTO cadastrar_evento (data_eventos, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, cep_evento, descricao_evento) VALUES (:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao) ";
 
             $prepare = $this->conn->prepare($query);
 
@@ -54,6 +54,7 @@ class EventosRepostiry {
             $evento  = $table->fetchAll(PDO::FETCH_ASSOC);
 
             return $evento;
+
         }
  
         public function findEventoById(int $id) {
@@ -81,7 +82,7 @@ class EventosRepostiry {
 
         public function update(EventosModel $evento) : bool {
 
-            $query = "UPDATE cadastrar_evento SET data_eventos = ?, horaI_evento = ?, horaF_evento = ?, endereco_bairro = ?, endereco_rua = ?, endereco_num = ?, cidade_evento = ?, CEP_evento = ?, descricao_evento = ?  WHERE idCadastrar = ?";
+            $query = "UPDATE cadastrar_evento SET data_eventos = ?, horaI_evento = ?, horaF_evento = ?, endereco_bairro = ?, endereco_rua = ?, endereco_num = ?, cidade_evento = ?, cep_evento = ?, descricao_evento = ?  WHERE idCadastrar = ?";
 
             $prepare = $this->conn->prepare($query);
 
