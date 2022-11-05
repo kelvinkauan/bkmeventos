@@ -47,7 +47,7 @@ class EventosRepostiry {
         
        }
 
-        public function findAll(): array {    // seperar esse find all por conta de 
+        public function findAll(): array {    // seperar esse find all por organizador
 
             $table = $this->conn->query("SELECT * FROM cadastrar_evento"); 
 
