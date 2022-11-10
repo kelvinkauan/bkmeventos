@@ -9,6 +9,109 @@ require_once __DIR__ . "./../repository/EventosRepository.php";
 $evento = new ControllerEventos();
 
 class ControllerEventos{
+    function __construct(){
+
+        if(isset($_POST["action"])){
+
+            $action = $_POST["action"];
+
+        }else if(isset($_GET["action"])){
+
+            $action = $_GET["action"];
+
+        }
+
+        if(isset($action)){
+
+            $this->callAction($action);
+
+        }else{
+
+            $msg = "Nenhuma acao a ser processada...";
+
+            print_r($msg);
+
+        }
+
+    }
+
+
+    public function callAction(string $functionName = null){
+
+        if (method_exists($this, $functionName)) {
+
+            $this->$functionName();
+
+        } else if(method_exists($this, "preventDefault")) {
+
+            $met = "preventDefault";
+
+            $this->$met();
+
+        } else {
+
+            throw new BadFunctionCallException("Usecase not exists");
+
+        }
+    }
+
+
+
+       
+    public function loadView(string $path, array $data = null, string $msg = null){
+
+        $caminho = __DIR__ . "./../views/" . $path;
+
+        if(file_exists($caminho)){
+
+             require $caminho;
+
+        } else {
+
+            print "Erro ao carregar a view";
+
+        }
+    }
+
+public function CriarEvento(){
+    $evento = new EventosModel();
+    $evento -> setNome($_POST["nome"]);
+    $evento -> setData($_POST["data"]);
+    $evento -> setHorarioI($_POST["horarioI"]);
+    $evento -> setHorarioF($_POST["horarioF"]);
+    $evento -> setNomeRua($_POST["nomeRua"]);
+    $evento -> setBairro($_POST["bairro"]);
+    $evento -> setNumRua($_POST["numRua"]);
+    $evento -> setCEP($_POST["CEP"]);
+    $evento -> setCidade($_POST["cidade"]);
+    $evento -> setDescricao($_POST["descricao"]);
+
+    $eventosRepostiry = new EventosRepostiry();
+
+    $id = $eventosRepostiry -> create($evento);
+
+    if($id){
+        $msg = "Evento cadastrado com sucesso";
+    }else{
+        $msg = "Erro ao cadastrar evento";
+        }
+
+    $this->findAll();
+}
+
+private function loadForm(){
+
+    $this->loadView("../views/eventos/eventos.php", null, "teste");
+
+}
+
+private function findAll(string $msg=null){
+
+    $eventosRepostiry = new EventosRepostiry();
+    $eventos = $eventosRepostiry -> findAll();
+
+}
+
 
 
 }
