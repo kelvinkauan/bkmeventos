@@ -27,7 +27,7 @@
 
             }else{
 
-                $msg = "Nenhuma acao a ser processada...";
+                $msg = "Nenhuma ação a ser processada..."; // criar uma view para isso
 
                 print_r($msg);
 
@@ -54,9 +54,6 @@
             }
         }
 
-
-
-        
         public function loadView(string $path, array $data = null, string $msg = null){
 
             $caminho = __DIR__ . "./../views/" . $path;
@@ -67,24 +64,21 @@
 
             } else {
 
-                print "Erro ao carregar a view";
+                print "Erro ao carregar a view"; // criar uma view para isso
 
             }
         }
 
 
-
-
-
         private function create(){
 
-        $organizador = new OrganizadorModel();
+        $organizador = new OrganizadorModel(); 
 
 		$organizador->setNome($_POST["nome"]);
 
 		$organizador->setEmail($_POST["email"]);
 
-        $organizador->setSenha($_POST["senha"]);
+        $organizador->setSenha($_POST["senha"]); 
 
         $organizadorRepository = new OrganizadorRepository();
 
@@ -96,7 +90,7 @@
 
 		}else{
 
-			$msg = "Erro ao inserir o registro no banco de dados.";
+			$msg = "Erro ao inserir o registro no banco de dados."; // criar uma view para isso
 
 		}
 
@@ -104,16 +98,11 @@
 
        }
 
-
-
         private function loadForm(){ //loadFormNew
 
-            $this->loadView("Organizadores/CadastroOrganizador.php", null, "teste");
+            $this->loadView("../views/login/login.php", null, "teste");
 
         }
-
-
-
 
         private function findAll(string $msg = null){
 
@@ -159,7 +148,7 @@
 
 		}else{
 
-			$msg = "Erro ao excluir o registro no banco de dados.";
+			$msg = "Erro ao excluir o registro no banco de dados."; 
 
 		}
 
@@ -175,10 +164,9 @@
 
             $organizador = $organizadorRepository->findOrganizadorById($idParam);
             
-
             $data['organizadores'][0] = $organizador;
 
-            $this->loadView("organizadores/EditarOrganizador.php", $data);
+            $this->loadView("organizadores/EditarOrganizador.php", $data); // criar uma view para issoa
 
         }
 
@@ -192,7 +180,7 @@
 
             $organizador->setEmail($_POST["email"]);
 
-            $organizador->setSenha($_POST["senha"]);
+            $organizador->setSenha($_POST["senha"]); // $organizador->setSenha($_POST["senha"]);
 
             $organizadorRepository = new OrganizadorRepository();
            
@@ -219,28 +207,46 @@
         }
 
 
+        private function PaginaOrganizador(){
+
+            session_start();
+            
+            $organizador = new OrganizadorRepository();
+
+            if($_SESSION ["Logado"] == true){
+
+                $this->loadView("organizadores/PaginaOrganizador.php");
+
+            }else{
+
+                header("Location: ./OrganizadorController.php?action=login");
+            }
+ 
+
+        }
 
         private function login(){
+
             $organizador = new OrganizadorRepository();
             
             if(isset($_POST['login'])){
 
                 
-                $login = $organizador->loginOfOrg($_POST['nome'],$_POST['senha'] );
+                $login = $organizador->loginOfOrg($_POST['email'], $_POST['senha']);
+
                 if($login){
 
                     header("location: ./OrganizadorController.php?action=PaginaOrganizador");
 
-                }else{
-                     
                 }
 
-              
             }
-           $this->loadView("login/login.php");
+           
+            $this->loadView("../views/login/login.php");
 
 
         }
+
         private function voltar(string $msg = null){
 
             $organizadorRepository = new OrganizadorRepository();
@@ -250,36 +256,5 @@
             $this->loadView("organizadores/list.php", $data, $msg );
         }
 
-
-        private function PaginaOrganizador(){
-
-            session_start();
-            $organizador = new OrganizadorRepository();
-
-            if($_SESSION ["Logado"] == true){
-
-                $this->loadView("organizadores/PaginaOrganizador.php");
-
-            }else{
-                
-                header("Location: ./OrganizadorController.php?action=login");
-            }
-            
-        }
-        
-
-
-       /*private function VoltarLogin(){
-            $organizador = new OrganizadorRepository;
-            $organizador = $oganizadorRepository -> findAll();
-
-            $this ->loadView("organizadores/list.php");
-
-
-        }*/
-
-
-
-}
-
+    }
 ?>

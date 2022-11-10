@@ -3,17 +3,20 @@
 require_once __DIR__ . "./../connection/connection.php";
 require_once __DIR__ . "./../models/OrganizadorModel.php";
 
+//$dados = filter_input_array(INPUT_POST, FILTER_DEFAULT); colocar no models
+
 class OrganizadorRepository{
 
     public PDO $conn;
 
-    function __construct(){   // estudar esse connection / método
+    function __construct(){  
 
         $this->conn = Connection::getConnection();
 
     }
 
     public function create(OrganizadorModel $organizador): int {
+        
         try{
 
             $query = "INSERT INTO organizadores (nc_Organizador, email_Organizador, senha_Organizador) VALUES (:nome, :email, :senha)";
@@ -32,7 +35,7 @@ class OrganizadorRepository{
 
         }catch (Exception $e){
             
-            print("Erro ao inserir organizador no banco de dados");
+            print("Erro ao inserir organizador no banco de dados!");
 
             }
 
@@ -101,35 +104,31 @@ class OrganizadorRepository{
 
         }
 
+        public function loginOfOrg( $email, $senha){
 
-
-        public function loginOfOrg($nome, $senha){
-             
-            /*this->nome = $organizador['nome'];
-            this->senha = $organizador['senha'];*/
             try{
 
-                $query = "SELECT idOrganizador, nc_Organizador, senha_Organizador FROM organizadores WHERE nc_Organizador = :nome AND senha_Organizador = :senha ";
+                $query = "SELECT idOrganizador, email_Organizador, senha_Organizador FROM organizadores WHERE email_Organizador = :email AND senha_Organizador = :senha ";
 
                 $prepare = $this->conn->prepare($query);
 
-                $prepare->bindValue(":nome", $nome);
+                $prepare->bindValue(":email", $email);
 
                 $prepare->bindValue(":senha", $senha);
 
                 $prepare->execute();
             
-                $result  = $prepare->fetch();
-                var_dump($result);
+                $result = $prepare->fetch();
 
                 if(!$result){
 
-                   print("senha ou conta incorreta") ;                  
-                         
-                
+                  $msg =  print("Senha ou email incorretos");
+                      
+                   
                 }else{
 
                     session_start();
+
                     $_SESSION['Logado'] = true;
 
                     $_SESSION['Org'] = $result['idOrganizador'];
@@ -138,17 +137,17 @@ class OrganizadorRepository{
                 return $result;
 
             }catch(Exception $e){
-                
-                print("Erro, dados não convem com o banco de dados!");
-                
+
+
+                $e = print ("Erro!"); // criar uma parametro caso o usuário não exista
+
             }
-        }
+                $this->findAll($msg);
+        
 
-
+         }
     
 
-
-
-    
-}
+    }
+        
 ?>
