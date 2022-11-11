@@ -1,5 +1,6 @@
 <?php
 class AdmModel{
+    
     private $id;
     private $nome;
     private $senha;
@@ -19,6 +20,7 @@ class AdmModel{
 
         return $this-> nome_Adm;
     }
+
     public function serNome(string $nome){
 
         $this-> nome_Adm = $nome;

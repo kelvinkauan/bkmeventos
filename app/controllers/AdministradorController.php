@@ -2,12 +2,13 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
-require_once __DIR__ . "/../repository/AdmRepository.php";
 
-    $administrador = new AdmController();
+    require_once __DIR__ . "/../repository/AdmRepository.php";
+    require_once __DIR__ . "/../repository/OrganizadorRepository.php";
 
-    class AdmController{
+    $administrador = new ControllerAdministrador();
+
+    class ControllerAdministrador{
         
         function __construct(){
 
@@ -56,7 +57,7 @@ require_once __DIR__ . "/../repository/AdmRepository.php";
 
         public function loadView(string $path, array $data = null, string $msg = null){
 
-            $caminho = __DIR__ . "/../views/" . $path;
+            $caminho = __DIR__ . "/../views/" . $path; 
 
             if(file_exists($caminho)){
 
@@ -67,6 +68,12 @@ require_once __DIR__ . "/../repository/AdmRepository.php";
                 print "Erro ao carregar a view";
 
             }
+        }
+
+        public function create(){
+
+            $administrador = AdmModel();
+
         }
 
         
