@@ -242,7 +242,7 @@
 
             }
            
-            $this->loadView("../views/login/login.php");
+            $this->loadView("login/login.php");
 
 
         }
