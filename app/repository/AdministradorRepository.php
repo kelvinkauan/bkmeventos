@@ -45,7 +45,7 @@ class AdministradorRepository{
 
     public function deleteById(int $id): int {
 
-           $query = "DELETE FROM administradores WHERE idAdministrador = :id";
+           $query = "SELECT FROM administradores WHERE idAdministrador = :id";
            $prepare = $this->conn->prepare($query);
            $prepare->bindValue(":id", $id);
            $prepare->execute();

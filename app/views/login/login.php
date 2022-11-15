@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Login</title>
-  <link rel="stylesheet" href="../styleLogin/style.css">
+  <link rel="stylesheet" href="../views/login/styleLogin/style.css">
   <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
 </head>
@@ -50,6 +50,6 @@
   </div>
  </div>
 </div>
- <script src="../styleLogin/login.js" charset="utf-8"></script>
+ <script src="../views/login/styleLogin/login.js" charset="utf-8"></script>
  </body>
 </html>
