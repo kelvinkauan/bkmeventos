@@ -96,7 +96,7 @@
 
             $idParam = $_GET['id'];
             $administradorRepository = new AdministradorRepository();
-            $qt = $administradorRepository->DeleteById($idParam);
+            $qt = $administradorRepository->deleteById($idParam);
             if($qt){
                 $msg = "Registro excluído com sucesso.";
             }else{
