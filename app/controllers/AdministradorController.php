@@ -4,13 +4,13 @@
     error_reporting(E_ALL);
 
     require_once __DIR__ . "/../repository/AdministradorRepository.php";
-    require_once __DIR__ . "/../repository/OrganizadorRepository.php";
 
     $administrador = new ControllerAdministrador();
 
     class ControllerAdministrador{
         
         function __construct(){
+
             if(isset($_POST["action"])){
                 $action = $_POST["action"];
             }else if(isset($_GET["action"])){
@@ -40,7 +40,7 @@
 
         public function loadView(string $path, array $data = null, string $msg = null){
 
-            $caminho = __DIR__ . "/../views/" . $path; 
+            $caminho = __DIR__ . "./../views/" . $path; 
             if(file_exists($caminho)){
                 require $caminho;
             } else {
@@ -72,7 +72,7 @@
             $administradores = $administradorRepository->findAll();
             $data['titulo'] = "administrador"; 
             $data['administradores'] = $administradores;
-            $this->loadView("administrador/list.php", $data, $msg);
+            $this->loadView("administrador/administradorlist.php", $data, $msg);
 
         }
 

@@ -5,7 +5,7 @@ function confirmarExclusaoAdministrador(nome, id) {
 
     if (resposta) {
 
-        window.location.href = "AdministradorController.php?action=deleteAdministradorById&id=" + id;
+        window.location.href = "controllers/AdministradorController.php?action=deleteAdministradorById&id=" + id;
 
     }
 }

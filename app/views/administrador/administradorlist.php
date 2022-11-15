@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-    <link rel="stylesheet" type="text/css" href="../views/helpers/estilos.css">
     <script src="../helpers/excluiradm.js" type="text/javascript"></script>
 
 </head>
@@ -19,7 +18,7 @@
 
 ?>
 
-    <h1>administradores</h1>
+    <h1>administrador</h1>
     <ul>
         <?php foreach($data['administradores'] as $adm): ?>
 
@@ -28,7 +27,7 @@
                 <?= $adm['nome_Adm'] ?> -
                 <?= $adm['senha_Adm'] ?> -
                 [ <a href="./AdministradorController.php?action=edit&id=<?= $adm['idAdministrador'] ?>">Editar</a> ]
-                [ <a href="javascript:confirmarExclusaoAdministrador('<?= $adm['nome_Adm'] ?>', <?= $adm['idAdministrador']?>)">Excluir</a> ] 
+                [ <a href="javascript:confirmarExclusaoAdministrador('<?= $adm['nome_Adm'] ?>', <?= $adm ['idAdministrador'] ?>)"> Excluir </a>   ]
             </li>
         <?php endforeach; ?>
     </ul>
