@@ -2,7 +2,6 @@
 
 require_once __DIR__ . "./../connection/connection.php";
 require_once __DIR__ . "./../models/AdministradorModel.php";
-require_once __DIR__ . "./../models/OrganizadorModel.php";
 
 class AdministradorRepository{
 
@@ -86,7 +85,7 @@ class AdministradorRepository{
           }if(!$result){
           print_r($e);
           }
-         return $result;
+         return $result; // matheus login 
     }
          
 

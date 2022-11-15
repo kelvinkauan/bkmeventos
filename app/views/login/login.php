@@ -28,7 +28,7 @@
   <form action="./OrganizadorController.php?action=login" method="POST">
    <h1>Faça Login</h1>
     <span> insira seus dados</span>
-	   <input type="email" name="email"placeholder="Email" />
+	   <input type="email" name="email" placeholder="Email" />
 	    <input type="password" name="senha" placeholder="Senha" />
      <a href="#">Esqueceu sua senha?</a>
 	  <button type="submit" value="login">Entrar</button>

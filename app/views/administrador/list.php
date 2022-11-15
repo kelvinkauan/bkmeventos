@@ -9,7 +9,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
     <link rel="stylesheet" type="text/css" href="../views/helpers/estilos.css">
-    <script src="../views/helpers/funcoescrud.js" type="text/javascript"></script>
+    <script src="../helpers/excluiradm.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -19,9 +19,9 @@
 
 ?>
 
-    <h1>administrador</h1>
+    <h1>administradores</h1>
     <ul>
-        <?php foreach($data['administrador'] as $adm): ?>
+        <?php foreach($data['administradores'] as $adm): ?>
 
             <li>
                 <?= $adm['idAdministrador'] ?> -

@@ -69,9 +69,9 @@
         private function findAll(string $msg = null){
 
             $administradorRepository = new AdministradorRepository();
-            $administrador = $administradorRepository->findAll();
+            $administradores = $administradorRepository->findAll();
             $data['titulo'] = "administrador"; 
-            $data['administrador'] = $administrador;
+            $data['administradores'] = $administradores;
             $this->loadView("administrador/list.php", $data, $msg);
 
         }
@@ -105,10 +105,54 @@
             $this->findAll($msg);
     
             }
+            
+         private function edit(){
+                
+            $idParam = $_GET['id'];
+            $administradorRepository = new AdministradorRepository();
+            $administrador = $administradorRepository->findAdministradorById($idParam);
+            $data['administradores'][0] = $administrador;
+            $this->loadView("administrador/EditarAdministrador.php", $data); // fazer view adm
+
+        }
+
+        private function update (){
+
+            $administrador = new AdministradorModel();
+            $administrador->setId($_GET["id"]);
+            $administrador->setNome($_GET["nome"]);
+            $administrador->setSenha($_GET["senha"]);
+            $administradorRepository = new AdministradorRepository();
+            $att = $administradorRepository->update($administrador);
+            if($att){
+                $msg = "Atualização realizada com sucesso!";
+            }else{
+                $msg = "Erro ao atualizar os dados no banco de dados!";
+            }
+
+            $this->findAll($msg);
+
+            }
+
+        private function preventDefault() {
+            print ("Ação indefinida...");
 
         }
 
 
+        // login abaixo e redirecionamento para atualizar ou excluir organizadores/eventos
+        private function PaginaAdministrador(){
+            
+            session_start();
+            $administrador = new AdministradorRepository();
+            if($_SESSION["Logado"] == true){
+               $this->loadView("administrador/PaginaAdministrador.php"); // fazer view do adm
+            }else{
+                header("Location: ./AdministradorController.php?action=login");
+            }
+        }
+
+    }
     ?>
 
 
