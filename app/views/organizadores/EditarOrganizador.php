@@ -17,10 +17,10 @@
  <p/>
   <?php foreach($data['organizadores'] as $org): ?> <!-- $organizadores -->
    <form action="./OrganizadorController.php?action=update&id=<?= $org->getId()?>" method="POST"> <!--  &id= -->
-	  <label for="idn">Nome: </label> 
+	<label for="idn">Nome: </label> 
      <input type="text" name="nome" id="idn" value="<?= $org->getNome(); ?>">
-	    <p/>
-	     <label for="ide">Email:</label>  
+	  <p/>
+	   <label for="ide">Email:</label>  
         <input type="email" name="email" id="ide" value="<?= $org->getEmail(); ?>">
        <p/>
       <label for="ids">Senha:</label>

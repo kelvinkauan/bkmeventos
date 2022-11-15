@@ -18,12 +18,12 @@ include_once __DIR__ . "/../helpers/mensagem.php";
    <form action="./AdministradorController.php?action=update&id=<?= $adm->getId()?>" method="POST"> <!--  &id= -->
 	<label for="idn">Nome: </label> 
      <input type="text" name="nome" id="idn" value="<?= $adm->getNome(); ?>">
+      <p/>
       <label for="ids">Senha:</label>
      <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>">
     <p/>
    <input type="submit" value="Atualizar">
   <input type="reset" value="Limpar">
-
  </form>		
 <?php endforeach; ?>
 

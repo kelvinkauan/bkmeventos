@@ -120,8 +120,8 @@
 
             $administrador = new AdministradorModel();
             $administrador->setId($_GET["id"]);
-            $administrador->setNome($_GET["nome"]);
-            $administrador->setSenha($_GET["senha"]);
+            $administrador->setNome($_POST["nome"]);
+            $administrador->setSenha($_POST["senha"]);
             $administradorRepository = new AdministradorRepository();
             $att = $administradorRepository->update($administrador);
             if($att){

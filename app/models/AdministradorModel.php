@@ -7,14 +7,12 @@ class AdministradorModel{
 
     public function getId() : int {
 
-      return  $this-> idAministrador;
+      return  $this-> idAdministrador;
     }
     public function setId(int $id){ 
 
         $this-> idAdministrador = $id;
     }
-
-
 
     public function getNome() : string{
 
@@ -26,8 +24,6 @@ class AdministradorModel{
         $this-> nome_Adm = $nome;
     }
 
-
-    
 
     public function getSenha():string {
 

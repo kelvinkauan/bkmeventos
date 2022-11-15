@@ -21,7 +21,6 @@
     <h1>administrador</h1>
     <ul>
         <?php foreach($data['administradores'] as $adm): ?>
-
             <li>
                 <?= $adm['idAdministrador'] ?> -
                 <?= $adm['nome_Adm'] ?> -

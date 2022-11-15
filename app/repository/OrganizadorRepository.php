@@ -66,7 +66,7 @@ class OrganizadorRepository{
 
         } 
 
-         public function deleteById( int $id) : int {
+         public function deleteById(int $id) : int {
 
             $query = "DELETE FROM organizadores WHERE idOrganizador = :id";
             $prepare = $this->conn->prepare($query);

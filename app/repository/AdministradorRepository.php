@@ -30,11 +30,12 @@ class AdministradorRepository{
         $table = $this->conn->query("SELECT * FROM administradores"); 
         $administrador = $table->fetchAll(PDO::FETCH_ASSOC);
         return $administrador;
+
     }
 
     public function update(AdministradorModel $administrador): bool{
 
-            $query = "UPDATE  administradores SET nome_Adm = ?, senha_Adm = ? WHERE idAdministrador = ?";
+            $query = "UPDATE administradores SET nome_Adm = ?, senha_Adm = ? WHERE idAdministrador = ?";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(1, $administrador->getNome());
             $prepare->bindValue(2, $administrador->getSenha());
