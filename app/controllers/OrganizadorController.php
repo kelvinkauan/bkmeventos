@@ -56,7 +56,7 @@
 
         public function loadView(string $path, array $data = null, string $msg = null){
 
-            $caminho = __DIR__ . "./../views/" . $path;
+            $caminho = __DIR__ . "/../views/" . $path;
 
             if(file_exists($caminho)){
 
@@ -64,7 +64,7 @@
 
             } else {
 
-                print "Erro ao carregar a view"; // criar uma view para isso
+                print "Erro ao carregar a view"; 
 
             }
         }
@@ -137,21 +137,13 @@
         private function deleteOrganizadorById(){
 
         $idParam = $_GET['id'];
-
         $organizadorRepository = new OrganizadorRepository();
-
         $qt = $organizadorRepository->deleteById($idParam);
-
         if($qt){
-
 			$msg = "Registro excluído com sucesso.";
-
 		}else{
-
 			$msg = "Erro ao excluir o registro no banco de dados."; 
-
 		}
-
         $this->findAll($msg);
 
         }
@@ -159,13 +151,9 @@
         private function edit(){
 
             $idParam = $_GET['id'];
-
             $organizadorRepository = new OrganizadorRepository();
-
             $organizador = $organizadorRepository->findOrganizadorById($idParam);
-            
             $data['organizadores'][0] = $organizador;
-
             $this->loadView("organizadores/EditarOrganizador.php", $data); // criar uma view para issoa
 
         }
@@ -173,37 +161,23 @@
         private function update(){
 
             $organizador = new OrganizadorModel();
-
             $organizador->setId($_GET["id"]);
-
             $organizador->setNome($_POST["nome"]);
-
             $organizador->setEmail($_POST["email"]);
-
             $organizador->setSenha($_POST["senha"]); // $organizador->setSenha($_POST["senha"]);
-
             $organizadorRepository = new OrganizadorRepository();
-           
             $atualizou = $organizadorRepository->update($organizador);
-
             if($atualizou){
-
                 $msg = "Registro atualizado com sucesso.";
-
             }else{
-
                 $msg = "Erro ao atualizar o registro no banco de dados.";
-
             }
-
             $this->findAll($msg);
 
         }
 
         private function preventDefault() {
-
             print ("Ação indefinida...");
-
         }
 
 
