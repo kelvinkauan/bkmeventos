@@ -56,7 +56,7 @@
 
         public function loadView(string $path, array $data = null, string $msg = null){
 
-            $caminho = __DIR__ . "./../views/" . $path;
+            $caminho = __DIR__ . "/../views/" . $path;
 
             if(file_exists($caminho)){
 
@@ -100,7 +100,7 @@
 
         private function loadForm(){ //loadFormNew
 
-            $this->loadView("../views/login/login.php", null, "teste");
+            $this->loadView("login/login.php", null, "teste");
 
         }
 
