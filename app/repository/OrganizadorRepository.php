@@ -73,7 +73,6 @@ class OrganizadorRepository{
             $prepare->bindValue(":id", $id);
             $prepare->execute();
             $result = $prepare->rowCount();
-            //var_dump($result);
             return $result;
 
         }

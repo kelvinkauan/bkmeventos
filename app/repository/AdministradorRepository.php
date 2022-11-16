@@ -21,7 +21,9 @@ class AdministradorRepository{
             $prepare->execute();
             return $this->conn->lastInsertId();
         } catch (Exception $e) {
+
             print("Erro ao inserir administrador no banco de dados!");
+            
         }     
     }
 
@@ -46,7 +48,7 @@ class AdministradorRepository{
 
     public function deleteById(int $id): int {
 
-           $query = "SELECT FROM administradores WHERE idAdministrador = :id";
+           $query = "DELETE FROM administradores WHERE idAdministrador = :id";
            $prepare = $this->conn->prepare($query);
            $prepare->bindValue(":id", $id);
            $prepare->execute();
@@ -77,7 +79,9 @@ class AdministradorRepository{
           $prepare->bindParam(":senha", $administrador->getSenha());
           $prepare->execute();
         } catch (Exception $e) {
-            $e = print ("Erro!Senha ou nome incorretos");
+
+            $e = "Erro! Senha ou nome incorretos";
+
         }
           if($result = true){
           session_start();

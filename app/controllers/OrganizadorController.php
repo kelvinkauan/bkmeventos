@@ -97,15 +97,15 @@
 
         private function deleteOrganizadorById(){
 
-        $idParam = $_GET['id'];
-        $organizadorRepository = new OrganizadorRepository();
-        $qt = $organizadorRepository->deleteById($idParam);
-        if($qt){
-			$msg = "Registro excluído com sucesso.";
-		}else{
-			$msg = "Erro ao excluir o registro no banco de dados."; 
-		}
-        $this->findAll($msg);
+           $idParam = $_GET['id'];
+           $organizadorRepository = new OrganizadorRepository();
+           $qt = $organizadorRepository->deleteById($idParam);
+           if($qt){
+			 $msg = "Registro excluído com sucesso.";
+	       }else{
+			 $msg = "Erro ao excluir o registro no banco de dados."; 
+	       }
+           $this->findAll($msg);
 
         }
 
