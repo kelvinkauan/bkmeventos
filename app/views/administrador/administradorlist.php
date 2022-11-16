@@ -19,10 +19,8 @@
 ?>
 <header>   
 
-    <h1>administrador</h1>
-
- 
-
+    <h1> Página do administrador</h1>
+    
 </header>
     <ul>
         <?php foreach($data['administradores'] as $adm): ?>
