@@ -104,7 +104,7 @@
             }
             $this->findAll($msg);
     
-            }
+        }
             
          private function edit(){
                 
@@ -116,7 +116,7 @@
 
         }
 
-        private function update (){
+         private function update (){
 
             $administrador = new AdministradorModel();
             $administrador->setId($_GET["id"]);
@@ -129,10 +129,9 @@
             }else{
                 $msg = "Erro ao atualizar os dados no banco de dados!";
             }
-
             $this->findAll($msg);
 
-            }
+        }
 
         private function preventDefault() {
             print ("Ação indefinida...");
@@ -154,10 +153,3 @@
 
     }
     ?>
-
-
-
-
-
-
-
