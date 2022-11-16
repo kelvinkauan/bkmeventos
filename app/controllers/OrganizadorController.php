@@ -50,7 +50,6 @@
 
         }
 
-
         private function create(){
 
         $organizador = new OrganizadorModel(); 
@@ -154,7 +153,6 @@
                 header("Location: ./OrganizadorController.php?action=login");
             }
  
-
         }
 
         private function login(){
