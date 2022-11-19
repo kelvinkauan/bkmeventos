@@ -8,40 +8,42 @@
     <title>editar administrador</title>
 </head>
 <body>
+<div class="main-edit"> 
 <?php
 
 include_once __DIR__ . "/../helpers/mensagem.php";
 
 ?>
-<div class="main-edit"> 
- <div class="middle-main">  
-  <h2> Editar administrador </h2>
- <p/>
-</div>
+<div class="conteiner">
+
+
 <div class="right-main">
-   <h3>Mantenha seus dados sempre atualizados</h3>
+   <h3>Mantenha seus dados sempre atualizados!</h3>
 </div>
+
 <div class="left-main">
-<div class="card-edit"> 
-  <?php foreach($data['administradores'] as $adm): ?> 
-    <div class="textfield"> 
-     <form action="./AdministradorController.php?action=update&id=<?= $adm->getId()?>" method="POST"> 
-	 <label for="idn">Nome: </label> 
-     <input type="text" name="nome" id="idn" value="<?= $adm->getNome(); ?>">
-      <p/>
-      <label for="ids">Senha:</label>
-     <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>">
-    <p/>
-    <input type="submit" value="Atualizar">
+ <div class="card-edit"> 
+  <div class="middle-main">  
+   <h2> Editar administrador </h2>
     </div>
+     <?php foreach($data['administradores'] as $adm): ?> 
+      <div class="textfield"> 
+       <form action="./AdministradorController.php?action=update&id=<?= $adm->getId()?>" method="POST"> 
+        <label for="idn">Nome: </label> 
+         <input type="text" name="nome" id="idn" value="<?= $adm->getNome(); ?>">
+          <p/>
+           <label for="ids">Senha:</label>
+          <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>">
+         <p/>
+         <button type="submit">Atualizar</button>
+        <!--input type="submit" value="Atualizar"-->
+       <button>Cancelar</button>
+      </div>
+     </div>
     </div>
-   
-  <!-- input type="reset" value="Limpar"-->
-  </div>
-  </div>
- </form>		
-<?php endforeach; ?>
-</div>
+   </form>		
+  <?php endforeach; ?>
+ </div>
 </div>
 </body>
 </html>

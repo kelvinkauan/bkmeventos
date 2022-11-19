@@ -1,3 +1,5 @@
+@CHARSET "utf-8";
+
 body {
 
     margin: 0;
@@ -8,7 +10,7 @@ body {
 
     width: 100vw;
     height: 100vh;
-    background-color: #01140F;
+    background-color: #9d858d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,10 +19,10 @@ body {
 
 .middle-main>h2 {
 
-    color: white;
+    color: black;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .left-main {
@@ -45,23 +47,25 @@ body {
 
 .right-main>h3 {
 
-    color: white;
+    color: black;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: flex-end;
 }
 
 .card-edit {
 
-    width: 50%;
+    width: 250vmax;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 30px 35px;
-    background-color: #040254;
+    background-color: #fda92f;
     border-radius: 10px;
-    box-shadow: 0px 10px 20px black;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
 
 }
 
@@ -80,4 +84,15 @@ body {
     border-radius: 10px;
     padding: 15px;
     background-color: whitesmoke;
+}
+
+.conteiner {
+    display: flex;
+    width: 55%;
+    height: 65%;
+    align-items: center;
+    background-color: #40A579;
+    border-radius: 20px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
 }
