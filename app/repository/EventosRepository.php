@@ -3,7 +3,7 @@
 require_once __DIR__ . "./../connection/connection.php";
 require_once __DIR__ . "./../models/EventosModels.php";
 
-class EventosRepostiry {
+class EventosRepository {
 
     public PDO $conn;
 
