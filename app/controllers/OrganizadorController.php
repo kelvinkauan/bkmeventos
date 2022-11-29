@@ -113,7 +113,6 @@
             $data['titulo'] = "listar organizadores"; // ver sobre isso
             
             $data['organizadores'] = $organizadores;
-
             $this->loadView("organizadores/list.php", $data, $msg);
 
         }

@@ -76,26 +76,22 @@ class ControllerEventos{
 public function CriarEvento(){
     $evento = new EventosModel();
     $evento -> setNome($_POST["nome"]);
-    $evento -> setData($_POST["data"]);
-    $evento -> setHorarioI($_POST["horarioI"]);
-    $evento -> setHorarioF($_POST["horarioF"]);
-    $evento -> setNomeRua($_POST["nomeRua"]);
+    $evento -> setData($_POST["dia"]);
+    $evento -> setHorarioI($_POST["inicio"]);
+    $evento -> setHorarioF( $_POST["final"]);
+    $evento -> setNomeRua($_POST["rua"]);
     $evento -> setBairro($_POST["bairro"]);
-    $evento -> setNumRua($_POST["numRua"]);
-    $evento -> setCEP($_POST["CEP"]);
+    $evento -> setNumRua($_POST["numero"]);
+    $evento -> setCEP($_POST["cep"]);
     $evento -> setCidade($_POST["cidade"]);
     $evento -> setDescricao($_POST["descricao"]);
-
     $eventosRepository = new EventosRepository();
-
     $id = $eventosRepository -> create($evento);
-
     if($id){
         $msg = "Evento cadastrado com sucesso";
     }else{
         $msg = "Erro ao cadastrar evento";
         }
-
     $this->findAll();
 }
 
@@ -108,27 +104,23 @@ private function loadForm(){
 private function findAll(string $msg = null){
 
     $eventosRepository = new EventosRepository();
-    $eventos = $eventosRepository -> findAll();
+    $eventos = $eventosRepository->findAll();
     $data['titulo'] = "listar eventos";
-    $data['cadastrar_eventos'] = $eventos;
+    $data['cadastrar_evento'] = $eventos;
     $this-> loadView("eventos/eventoList.php", $data, $msg);
 }
-
-
-
-
 
 private function update(){
     
     $evento = new EventosModel;
     $evento -> setNome($_POST["nome"]);
-    $evento -> setData($_POST["data"]);
-    $evento -> setHorarioI($_POST["horarioI"]);
-    $evento -> setHorarioF($_POST["horarioF"]);
-    $evento -> setNomeRua($_POST["nomeRua"]);
+    $evento -> setData($_POST["dia"]);
+    $evento -> setHorarioI($_POST["inicio"]);
+    $evento -> setHorarioF($_POST["final"]);
+    $evento -> setNomeRua($_POST["rua"]);
     $evento -> setBairro($_POST["bairro"]);
-    $evento -> setNumRua($_POST["numRua"]);
-    $evento -> setCEP($_POST["CEP"]);
+    $evento -> setNumRua($_POST["numero"]);
+    $evento -> setCEP($_POST["cep"]);
     $evento -> setCidade($_POST["cidade"]);
     $evento -> setDescricao($_POST["descricao"]);
 
