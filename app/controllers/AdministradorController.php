@@ -19,7 +19,8 @@
             if(isset($action)){
                 $this->callAction($action);
             }else{
-                $msg = "Nenhuma acao a ser processada...";
+                $this->loadView("error/erro.php");
+                $msg = "<h2>Nenhuma ação a ser processada...<h2>";
                 print_r($msg);
             }
 
@@ -44,7 +45,8 @@
             if(file_exists($caminho)){
                 require $caminho;
             } else {
-                print "Erro ao carregar a view";
+                $this->loadView("error/erro.php");
+                print "<h2>Erro ao carregar a view <h2> ";
             }
 
         }
@@ -134,7 +136,8 @@
         }
 
         private function preventDefault() {
-            print ("Ação indefinida...");
+            $this->loadView("error/erro.php");
+            print ("<h2>Ação indefinida...<h2>");
 
         }
 

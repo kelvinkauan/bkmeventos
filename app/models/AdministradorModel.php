@@ -33,8 +33,6 @@ class AdministradorModel{
 
         $this->senha_Adm = $senha;
     }
-
-
 }
 
 ?>
