@@ -15,7 +15,7 @@
 	<input type="text" name="nome" id="idn">
     <p/>
       <label for="ide">Email: </label>
-	   <input type="text" name="email" id="ide/">
+	   <input type="text" name="email" id="ide">
 	  <p/> 
      <label for="ids">Senha: </label>
 	<input type="password" name="senha" id="ids">
