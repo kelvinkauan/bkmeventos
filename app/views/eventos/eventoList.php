@@ -21,15 +21,25 @@
         <?php foreach($data['cadastrar_evento'] as $cd): ?>
             <li>
                 <?= $cd['idCadastrar'] ?> -
+                <br>
                 <?= $cd['nome_evento'] ?> -
+                <br>
                 <?= $cd['data_evento'] ?> -
+                <br>
                 <?= $cd['horaI_evento'] ?> -
+                <br>
                 <?= $cd['horaF_evento'] ?> -
+                <br>
                 <?= $cd['endereco_bairro'] ?> -
+                <br>
                 <?= $cd['endereco_rua'] ?> -
+                <br>
                 <?= $cd['endereco_num'] ?> -
+                <br>
                 <?= $cd['cidade_evento'] ?> -
+                <br>
                 <?= $cd['CEP_evento'] ?> -
+                <br>
                 <?= $cd['descricao_evento'] ?> -
             </li>
         <?php endforeach; ?>
