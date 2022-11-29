@@ -10,7 +10,7 @@
 <body>
     <h2>Cadastrar Evento</h2>
     <p/>
-<form action="./EventosController.php?action=CriarEvento" method="POST">
+<form action="./EventosController.php?action=create" method="POST">
         <label for="idn"> Nome do Evento </label>
         <input type="text" name="nome" id="idn">
         <p/>

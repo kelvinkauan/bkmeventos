@@ -1,6 +1,7 @@
 <?php 
 
 class EventosModel{
+
 private $id;
 private $nome;
 private $data;
@@ -14,7 +15,6 @@ private $CEP;
 private $descricao;
 
 /*<!-- getters e setters do id--> */
-
 public function getId():int{
 
 return $this->idCadastrar;

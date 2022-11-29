@@ -1,31 +1,29 @@
 <?php
-class AdmModel{
+class AdministradorModel{
+    
     private $id;
     private $nome;
     private $senha;
 
     public function getId() : int {
 
-      return  $this-> idAministrador;
+      return  $this-> idAdministrador;
     }
     public function setId(int $id){ 
 
         $this-> idAdministrador = $id;
     }
 
-
-
     public function getNome() : string{
 
         return $this-> nome_Adm;
     }
+
     public function setNome(string $nome){
 
         $this-> nome_Adm = $nome;
     }
 
-
-    
 
     public function getSenha():string {
 
@@ -35,8 +33,6 @@ class AdmModel{
 
         $this->senha_Adm = $senha;
     }
-
-
 }
 
 ?>
