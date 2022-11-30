@@ -28,7 +28,6 @@ class EventosRepository {
             $prepare->bindValue(":descricao", $evento->getDescricao());
             $prepare->bindValue(":foto,", $evento-> getImagem());
             $prepare -> execute();   
-
             return $this->conn->lastInsertId();
 
         } catch (Exception $e) {
