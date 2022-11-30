@@ -43,7 +43,8 @@
                 <br>
                 <?= $cd['descricao_evento'] ?> -
 
-                <a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd ['idCadastrar'] ?>)"> Excluir </a> 
+                [<a href="./EventosController.php?action=edit&id=<?= $cd['idCadastrar'] ?>">Editar</a>]
+                [<a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd ['idCadastrar'] ?>)"> Excluir </a>]
             </li>
         <?php endforeach; ?>
     </ul>

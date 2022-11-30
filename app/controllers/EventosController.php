@@ -46,7 +46,7 @@ class ControllerEventos{
             require $caminho;
         } else {
             $this->loadView("error/erro.php");
-            print "Erro ao carregar a view";
+            print "<h2>Erro ao carregar a view<h2>";
         }
     }
 
@@ -125,6 +125,16 @@ class ControllerEventos{
             $msg = "Falha ao excluir evento";
         }
         $this-> findAll($msg);
+
+    }
+
+    private function edit(){
+                
+        $idParam = $_GET['id'];
+        $eventosRepository = new EventosRepository();
+        $evento = $eventosRepository->findEventoById($idParam);
+        $data['eventos'][0] = $evento;
+        $this->loadView("eventos/editarEvento.php", $data); // fazer view adm
 
     }
 
