@@ -1,11 +1,11 @@
 <?php
 
 class Connection {
-
+   // private static $imagem = $_FILES['foto_evento'];
     private static $host = "localhost";
     private static $dbname = "projeto_integrador";
     private static $user = "root";
-    private static $password = "";// pro linux é bdname = "bkmeventos"; e o password é = "bancodedados";
+    private static $password = "";
 
     private static ?PDO $conn = null;
 
