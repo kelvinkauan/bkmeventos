@@ -46,7 +46,7 @@
                 require $caminho;
             } else {
                 $this->loadView("error/erro.php");
-                print "<h2>Erro ao carregar a view <h2> ";
+                print "<h2>Erro ao carregar a view <h2>";
             }
 
         }

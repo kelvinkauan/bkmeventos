@@ -1,6 +1,7 @@
 <?php 
 
 class EventosModel{
+
 private $id;
 private $nome;
 private $data;
@@ -14,7 +15,6 @@ private $CEP;
 private $descricao;
 
 /*<!-- getters e setters do id--> */
-
 public function getId():int{
 
 return $this->idCadastrar;
@@ -37,9 +37,9 @@ return $this->nome_evento;
 
 }
 
-public function setNome(String $nome){
+public function setNome(string $nome){
 
-$this->nome_evento = $nome;
+$this-> nome_evento = $nome;
 
 return $this;
 
@@ -47,13 +47,13 @@ return $this;
 
 /*<!-- getters e setters da data --> */
 
-public function getData(): DatePeriod {
+public function getData(): string {
 
 return $this-> data_evento;
 
 }
 
-public function setData(DatePeriod $data){
+public function setData(string $data){
 
 $this-> data_evento = $data;
 
@@ -63,13 +63,13 @@ return $this;
 
 /*<!-- getters e setters do horario inicial --> */
 
-public function getHorarioI(): DateTime { 
+public function getHorarioI(): string { 
 
 return $this->horaI_evento;
 
 }
 
-public function setHorarioI(DateTime $horarioI){
+public function setHorarioI(string $horarioI){
 
 $this->horaI_evento = $horarioI;
 
@@ -79,13 +79,13 @@ return $this;
 
 /*<!-- getters e setters do hoaria final--> */
 
-public function getHorarioF(): DateTime {
+public function getHorarioF(): string {
 
 return $this->horaF_evento;
 
 }
 
-public function setHorarioF(DateTime $horarioF){
+public function setHorarioF(string $horarioF){
 
 $this->horaF_evento = $horarioF;
 
@@ -101,7 +101,7 @@ return $this->endereco_rua;
 
 }
 
-public function setNomeRua(String $nomeRua){
+public function setNomeRua(string $nomeRua){
 
 $this->endereco_rua = $nomeRua;
 
@@ -117,7 +117,7 @@ return $this->endereco_bairro;
 
 }
 
-public function setBairro(String $bairro){
+public function setBairro(string $bairro){
 
 $this->endereco_bairro= $bairro;
 
@@ -133,7 +133,7 @@ return $this->endereco_num;
 
 }
 
-function setNumRua($numRua){
+function setNumRua(string $numRua){
 
 $this->endereco_num = $numRua;
 

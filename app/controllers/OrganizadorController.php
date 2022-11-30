@@ -46,7 +46,6 @@
             if(file_exists($caminho)){
                  require $caminho;
             } else {
-
                 $this->loadView("error/erro.php");
                 echo ("<h2> Erro ao carregar a view<h2>");   
             }
