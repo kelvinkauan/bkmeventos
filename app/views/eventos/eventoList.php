@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+    <script src="../views/helpers/excluirevento.js" type="text/javascript"></script>
     
 </head>
 <body>
@@ -38,9 +39,12 @@
                 <br>
                 <?= $cd['cidade_evento'] ?> -
                 <br>
-                <?= $cd['CEP_evento'] ?> -
+                <?= $cd['cep_evento'] ?> -
                 <br>
                 <?= $cd['descricao_evento'] ?> -
+
+                [<a href="./EventosController.php?action=edit&id=<?= $cd['idCadastrar'] ?>">Editar</a>]
+                [<a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd ['idCadastrar'] ?>)"> Excluir </a>]
             </li>
         <?php endforeach; ?>
     </ul>

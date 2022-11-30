@@ -13,10 +13,8 @@ class EventosRepository {
     public function create(EventosModel $evento): int {
 
         try {
-              /* TEM QUE DAR UMA OLHADA AQUI PORQUE ACHO QUE O PROBLEMA DEVE SER AQUI, 
-              POR CONTA DE NÃO ESTAR CADASTRANDO NO BANCO DE DADOS ENTÃO ACHO QUE NÃO ESTÁ RECEBENDO 
-              OS PARAMETROS*/
-            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento) VALUES (:nome,:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao) ";
+              
+            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento, foto_evento) VALUES (:nome,:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao, :foto) ";
             $prepare =$this->conn->prepare($query);
             $prepare->bindValue(":nome", $evento->getNome());
             $prepare->bindValue(":dia", $evento->getData());
@@ -28,6 +26,7 @@ class EventosRepository {
             $prepare->bindValue(":cidade", $evento->getCidade());
             $prepare->bindValue(":cep", $evento->getCEP());
             $prepare->bindValue(":descricao", $evento->getDescricao());
+            $prepare->bindValue(":foto,", $evento-> getImagem());
             $prepare -> execute();   
 
             return $this->conn->lastInsertId();
@@ -69,7 +68,7 @@ class EventosRepository {
 
         public function update(EventosModel $evento) : bool {
 
-            $query = "UPDATE cadastrar_evento SET data_eventos = ?, horaI_evento = ?, horaF_evento = ?, endereco_bairro = ?, endereco_rua = ?, endereco_num = ?, cidade_evento = ?, cep_evento = ?, descricao_evento = ?  WHERE idCadastrar = ?";
+            $query = "UPDATE cadastrar_evento SET data_evento = ?, horaI_evento = ?, horaF_evento = ?, endereco_bairro = ?, endereco_rua = ?, endereco_num = ?, cidade_evento = ?, cep_evento = ?, descricao_evento = ? WHERE idCadastrar = ?";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(1, $evento->getData());
             $prepare->bindValue(2, $evento->getHorarioI());

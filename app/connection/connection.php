@@ -1,7 +1,7 @@
 <?php
 
 class Connection {
-
+   // private static $imagem = $_FILES['foto_evento'];
     private static $host = "localhost";
     private static $dbname = "projeto_integrador";
     private static $user = "root";

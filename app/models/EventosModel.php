@@ -13,8 +13,10 @@ private $cidade;
 private $numRua;
 private $CEP;
 private $descricao;
+private $imagem;
 
 /*<!-- getters e setters do id--> */
+
 public function getId():int{
 
 return $this->idCadastrar;
@@ -142,13 +144,13 @@ return $this;
 
 /*<!-- getters e setters do cep --> */
 
-public function getCEP():string{
+public function getCep():string{
 
 return $this->cep_evento;
 
 }
 
-public function setCEP(string $CEP){
+public function setCep(string $CEP){
 
 $this->cep_evento = $CEP;
 
@@ -187,6 +189,21 @@ public function setCidade(string $cidade){
     return $this;
 }
 
+/*<!-- getters e setters da imagens --> */
+
+public function getImagem():int{
+
+return $this->foto_evento;
+
+}
+
+public function setImagem(int $imagem){
+
+$this->foto_evento = $imagem;
+
+return $this;
+
+}
 }
 
 ?>

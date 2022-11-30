@@ -19,7 +19,7 @@ class ControllerEventos{
         if(isset($action)){
             $this->callAction($action);
         }else{
-            $this->loadview("error/error.php");
+            $this->loadView("error/erro.php");
             $msg = "<h2>Nenhuma acao a ser processada...<h2>";
             print_r($msg);
         }
@@ -46,93 +46,97 @@ class ControllerEventos{
             require $caminho;
         } else {
             $this->loadView("error/erro.php");
-            print "<h2>Erro ao carregar a view <h2> ";
+            print "<h2>Erro ao carregar a view<h2>";
         }
     }
 
     private function create(){ 
 
-    $evento = new EventosModel();
-    $evento -> setNome($_POST["nome"]);
-    $evento -> setData($_POST["dia"]);
-    $evento -> setHorarioI($_POST["inicio"]);
-    $evento -> setHorarioF( $_POST["final"]);
-    $evento -> setNomeRua($_POST["rua"]);
-    $evento -> setBairro($_POST["bairro"]);
-    $evento -> setNumRua($_POST["numero"]);
-    $evento -> setCEP($_POST["cep"]);
-    $evento -> setCidade($_POST["cidade"]);
-    $evento -> setDescricao($_POST["descricao"]);
+        $evento = new EventosModel();
+        $evento->setNome($_POST["nome"]);
+        $evento->setData($_POST["dia"]);
+        $evento->setHorarioI($_POST["inicio"]);
+        $evento->setHorarioF( $_POST["final"]);
+        $evento->setNomeRua($_POST["rua"]);
+        $evento->setBairro($_POST["bairro"]);
+        $evento->setNumRua($_POST["numero"]);
+        $evento->setCEP($_POST["cep"]);
+        $evento->setCidade($_POST["cidade"]);
+        $evento->setDescricao($_POST["descricao"]);
+        //var_dump($evento);
+        $eventoRepository = new EventosRepository();
+        $id = $eventoRepository->create($evento);
+        if($id){
+            $msg = "Evento cadastrado com sucesso";
+        }else{
+            $msg = "Erro ao cadastrar evento";
+            }
+        $this->findAll($msg);
 
-    $eventoRepository = new EventosRepository();
+    }
 
-    $id = $eventoRepository->create($evento);
+    private function loadForm(){
 
-    if($id){
+        $this->loadView("eventos/eventos.php", null, "teste");
 
-        $msg = "Evento cadastrado com sucesso";
+    }
+ 
+    private function findAll(string $msg = null){
 
-    }else{
+        $eventosRepository = new EventosRepository();
+        $eventos = $eventosRepository->findAll();
+        $data['titulo'] = "listar eventos";
+        $data['cadastrar_evento'] = $eventos;
+        $this-> loadView("eventos/eventoList.php", $data, $msg);
+    }
 
-        $msg = "Erro ao cadastrar evento";
-
-        }
+    private function update(){
         
-    $this->findAll($msg);
+        $evento = new EventosModel;
+        $evento->setNome($_POST["nome"]);
+        $evento->setData($_POST["dia"]);
+        $evento->setHorarioI($_POST["inicio"]);
+        $evento->setHorarioF($_POST["final"]);
+        $evento->setNomeRua($_POST["rua"]);
+        $evento->setBairro($_POST["bairro"]);
+        $evento->setNumRua($_POST["numero"]);
+        $evento->setCEP($_POST["cep"]);
+        $evento->setCidade($_POST["cidade"]);
+        $evento->setDescricao($_POST["descricao"]);
+        $evento->setId($_GET["id"]);
+        $eventosRepository = new EventosRepository();
+        $att = $eventosRepository->update($evento);
+        if ($att){
+            $msg= "Atualizado com sucesso";
+        }else{
+            $msg="Erro ao atuallizar";
+        }
+        $this->findAll($msg);
 
-}
-
-private function loadForm(){
-
-    $this->loadView("eventos/eventos.php", null, "teste");
-
-}
-
-private function findAll(string $msg = null){
-
-    $eventosRepository = new EventosRepository();
-    $eventos = $eventosRepository->findAll();
-    $data['titulo'] = "listar eventos";
-    $data['cadastrar_evento'] = $eventos;
-    $this-> loadView("eventos/eventoList.php", $data, $msg);
-}
-
-private function update(){
-    
-    $evento = new EventosModel;
-    $evento -> setNome($_POST["nome"]);
-    $evento -> setData($_POST["dia"]);
-    $evento -> setHorarioI($_POST["inicio"]);
-    $evento -> setHorarioF($_POST["final"]);
-    $evento -> setNomeRua($_POST["rua"]);
-    $evento -> setBairro($_POST["bairro"]);
-    $evento -> setNumRua($_POST["numero"]);
-    $evento -> setCEP($_POST["cep"]);
-    $evento -> setCidade($_POST["cidade"]);
-    $evento -> setDescricao($_POST["descricao"]);
-    $eventosRepository = new EventosRepository();
-    $att = $eventosRepository->update($evento);
-    if ($att){
-        $msg= "Atualizado com sucesso";
-    }else{
-        $msg="Erro ao atuallizar";
     }
-    $this->findAll($msg);
 
-}
+    private function deleteEventoById(){
 
-private function deleteById(){
+        $idParam = $_GET['id'];
+        $eventosRepository = new EventosRepository();
+        $qt = $eventosRepository->deleteById($idParam);
+        if($qt){
+            $msg = "Evento excluído com sucesso";
+        }else{
+            $msg = "Falha ao excluir evento";
+        }
+        $this-> findAll($msg);
 
-    $idParam = $_GET['id'];
-    $eventosRepository = new EventosRepository();
-    $qt = $eventosRepository->deleteById($idParam);
-    if($qt){
-        $msg = "Evento excluído com sucesso";
-    }else{
-        $msg = "Falha ao excluir evento";
     }
-    $this-> findAll($msg);
 
-}
+    private function edit(){
+                
+        $idParam = $_GET['id'];
+        $eventosRepository = new EventosRepository();
+        $evento = $eventosRepository->findEventoById($idParam);
+        $data['eventos'][0] = $evento;
+        $this->loadView("eventos/editarEvento.php", $data); 
+
+    }
 
 }

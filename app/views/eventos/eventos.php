@@ -10,37 +10,40 @@
 <body>
     <h2>Cadastrar Evento</h2>
     <p/>
-<form action="./EventosController.php?action=create" method="POST">
-        <label for="idn"> Nome do Evento </label>
-        <input type="text" name="nome" id="idn">
+<form action="./EventosController.php?action=create" method="POST"  enctype="multipart/form-data">
+        <label for="idn">Nome do Evento:</label>
+        <input type="text" name="nome" id="idn" required>
         <p/>
-        <label for="idd">Data do evento </label>
-        <input type="date" name="dia" id="idd">
+        <label for="idd">Data do evento:</label>
+        <input type="date" name="dia" id="idd" required>
         <p/>
-        <label for="idhi">Horário de ínicio</label>
-        <input type="time" name="inicio" id="idhi">
+        <label for="idhi">Horário de ínicio:</label>
+        <input type="time" name="inicio" id="idhi" required>
         <p/>
-        <label for="idhf">Horário de término </label>
-        <input type="time" name="final" id="idhf">
+        <label for="idhf">Horário de término:</label>
+        <input type="time" name="final" id="idhf" required>
         <p/>
-        <label for="idr"> Rua </label>
-        <input type="text" name="rua" id="idr">
+        <label for="idr">Rua:</label>
+        <input type="text" name="rua" id="idr" required> 
         <p/>
-        <label for="idb">Bairro</label>
-        <input type="text" name="bairro" id="idb">
+        <label for="idb">Bairro:</label>
+        <input type="text" name="bairro" id="idb"required>
         <p/>
-        <label for="idnr">Número</label>
-        <input type="text" name="numero" id="idnr">
+        <label for="idnr">Número:</label>
+        <input type="text" name="numero" id="idnr" required>
         <p/>
-        <label for="idc">CEP</label>
-        <input type="text" name="cep" id="idc">
+        <label for="idc">cep:</label>
+        <input type="text" name="cep" id="idc" required>
         <p/>
-        <label for="idcd">Cidade do Evento</label>
-        <input type="text" name="cidade" id="idcd">
+        <label for="idcd">Cidade do Evento:</label>
+        <input type="text" name="cidade" id="idcd" required>
         <p/>
-        <label for="iddesc">Descrição do Evento </label>
-        <input type="text" name="descricao" id="iddesc">
+        <label for="iddesc">Descrição do Evento:</label>
+        <input type="text" name="descricao" id="iddesc" required>
         <p/>
+         <label for="idimg">Adicionar imagens:</label>
+        <input type="file" name="imagem" id="idimg" accept="image/jpeg, image/png">  
+        <p/> 
         <input type="submit" value="Cadastrar">
     </form>
 </body>
