@@ -1,7 +1,7 @@
 <?php 
 
 require_once __DIR__ . "./../connection/connection.php";
-require_once __DIR__ . "./../models/EventosModels.php";
+require_once __DIR__ . "./../models/EventosModel.php";
 
 class EventosRepository {
 
@@ -10,11 +10,12 @@ class EventosRepository {
         $this->conn = Connection::getConnection();
     }
 
-    public function create(EventosModel $evento) {
+    public function create(EventosModel $evento): int {
 
         try {
-            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, cep_evento, descricao_evento) VALUES (:nome, :dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao) ";
-            $prepare = $this->conn->prepare($query);
+              
+            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento, foto_evento) VALUES (:nome,:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao, :foto) ";
+            $prepare =$this->conn->prepare($query);
             $prepare->bindValue(":nome", $evento->getNome());
             $prepare->bindValue(":dia", $evento->getData());
             $prepare->bindValue(":inicio", $evento->getHorarioI());
@@ -25,10 +26,14 @@ class EventosRepository {
             $prepare->bindValue(":cidade", $evento->getCidade());
             $prepare->bindValue(":cep", $evento->getCEP());
             $prepare->bindValue(":descricao", $evento->getDescricao());
-            $prepare->execute();   
+            $prepare->bindValue(":foto,", $evento-> getImagem());
+            $prepare -> execute();   
             return $this->conn->lastInsertId();
+
         } catch (Exception $e) {
+
             print("Erro ao inserir os dados do evento no banco de dados!");
+
         }
         
        }
@@ -47,9 +52,13 @@ class EventosRepository {
             $prepare = $this->conn->prepare($query);
             $prepare->bindParam(1, $id, PDO::PARAM_INT);
             if($prepare->execute()){
+
                 $evento = $prepare->fetchObject("EventosModel");
+
             } else {
+
                 $evento = null;
+
             }
 
             return $evento;
@@ -58,7 +67,7 @@ class EventosRepository {
 
         public function update(EventosModel $evento) : bool {
 
-            $query = "UPDATE cadastrar_evento SET data_eventos = ?, horaI_evento = ?, horaF_evento = ?, endereco_bairro = ?, endereco_rua = ?, endereco_num = ?, cidade_evento = ?, cep_evento = ?, descricao_evento = ?  WHERE idCadastrar = ?";
+            $query = "UPDATE cadastrar_evento SET data_evento = ?, horaI_evento = ?, horaF_evento = ?, endereco_bairro = ?, endereco_rua = ?, endereco_num = ?, cidade_evento = ?, cep_evento = ?, descricao_evento = ? WHERE idCadastrar = ?";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(1, $evento->getData());
             $prepare->bindValue(2, $evento->getHorarioI());

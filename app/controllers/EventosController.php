@@ -80,7 +80,7 @@ class ControllerEventos{
         $this->loadView("eventos/eventos.php", null, "teste");
 
     }
-
+ 
     private function findAll(string $msg = null){
 
         $eventosRepository = new EventosRepository();
@@ -103,6 +103,7 @@ class ControllerEventos{
         $evento->setCEP($_POST["cep"]);
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
+        $evento->setId($_GET["id"]);
         $eventosRepository = new EventosRepository();
         $att = $eventosRepository->update($evento);
         if ($att){
@@ -134,7 +135,7 @@ class ControllerEventos{
         $eventosRepository = new EventosRepository();
         $evento = $eventosRepository->findEventoById($idParam);
         $data['eventos'][0] = $evento;
-        $this->loadView("eventos/editarEvento.php", $data); // fazer view adm
+        $this->loadView("eventos/editarEvento.php", $data); 
 
     }
 
