@@ -3,7 +3,6 @@ body {
     color: black;
     font-family: poppinssemibold;
     max-width: 1200hv;
-    min-height: 1500hv;
     margin: 0 auto;
     padding: 0 auto;
 }
@@ -127,12 +126,4 @@ aside {
     margin-top: 15px;
     margin-bottom: 15px;
 
-}
-
-.slider {
-    margin-left: 100px;
-    margin-right: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
