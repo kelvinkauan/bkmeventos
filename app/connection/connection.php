@@ -21,7 +21,7 @@ class Connection {
                 self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             } catch(Exception $e) {
-                print("Erro ao conectar com o banco de dados");
+                print("Erro ao conectar com o banco de dados" . $e->getMessage());
             }
 
         }

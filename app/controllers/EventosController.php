@@ -20,7 +20,7 @@ class ControllerEventos{
             $this->callAction($action);
         }else{
             $this->loadView("error/erro.php");
-            $msg = "<h2>Nenhuma acao a ser processada...<h2>";
+            $msg = "<h2>Nenhuma ação a ser processada...<h2>";
             print_r($msg);
         }
 
@@ -34,9 +34,12 @@ class ControllerEventos{
             $met = "preventDefault";
             $this->$met();
         } else {
-            throw new BadFunctionCallException("Usecase not exists");
+            $this->loadView("error/erro.php");
+            $bad = "<h2>Caso de uso não existe</h2>";
+            print $bad;
 
         }
+        
     }
 
     public function loadView(string $path, array $data = null, string $msg = null){
@@ -92,7 +95,7 @@ class ControllerEventos{
 
     private function update(){
         
-        $evento = new EventosModel;
+        $evento = new EventosModel();
         $evento->setNome($_POST["nome"]);
         $evento->setData($_POST["dia"]);
         $evento->setHorarioI($_POST["inicio"]);
@@ -138,5 +141,17 @@ class ControllerEventos{
         $this->loadView("eventos/editarEvento.php", $data); 
 
     }
+
+    private function search(){
+        
+        $search = $_GET['pesquisar'];
+        $eventosRepository = new EventosRepository();
+        $pes = $eventosRepository->search($search);
+        $data['nomes'][0] = $pes;
+        $this->loadView("teste/search.php", $data);
+
+    }
+
+
 
 }

@@ -52,15 +52,10 @@ class EventosRepository {
             $prepare = $this->conn->prepare($query);
             $prepare->bindParam(1, $id, PDO::PARAM_INT);
             if($prepare->execute()){
-
                 $evento = $prepare->fetchObject("EventosModel");
-
             } else {
-
                 $evento = null;
-
             }
-
             return $evento;
 
         }
@@ -94,5 +89,38 @@ class EventosRepository {
             return $result;
 
         }
+
+        public function search(string $pesquisa){
+
+            $query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE '$:nome$' ORDER BY nome_evento ASC ";
+            $prepare = $this->conn->prepare($query);
+            $prepare->bindParam(':nome', $pesquisa, PDO::PARAM_STR);
+            $prepare->execute();
+            while($row = $prepare->fetch(PDO::FETCH_ASSOC)){
+                //var_dump($row);
+            }
+
+
+
+           /* $prepare = $this->conn->prepare($query);
+            $prepare->bindParam(1, $nome, PDO::PARAM_STR);
+            $prepare->execute();
+            if($prepare->execute()){
+                $pes = $prepare->fetchObject("EventosModel");
+            }else {
+                $pes = null;
+            }
+            return $pes;
+       
+           if ($result >= 0){
+                while ($pesquisar = ($result)){
+                echo "O resultado foi: "  . $pesquisar;
+                }
+            } else{
+                echo "Evento não existe";
+            } */
+
+            }
+        
         
     }
