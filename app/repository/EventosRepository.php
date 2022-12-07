@@ -90,37 +90,31 @@ class EventosRepository {
 
         }
 
-        public function search(string $pesquisa){
+        public function searchByStr(string $pesquisa){
+                
+            $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+            $nome = "%".$data['nome_evento']."%";
+            $query = ("SELECT * FROM cadastrar_evento WHERE nome_evento LIKE :nome ORDER BY nome_evento ASC");
+            $prepare = $this->conn->prepare($query);
+            $prepare->bindParam(':nome', $nome, PDO::PARAM_STR);
+            $prepare->execute();
+            while($rowCount = $prepare->fetch(PDO::FETCH_ASSOC)){
+                //var_dump($rowCount);
+                extract($rowCount);
+            }
 
-            $query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE '$:nome$' ORDER BY nome_evento ASC ";
+           /*$query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE '$:nome$' ORDER BY nome_evento ASC ";
             $prepare = $this->conn->prepare($query);
             $prepare->bindParam(':nome', $pesquisa, PDO::PARAM_STR);
-            $prepare->execute();
-            while($row = $prepare->fetch(PDO::FETCH_ASSOC)){
-                //var_dump($row);
-            }
-
-
-
-           /* $prepare = $this->conn->prepare($query);
-            $prepare->bindParam(1, $nome, PDO::PARAM_STR);
-            $prepare->execute();
+           // $prepare->execute();
             if($prepare->execute()){
-                $pes = $prepare->fetchObject("EventosModel");
-            }else {
-                $pes = null;
+            while($rowCount = $prepare->fetch(PDO::FETCH_ASSOC)){
+                var_dump($rowCount);
+                extract($rowCount); 
+                echo "nome evento: $nome_evento ";
+             }
             }
-            return $pes;
-       
-           if ($result >= 0){
-                while ($pesquisar = ($result)){
-                echo "O resultado foi: "  . $pesquisar;
-                }
-            } else{
-                echo "Evento não existe";
-            } */
+            return $rowCount;¨*/
 
-            }
-        
-        
-    }
+           }
+}

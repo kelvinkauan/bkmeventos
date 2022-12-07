@@ -28,7 +28,7 @@
       
     <?php 
 
-    require_once __DIR__ . "/database.php";
+    require_once __DIR__ . "./../connection/connection.php";
     
 
     if(!empty($data['pesqEvento'])){
