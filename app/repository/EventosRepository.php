@@ -79,42 +79,15 @@ class EventosRepository {
 
         } 
 
-        public function deleteById(int $id) : int {
+        public function deleteById(int $id){
 
             $query = "DELETE FROM cadastrar_evento WHERE idCadastrar = :id";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(":id", $id);
             $prepare->execute();
-            $result = $prepare->rowCount();
-            return $result;
 
-        }
+        }  
 
-        public function searchByStr(string $pesquisa){
-                
-            $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-            $nome = "%".$data['nome_evento']."%";
-            $query = ("SELECT * FROM cadastrar_evento WHERE nome_evento LIKE :nome ORDER BY nome_evento ASC");
-            $prepare = $this->conn->prepare($query);
-            $prepare->bindParam(':nome', $nome, PDO::PARAM_STR);
-            $prepare->execute();
-            while($rowCount = $prepare->fetch(PDO::FETCH_ASSOC)){
-                //var_dump($rowCount);
-                extract($rowCount);
-            }
 
-           /*$query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE '$:nome$' ORDER BY nome_evento ASC ";
-            $prepare = $this->conn->prepare($query);
-            $prepare->bindParam(':nome', $pesquisa, PDO::PARAM_STR);
-           // $prepare->execute();
-            if($prepare->execute()){
-            while($rowCount = $prepare->fetch(PDO::FETCH_ASSOC)){
-                var_dump($rowCount);
-                extract($rowCount); 
-                echo "nome evento: $nome_evento ";
-             }
-            }
-            return $rowCount;¨*/
-
-           }
+    
 }
