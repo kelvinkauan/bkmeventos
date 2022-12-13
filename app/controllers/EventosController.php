@@ -108,7 +108,7 @@ class ControllerEventos{
 
         $eventosRepository = new EventosRepository();
         $att = $eventosRepository->update($evento);
-        var_dump($evento);
+      
         if ($att){
             $msg= "Atualizado com sucesso";
         }else{
@@ -142,7 +142,16 @@ class ControllerEventos{
 
     }
 
-
+    private function search(){
+        
+        $idParam = $_GET['pesqEvento'];
+        $eventosRepository = new EventosRepository();
+        $evento = $eventosRepository->searchByStr($idParam);
+        if(!empty($evento['pesqEvento'])){
+            extract($rowCount);
+            echo "nome evento: $nome_evento ";
+        }
+     }
 
     
 

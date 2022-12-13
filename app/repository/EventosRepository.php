@@ -70,8 +70,9 @@ class EventosRepository {
 
         public function update(EventosModel $evento) : bool {
 
-            $query = "UPDATE cadastrar_evento SET data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem  WHERE idCadastrar = :id";
+            $query = "UPDATE cadastrar_evento SET  nome_evento = :nome,  data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem  WHERE idCadastrar = :id";
             $prepare = $this->conn->prepare($query);
+            $prepare -> bindValue("nome", $evento ->getNome());
             $prepare->bindValue(":data_evento", $evento->getData());
             $prepare->bindValue(":inicio", $evento->getHorarioI());
             $prepare->bindValue(":final", $evento->getHorarioF());
@@ -97,6 +98,20 @@ class EventosRepository {
             $result = $prepare->rowCount();
             return $result;
 
+        }
+
+        public function searchByStr(string $pesquisa){
+                
+            $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+            $nome = "%".$data['nome_evento']."%";
+            $query = ("SELECT * FROM cadastrar_evento WHERE nome_evento LIKE :nome ORDER BY nome_evento ASC");
+            $prepare = $this->conn->prepare($query);
+            $prepare->bindParam(':nome', $nome, PDO::PARAM_STR);
+            $prepare->execute();
+            while($rowCount = $prepare->fetch(PDO::FETCH_ASSOC)){
+                //var_dump($rowCount);
+                extract($rowCount);
+            }
         }
     
         
