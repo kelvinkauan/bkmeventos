@@ -10,7 +10,7 @@
 <body>
     <h2>Cadastrar Evento</h2>
     <p/>
-<form action="./EventosController.php?action=create" method="POST"  enctype="multipart/form-data">
+<form action="./EventosController.php?action=create" method="POST"   enctype="multipart/form-data">
         <label for="idn">Nome do Evento:</label>
         <input type="text" name="nome" id="idn" required>
         <p/>
@@ -41,9 +41,9 @@
         <label for="iddesc">Descrição do Evento:</label>
         <input type="text" name="descricao" id="iddesc" required>
         <p/>
-         <label for="idimg">Adicionar imagens:</label>
-        <input type="file" name="imagem" id="idimg" accept="image/jpeg, image/png">  
-        <p/> 
+        <label for="idf">Banner evento </label>
+        <input type="file" name="upload">
+        <p/>
         <input type="submit" value="Cadastrar">
     </form>
 </body>

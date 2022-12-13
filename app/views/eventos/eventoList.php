@@ -42,7 +42,9 @@
                 <?= $cd['cep_evento'] ?> -
                 <br>
                 <?= $cd['descricao_evento'] ?> -
-
+                <br>
+                <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
+                <br>
                 [<a href="./EventosController.php?action=edit&id=<?= $cd['idCadastrar'] ?>">Editar</a>]
                 [<a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd ['idCadastrar'] ?>)"> Excluir </a>]
             </li>

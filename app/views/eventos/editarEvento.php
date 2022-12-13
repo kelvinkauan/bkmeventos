@@ -16,7 +16,7 @@ include_once __DIR__ . "/../helpers/mensagem.php";
 <h2>Editar Evento</h2>
 
 <?php foreach($data['eventos'] as $cd): ?>
-  <form action="./EventosController.php?action=update&id=<?= $cd->getId()?>" method="POST">
+  <form action="./EventosController.php?action=update&id=<?= $cd->getId()?>" method="POST" enctype="multipart/form-data"     >
         <label for="idn">Nome do Evento:</label>
         <input type="text" name="nome" id="idn" value="<?= $cd->getNome(); ?>" >
         <p/>
@@ -46,6 +46,9 @@ include_once __DIR__ . "/../helpers/mensagem.php";
         <p/>
         <label for="iddesc">Descrição do Evento:</label>
         <input type="text" name="descricao" id="iddesc" value="<?= $cd->getDescricao(); ?>">
+       <p/>
+       <label for="idf">Banner evento </label>
+        <input type="file" name="upload">
         <p/>
         <button type="submit">Atualizar</button>
         </form>

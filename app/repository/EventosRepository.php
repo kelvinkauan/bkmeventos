@@ -14,7 +14,7 @@ class EventosRepository {
 
         try {
               
-            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento, foto_evento) VALUES (:nome,:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao, :foto) ";
+            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento,imagem_evento) VALUES (:nome,:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao, :imagem) ";
             $prepare =$this->conn->prepare($query);
             $prepare->bindValue(":nome", $evento->getNome());
             $prepare->bindValue(":dia", $evento->getData());
@@ -26,17 +26,20 @@ class EventosRepository {
             $prepare->bindValue(":cidade", $evento->getCidade());
             $prepare->bindValue(":cep", $evento->getCEP());
             $prepare->bindValue(":descricao", $evento->getDescricao());
-            $prepare->bindValue(":foto,", $evento-> getImagem());
+            $prepare->bindValue(":imagem",$evento->getImagem());
+        
             $prepare -> execute();   
+
             return $this->conn->lastInsertId();
 
-        } catch (Exception $e) {
+            } 
+            catch (Exception $e) {
 
-            print("Erro ao inserir os dados do evento no banco de dados!");
+                         print("Erro ao inserir os dados do evento no banco de dados!");
 
-        }
-        
-       }
+            }
+        }   
+     
 
         public function findAll(): array {   
 
@@ -67,18 +70,19 @@ class EventosRepository {
 
         public function update(EventosModel $evento) : bool {
 
-            $query = "UPDATE cadastrar_evento SET data_evento = ?, horaI_evento = ?, horaF_evento = ?, endereco_bairro = ?, endereco_rua = ?, endereco_num = ?, cidade_evento = ?, cep_evento = ?, descricao_evento = ? WHERE idCadastrar = ?";
+            $query = "UPDATE cadastrar_evento SET data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem  WHERE idCadastrar = :id";
             $prepare = $this->conn->prepare($query);
-            $prepare->bindValue(1, $evento->getData());
-            $prepare->bindValue(2, $evento->getHorarioI());
-            $prepare->bindValue(3, $evento->getHorarioF());
-            $prepare->bindValue(4, $evento->getBairro());
-            $prepare->bindValue(5, $evento->getNomeRua());
-            $prepare->bindValue(6, $evento->getNumRua());
-            $prepare->bindValue(7, $evento->getCidade());
-            $prepare->bindValue(8, $evento->getCEP());
-            $prepare->bindValue(9, $evento->getDescricao());
-            $prepare->bindValue(10, $evento->getId());
+            $prepare->bindValue(":data_evento", $evento->getData());
+            $prepare->bindValue(":inicio", $evento->getHorarioI());
+            $prepare->bindValue(":final", $evento->getHorarioF());
+            $prepare->bindValue(":bairro", $evento->getBairro());
+            $prepare->bindValue(":rua", $evento->getNomeRua());
+            $prepare->bindValue(":numero", $evento->getNumRua());
+            $prepare->bindValue(":cidade", $evento->getCidade());
+            $prepare->bindValue(":cep", $evento->getCEP());
+            $prepare->bindValue(":descricao", $evento->getDescricao());
+            $prepare->bindValue(":id", $evento->getId());
+            $prepare ->bindValue(":imagem", $evento->getImagem());
             $result = $prepare->execute();
             return $result;
 
@@ -94,5 +98,6 @@ class EventosRepository {
             return $result;
 
         }
+    
         
     }

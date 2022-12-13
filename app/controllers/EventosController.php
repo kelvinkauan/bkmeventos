@@ -63,7 +63,7 @@ class ControllerEventos{
         $evento->setCEP($_POST["cep"]);
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
-        //var_dump($evento);
+        $evento -> setImagem($_FILES["upload"]);
         $eventoRepository = new EventosRepository();
         $id = $eventoRepository->create($evento);
         if($id){
@@ -103,9 +103,12 @@ class ControllerEventos{
         $evento->setCEP($_POST["cep"]);
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
+        $evento->setImagem($_FILES["upload"]);
         $evento->setId($_GET["id"]);
+
         $eventosRepository = new EventosRepository();
         $att = $eventosRepository->update($evento);
+        var_dump($evento);
         if ($att){
             $msg= "Atualizado com sucesso";
         }else{
@@ -138,5 +141,10 @@ class ControllerEventos{
         $this->loadView("eventos/editarEvento.php", $data); 
 
     }
+
+
+
+    
+
 
 }
