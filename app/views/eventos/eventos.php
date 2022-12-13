@@ -41,8 +41,8 @@
         <label for="iddesc">Descrição do Evento:</label>
         <input type="text" name="descricao" id="iddesc" required>
         <p/>
-         <label for="idimg">Adicionar imagens:</label>
-        <input type="file" name="imagem" id="idimg" accept="image/jpeg, image/png">  
+         <!--label for="idimg">Adicionar imagens:</label>
+        <input type="file" name="imagem" id="idimg" accept="image/jpeg, image/png"-->  
         <p/> 
         <input type="submit" value="Cadastrar">
     </form>

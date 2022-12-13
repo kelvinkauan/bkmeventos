@@ -14,7 +14,7 @@ class EventosRepository {
 
         try {
               
-            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento, foto_evento) VALUES (:nome,:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao, :foto) ";
+            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento) VALUES (:nome,:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao) ";
             $prepare =$this->conn->prepare($query);
             $prepare->bindValue(":nome", $evento->getNome());
             $prepare->bindValue(":dia", $evento->getData());
@@ -26,7 +26,7 @@ class EventosRepository {
             $prepare->bindValue(":cidade", $evento->getCidade());
             $prepare->bindValue(":cep", $evento->getCEP());
             $prepare->bindValue(":descricao", $evento->getDescricao());
-            $prepare->bindValue(":foto,", $evento-> getImagem());
+            //$prepare->bindValue(":foto,", $evento-> getImagem());
             $prepare -> execute();   
             return $this->conn->lastInsertId();
 

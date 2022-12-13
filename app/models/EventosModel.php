@@ -189,7 +189,7 @@ public function setCidade(string $cidade){
     return $this;
 }
 
-/*<!-- getters e setters da imagens --> */
+/*<!-- getters e setters da imagens --> *//*
 
 public function getImagem():int{
 
@@ -203,7 +203,7 @@ $this->foto_evento = $imagem;
 
 return $this;
 
-}
+}*/
 }
 
 ?>
