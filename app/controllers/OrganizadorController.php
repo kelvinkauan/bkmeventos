@@ -18,8 +18,11 @@
             }
 
             if(isset($action)){
+
                 $this->callAction($action);
+
             }else{
+
                 $this->loadView("error/erro.php");
                 $msg = "<h2>Nenhuma ação a ser processada...<h2>"; 
                 print_r($msg);
@@ -30,12 +33,18 @@
         public function callAction(string $functionName = null){
 
             if (method_exists($this, $functionName)) {
+
                 $this->$functionName();
+
             } else if(method_exists($this, "preventDefault")) {
+
                 $met = "preventDefault";
                 $this->$met();
+
             } else {
+
                 throw new BadFunctionCallException("Usecase not exists");
+                
             }
 
         }
@@ -44,10 +53,14 @@
 
             $caminho = __DIR__ . "/../views/" . $path;
             if(file_exists($caminho)){
+
                  require $caminho;
+
             } else {
+
                 $this->loadView("error/erro.php");
                 echo ("<h2> Erro ao carregar a view<h2>");   
+
             }
 
         }
@@ -61,10 +74,15 @@
         $organizadorRepository = new OrganizadorRepository();
         $id = $organizadorRepository->create($organizador);
         if($id){
+
 			$msg = "Registro inserido com sucesso.";
+
 		}else{
+
 			$msg = "Erro ao inserir o registro no banco de dados."; // criar uma view para isso
+        
 		}
+
         $this->findAll($msg);
 
        }
@@ -102,10 +120,15 @@
            $organizadorRepository = new OrganizadorRepository();
            $qt = $organizadorRepository->deleteById($idParam);
            if($qt){
+
 			 $msg = "Registro excluído com sucesso.";
+
 	       }else{
+
 			 $msg = "Erro ao excluir o registro no banco de dados."; 
+
 	       }
+
            $this->findAll($msg);
 
         }
@@ -130,17 +153,24 @@
             $organizadorRepository = new OrganizadorRepository();
             $atualizou = $organizadorRepository->update($organizador);
             if($atualizou){
+
                 $msg = "Registro atualizado com sucesso.";
+
             }else{
+
                 $msg = "Erro ao atualizar o registro no banco de dados.";
+
             }
+
             $this->findAll($msg);
 
         }
 
         private function preventDefault() {
+
             $this->loadView("error/erro.php");
             echo ("<h2>Ação indefinida...<h2>");
+
         }
 
 
@@ -149,9 +179,13 @@
             session_start();
             $organizador = new OrganizadorRepository();
             if($_SESSION ["Logado"] == true){
+
                 $this->loadView("organizadores/PaginaOrganizador.php");
+
             }else{
+
                 header("Location: ./OrganizadorController.php?action=login");
+
             }
  
         }
@@ -160,11 +194,17 @@
 
             $organizador = new OrganizadorRepository();
             if(isset($_POST['login'])){
+
                 $login = $organizador->loginOfOrg($_POST['email'], $_POST['senha']);
+
             if($login){
+
                 header("location: ./OrganizadorController.php?action=PaginaOrganizador");
+
              }
+
             }
+
             $this->loadView("login/login.php");
 
         }

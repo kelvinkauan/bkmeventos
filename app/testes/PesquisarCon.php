@@ -55,14 +55,32 @@ class PesquisarController{
     private function search(){
       
       if(!isset($_GET['buscar'])){
+
             header("Location: search.php");
+            //echo "Evento não encontrado";
 
         }else{   
 
-            $result = $_GET['buscar'];
-            $pesquisarRep = new pesquisarRepository();
-            $result = $pesquisarRep->pesquisar($result); 
-            $Resultado['pesquisa'][0] = $result;
+            $pesquisar = new pesquisarRepository();
+
+            if(isset($_GET['buscar'])){
+
+                $search = $pesquisar->pesquisar($_GET['buscar']);
+                $Resultado['pesquisa'][0] = $search;
+                if(count($Resultado)){
+                    foreach($Resultado['pesquisa'] as $res){
+
+                        $res ['nome_evento'];
+                        
+                    }
+                }
+
+            } else{
+
+                echo "Evento não cadastrado";
+
+            }
+            
             $this->loadView("teste/search.php" . $Resultado);
         }     
     }

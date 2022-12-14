@@ -83,17 +83,23 @@ class AdministradorRepository{
             $e = "Erro! Senha ou nome incorretos";
 
         }
+    
           if($result = true){
+
           session_start();
           $_SESSION['Logado'] = true;
-          $_SESSION['adm'] = $result['idAdministrador'];
-          }if(!$result){
-          print_r($e);
-          }
+          $_SESSION['adm'] = $result['idAdministrador']; // pode ser um else também
+
+            } if(!$result){ 
+
+                 print_r($e);
+
+              }
+
          return $result; // matheus login 
+
     }
          
-
         }
 
 ?>

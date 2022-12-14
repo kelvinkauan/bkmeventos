@@ -11,15 +11,15 @@ class pesquisarRepository{
         $this->conn = Connection::getConnection();
     }
 
-    public function pesquisar(string $pesquisa){
+    public function pesquisar(EventosModel $pesquisa){
 
-        $pesquisa = "%".$_GET['buscar']."%";
-        $query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE ':nome'";
+       // $pesquisa = "%".trim($_GET['buscar'])."%";
+        $query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE '%:nome%' ";  // or %:nome%  
         $prepare = $this->conn->prepare($query);
         $prepare->bindParam(':nome', $pesquisa, PDO::PARAM_STR);
+        $prepare->execute();
         $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
-       // $result->execute();
-        return $result;
+       // print_r($result);
 
     }
 }
