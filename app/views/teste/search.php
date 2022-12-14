@@ -19,7 +19,7 @@
 <br>
 
 <div class="container">
-    <form action="./PesquisaRep.php" method="GET"> <!-- ./PesquisarCon.php?action=search -->
+    <form action="pesquisa.php" method="GET"> <!-- ./PesquisarCon.php?action=search -->
       <input type="text" name="buscar" placeholder="Searching for events..">
       <button type="submit">Pesquisar</button>
 
@@ -27,7 +27,15 @@
 </div>
 <br>
   <ul>
-  <?php
+
+<?php foreach($Resultado['pesquisa'] as $res): ?>
+  <li>
+   
+      <?= $res['nome_evento'] ?> -
+    
+  </li>
+<?php endforeach; ?>
+
       /*if(count($Resultado)){
                 foreach($Resultado['pesquisa'] as $pes){
        
