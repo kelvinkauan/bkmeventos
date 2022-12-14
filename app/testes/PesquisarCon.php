@@ -59,11 +59,11 @@ class PesquisarController{
 
         }else{   
 
-            $result = "%".$_GET['buscar']."%";
+            $result = $_GET['buscar'];
             $pesquisarRep = new pesquisarRepository();
             $result = $pesquisarRep->pesquisar($result); 
             $Resultado['pesquisa'][0] = $result;
-            $this->loadView("teste/search.php" . $Resultado); 
+            $this->loadView("teste/search.php" . $Resultado);
         }     
     }
 }

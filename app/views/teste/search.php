@@ -19,30 +19,27 @@
 <br>
 
 <div class="container">
-    <form action="search.php" method="GET">
+    <form action="./PesquisaRep.php" method="GET"> <!-- ./PesquisarCon.php?action=search -->
       <input type="text" name="buscar" placeholder="Searching for events..">
       <button type="submit">Pesquisar</button>
+
     </form>
 </div>
 <br>
   <ul>
-
-    <?php
-
-        if(count($Resultado)){
-         foreach($Resultado['pesquisa'] as $pes){
-
-             $pes['nome_evento']; 
-
-         } 
-      }else{
-            
-            echo "Nenhum evento foi encontrado";
-
-     }
-
-      ?>
+  <?php
+      /*if(count($Resultado)){
+                foreach($Resultado['pesquisa'] as $pes){
+       
+                    $pes['nome_evento']; 
+                    
+                } 
+             }else{
+                   
+                   echo "Nenhum evento foi encontrado";
+       
+            }*/
+            ?>
   </ul>
-
 </body>
 </html>

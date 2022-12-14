@@ -1,7 +1,7 @@
 <?php
 
 
-require_once __DIR__ . "./../../connection/connection.php";
+require_once __DIR__ . "./../connection/connection.php";
 
 
 class pesquisarRepository{
@@ -13,12 +13,12 @@ class pesquisarRepository{
 
     public function pesquisar(string $pesquisa){
 
-        //$pesquisa = "%".$_GET['buscar']."%";
+        $pesquisa = "%".$_GET['buscar']."%";
         $query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE :nome";
         $prepare = $this->conn->prepare($query);
         $prepare->bindValue(':nome', $pesquisa, PDO::PARAM_STR);
-        $prepare->execute();
+       // $prepare->execute();
         $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+
     }
 }
