@@ -142,5 +142,23 @@ class ControllerEventos{
 
     }
 
+    private function search(){  
+        
+        $idParam = $_GET['buscar']; //"%".$_GET['buscar']."%";
+        $pesquisarRepository = new EventosRepository();
+        $search = $pesquisarRepository->pesquisar($idParam);
+        $Resultado['buscas'][0] = $search;
+        if(!isset($idParam)){
+              header("Location: search.php");
+              echo "Evento não encontrado";
+          }else if(isset($idParam)) {   
+              if(count($Resultado)){
+                  $this->loadView("pesquisar/search.php" . $Resultado);
+              } else{
+                  echo "Evento não cadastrado";
+              }  
+             }     
+            }
+
 
 }

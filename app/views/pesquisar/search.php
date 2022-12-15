@@ -8,11 +8,20 @@
 </head>
 <body>
 
+<?php 
+
+include_once __DIR__ . "/../helpers/mensagem.php";
+
+?>
+
 <h1>Pesquisar Evento</h1>
-        <form action="./EventosController.php?action=search" method="POST">
-         <!--label for="ide">Evento: </label-->
-         <input type="text" name="nome_evento" id="ide" placeholder="Buscar Evento" value="<?php if(isset($data['nome_evento'])){ echo $data['nome_evento']; } ?>">
-         <input type="submit" value="Pesquisar" name="pesqEvento" id="pesqEvento">
+
+       <?php foreach($Resultado['buscas'] as $res): ?>
+        <form action="./EventosController.php?action=search" method="GET">
+         <input type="text" name="buscar" placeholder="Buscar Evento" value="<?= $res['nome_evento'] ?>">
+         <input type="submit" value="Pesquisar" id="pesqEvento">
         </form>
+        <?php endforeach; ?>
+
 </body>
 </html>

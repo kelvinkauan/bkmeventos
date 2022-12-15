@@ -20,6 +20,7 @@ class pesquisarRepository{
         $prepare->execute();
         $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
        // print_r($result);
-
+        return $result;
+            // já mandei pro rep principal 
     }
 }
