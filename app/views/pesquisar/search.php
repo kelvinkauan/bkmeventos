@@ -16,11 +16,14 @@ include_once __DIR__ . "/../helpers/mensagem.php";
 
 <h1>Pesquisar Evento</h1>
 
-       <?php foreach($Resultado['buscas'] as $res): ?>
+    
         <form action="./EventosController.php?action=search" method="GET">
-         <input type="text" name="buscar" placeholder="Buscar Evento" value="<?= $res['nome_evento'] ?>">
+         <input type="text" name="buscar" placeholder="Buscar Evento">
          <input type="submit" value="Pesquisar" id="pesqEvento">
         </form>
+
+        <?php foreach($Resultado['buscas'] as $res): ?>
+            <?= $res['nome_evento'] ?>
         <?php endforeach; ?>
 
 </body>
