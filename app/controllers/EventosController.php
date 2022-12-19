@@ -142,18 +142,23 @@ class ControllerEventos{
 
     }
 
-    private function search(){
-        
-        $idParam = $_GET['pesqEvento'];
-        $eventosRepository = new EventosRepository();
-        $evento = $eventosRepository->searchByStr($idParam);
-        if(!empty($evento['pesqEvento'])){
-            extract($rowCount);
-            echo "nome evento: $nome_evento ";
+   
+    private function search(){  
+
+        $pesquisarRepository = new EventosRepository();
+        $data=[];
+        if(isset($_GET['buscar'])){
+
+           $search = $pesquisarRepository->pesquisar($_GET['buscar']);
+           $data['resultado'] = $search;
         }
-     }
+        $this->loadView("pesquisar/pesquisar.php", $data);
+      }
+
+         
+    }
+   
 
     
 
 
-}

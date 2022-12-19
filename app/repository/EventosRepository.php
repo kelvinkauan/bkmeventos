@@ -100,19 +100,16 @@ class EventosRepository {
 
         }
 
-        public function searchByStr(string $pesquisa){
-                
-            $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-            $nome = "%".$data['nome_evento']."%";
-            $query = ("SELECT * FROM cadastrar_evento WHERE nome_evento LIKE :nome ORDER BY nome_evento ASC");
-            $prepare = $this->conn->prepare($query);
-            $prepare->bindParam(':nome', $nome, PDO::PARAM_STR);
-            $prepare->execute();
-            while($rowCount = $prepare->fetch(PDO::FETCH_ASSOC)){
-                //var_dump($rowCount);
-                extract($rowCount);
-            }
-        }
+        public function pesquisar(string $pesquisa): array{
+            $pesquisa = "%$pesquisa%";
+             $query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE :nome";  // or %:nome%  
+             $prepare = $this->conn->prepare($query);
+             $prepare->bindParam(':nome', $pesquisa, PDO::PARAM_STR); //PDO::PARAM_STR
+             $prepare->execute();
+             $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+             return $result;
+     
+         }
     
         
     }
