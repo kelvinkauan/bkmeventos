@@ -154,11 +154,10 @@
             }
         }
 
-     /*   private function login(){
+      /* private function login(){
 
             $administrador = new AdministradorRepository();
             if(isset($_POST['login'])){
-
                 $login = $administrador->loginOfAdm($_POST['email'], $_POST['senha']);
 
             if($login){

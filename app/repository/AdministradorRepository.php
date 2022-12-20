@@ -72,30 +72,28 @@ class AdministradorRepository{
 
     }
 
-    public function loginOfAdm($email, $senha) :bool{
+    public function loginOfAdm($email , $senha) :bool{
 
         try {
           $query = "SELECT idAdministrador, email_Adm, senha_Adm FROM administradores WHERE email_Adm = :email  AND senha_Adm = :senha";
           $prepare = $this->conn->prepare($query);
           $prepare->bindValue(":email", $email);
-          $prepare->bindParam(":senha", $senha);
+          $prepare->bindValue(":senha", $senha);
           $prepare->execute();
-          $result = $prepare->fetch();
-          if(!$result){ 
+        } catch (Exception $e) {
 
-          }else{      
-            session_start();
-            $_SESSION['Logado'] = true;
-            $_SESSION['Adm'] = $result['idAdministrador']; // pode ser um else também
-          } 
-         return $result; // matheus login 
-         }  catch (Exception $e) {
-               $e = "Erro! Administrador não cadastrado no banco de dados";
-            }
-
-        
-         
+            $e = "Erro! Senha ou nome incorretos";
         }
-
+          if($result = true){
+          session_start();
+          $_SESSION['Logado'] = true;
+          $_SESSION['adm'] = $result['idAdministrador'];
+          }if(!$result){
+          print_r($e);
+          }
+         return $result; // matheus login 
     }
+ }
+
+
 ?>

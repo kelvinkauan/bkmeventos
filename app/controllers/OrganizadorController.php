@@ -184,7 +184,7 @@
 
             }else{
 
-                header("Location: ./OrganizadorController.php?action=login");
+                header("Location: ./LadingController.php?action=login");
 
             }
  

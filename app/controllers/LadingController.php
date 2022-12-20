@@ -64,23 +64,24 @@ class ControllerLanding{
 
         $administrador = new AdministradorRepository();
         $organizador = new OrganizadorRepository();
+
         if(isset($_POST['login'])){
+
             $loginOrg = $organizador->loginOfOrg($_POST['email'], $_POST['senha']);
+            $loginAdm = $administrador->loginOfAdm($_POST['email'], $_POST['senha']); 
+
         if($loginOrg){
+
             header("location: ./OrganizadorController.php?action=PaginaOrganizador");
 
-         } else{
-
-            $loginAdm = $administrador->loginOfAdm($_POST['email'], $_POST['senha']);
-
-            if($loginAdm){
-
+        }else if($loginAdm){
+            
                header("location: ./AdministradorController.php?action=FindAll");
             }
           }
+          $this->loadView("login/login.php");
         }        
 
-        $this->loadView("login/login.php");
-        
+      
+
     }
-} 
