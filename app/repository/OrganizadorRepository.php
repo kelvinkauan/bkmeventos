@@ -86,7 +86,7 @@ class OrganizadorRepository{
                 $prepare->bindValue(":senha", $senha);
                 $prepare->execute();
                 $result = $prepare->fetch();
-                if(!$result){
+                if(!$result){  
                   $msg =  print("Senha ou email incorretos"); 
                 }else{
                     session_start();
@@ -95,9 +95,9 @@ class OrganizadorRepository{
                 }
                 return $result;
             }catch(Exception $e){
-                $e = print ("Erro!"); // criar uma parametro caso o usuário não exista
+                $e = print ("Erro! Usuario não cadastrado!"); // criar uma parametro caso o usuário não exista
             }
-                $this->findAll($msg);
+             $this->findAll($msg);
         
          }
     

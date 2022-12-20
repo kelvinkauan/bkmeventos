@@ -9,7 +9,7 @@
 <body>
     <h1> BEM-VINDO </h1>
 
-    <a href="./OrganizadorController.php?action=login">sair</a>
+    <a href="./LadingController.php?action=loadForm">sair</a>
 
     <a href="./OrganizadorController.php?action=loadForm">Cadastrar evento</a>
 

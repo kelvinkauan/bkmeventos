@@ -14,10 +14,11 @@ class AdministradorRepository{
     public function create (AdministradorModel $administrador): int {
 
         try {
-            $query = "INSERT INTO administradores (nome_Adm, senha_Adm) Values (:nome, :senha)";
+            $query = "INSERT INTO administradores (nome_Adm, senha_Adm, email_Adm) Values (:nome, :senha, :email)";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(":nome", $administrador->getNome());
             $prepare->bindValue(":senha", $administrador->getSenha());
+            $prepare->bindValue(":email", $administrador->getEmail());
             $prepare->execute();
             return $this->conn->lastInsertId();
         } catch (Exception $e) {
@@ -37,11 +38,12 @@ class AdministradorRepository{
 
     public function update(AdministradorModel $administrador): bool{
 
-            $query = "UPDATE administradores SET nome_Adm = ?, senha_Adm = ? WHERE idAdministrador = ?";
+            $query = "UPDATE administradores SET nome_Adm = ?, senha_Adm = ?, email_Adm = ? WHERE idAdministrador = ?";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(1, $administrador->getNome());
             $prepare->bindValue(2, $administrador->getSenha());
-            $prepare->bindValue(3, $administrador->getId());
+            $prepare->bindValue(3,$administrador->getEmail());
+            $prepare->bindValue(4, $administrador->getId());
             $result = $prepare->execute();
             return $result;
     }
@@ -70,36 +72,30 @@ class AdministradorRepository{
 
     }
 
-    public function loginOfAdministrador(AdministradorModel $administrador) :bool{
+    public function loginOfAdm($email, $senha) :bool{
 
         try {
-          $query = "SELECT idAdministrador, nome_Adm, senha_Adm FROM administradores WHERE nome_Adm = :nome  AND senha_Adm = :senha";
+          $query = "SELECT idAdministrador, email_Adm, senha_Adm FROM administradores WHERE email_Adm = :email  AND senha_Adm = :senha";
           $prepare = $this->conn->prepare($query);
-          $prepare->bindValue(":nome", $administrador->getNome());
-          $prepare->bindParam(":senha", $administrador->getSenha());
+          $prepare->bindValue(":email", $email);
+          $prepare->bindParam(":senha", $senha);
           $prepare->execute();
-        } catch (Exception $e) {
+          $result = $prepare->fetch();
+          if(!$result){ 
 
-            $e = "Erro! Senha ou nome incorretos";
-
-        }
-    
-          if($result = true){
-
-          session_start();
-          $_SESSION['Logado'] = true;
-          $_SESSION['adm'] = $result['idAdministrador']; // pode ser um else também
-
-            } if(!$result){ 
-
-                 print_r($e);
-
-              }
-
+          }else{      
+            session_start();
+            $_SESSION['Logado'] = true;
+            $_SESSION['Adm'] = $result['idAdministrador']; // pode ser um else também
+          } 
          return $result; // matheus login 
+         }  catch (Exception $e) {
+               $e = "Erro! Administrador não cadastrado no banco de dados";
+            }
 
-    }
+        
          
         }
 
+    }
 ?>

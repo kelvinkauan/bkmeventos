@@ -190,7 +190,7 @@
  
         }
 
-        private function login(){
+      /*  private function login(){
 
             $organizador = new OrganizadorRepository();
             if(isset($_POST['login'])){
@@ -207,7 +207,7 @@
 
             $this->loadView("login/login.php");
 
-        }
+        }*/
 
         private function voltar(string $msg = null){
 

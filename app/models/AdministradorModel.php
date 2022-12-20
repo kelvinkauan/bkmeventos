@@ -4,6 +4,7 @@ class AdministradorModel{
     private $id;
     private $nome;
     private $senha;
+    private $email;
 
     public function getId() : int {
 
@@ -33,6 +34,17 @@ class AdministradorModel{
 
         $this->senha_Adm = $senha;
     }
+
+    public function getEmail():string {
+
+        return $this->email_Adm;
+    }
+    public function setEmail(string $senha){
+
+        $this->email_Adm = $senha;
+    }
+
+
 }
 
 ?>

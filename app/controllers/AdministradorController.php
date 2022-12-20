@@ -55,6 +55,7 @@
 
             $administrador = new AdministradorModel();
             $administrador->setNome($_POST["nome"]);
+            $administrador->setEmail($_POST['email']);
             $administrador->setSenha($_POST["senha"]);
             $administradorRepository = new AdministradorRepository();
             $id = $administradorRepository->create($administrador);
@@ -74,7 +75,7 @@
             $administradores = $administradorRepository->findAll();
             $data['titulo'] = "administrador"; 
             $data['administradores'] = $administradores;
-            $this->loadView("administrador/administradorlist.php", $data, $msg);
+            $this->loadView("administrador/Admlist.php", $data, $msg);
 
         }
 
@@ -123,6 +124,7 @@
             $administrador = new AdministradorModel();
             $administrador->setId($_GET["id"]);
             $administrador->setNome($_POST["nome"]);
+            $administrador->setEmail($_POST['email']);
             $administrador->setSenha($_POST["senha"]);
             $administradorRepository = new AdministradorRepository();
             $att = $administradorRepository->update($administrador);
@@ -141,18 +143,35 @@
 
         }
 
-
-        // login abaixo e redirecionamento para atualizar ou excluir organizadores/eventos
         private function PaginaAdministrador(){
             
             session_start();
             $administrador = new AdministradorRepository();
             if($_SESSION["Logado"] == true){
-               $this->loadView("administrador/PaginaAdministrador.php"); // fazer view do adm
+                $this->loadView("administrador/Admlist.php");// fazer view do adm
             }else{
-                header("Location: ./AdministradorController.php?action=login");
+                header("Location: AdministradorController.php?action=login");
             }
         }
+
+     /*   private function login(){
+
+            $administrador = new AdministradorRepository();
+            if(isset($_POST['login'])){
+
+                $login = $administrador->loginOfAdm($_POST['email'], $_POST['senha']);
+
+            if($login){
+
+                header("location: ./AdministradorController.php?action=FindAll");
+
+             }
+
+            }
+
+            $this->loadView("login/login.php");
+
+        }*/
 
     }
     ?>

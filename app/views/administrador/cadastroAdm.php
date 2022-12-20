@@ -10,6 +10,7 @@
     
 <form action="./AdministradorController.php?action=create" method="POST">
  <input type="text" name="nome" placeholder="Nome" />
+ <input type="text" name="email" placeholder="email" />
  <input type="password" name="senha" placeholder="Senha"/>
  <button type="submit" value="Cadastrar">Cadastrar</button>
 </form>
