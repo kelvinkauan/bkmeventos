@@ -148,7 +148,6 @@ class ControllerEventos{
         $pesquisarRepository = new EventosRepository();
         $data=[];
         if(isset($_GET['buscar'])){
-
            $search = $pesquisarRepository->pesquisar($_GET['buscar']);
            $data['resultado'] = $search;
         }
