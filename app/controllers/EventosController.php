@@ -20,7 +20,7 @@ class ControllerEventos{
             $this->callAction($action);
         }else{
             $this->loadView("error/erro.php");
-            $msg = "<h2>Nenhuma ação a ser processada...<h2>";
+            $msg = "<h2>Nenhuma acao a ser processada...<h2>";
             print_r($msg);
         }
 
@@ -34,12 +34,9 @@ class ControllerEventos{
             $met = "preventDefault";
             $this->$met();
         } else {
-            $this->loadView("error/erro.php");
-            $bad = "<h2>Caso de uso não existe</h2>";
-            print $bad;
+            throw new BadFunctionCallException("Usecase not exists");
 
         }
-        
     }
 
     public function loadView(string $path, array $data = null, string $msg = null){
@@ -66,7 +63,7 @@ class ControllerEventos{
         $evento->setCEP($_POST["cep"]);
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
-        //var_dump($evento);
+        $evento -> setImagem($_FILES["upload"]);
         $eventoRepository = new EventosRepository();
         $id = $eventoRepository->create($evento);
         if($id){
@@ -95,7 +92,7 @@ class ControllerEventos{
 
     private function update(){
         
-        $evento = new EventosModel();
+        $evento = new EventosModel;
         $evento->setNome($_POST["nome"]);
         $evento->setData($_POST["dia"]);
         $evento->setHorarioI($_POST["inicio"]);
@@ -106,9 +103,12 @@ class ControllerEventos{
         $evento->setCEP($_POST["cep"]);
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
+        $evento->setImagem($_FILES["upload"]);
         $evento->setId($_GET["id"]);
+
         $eventosRepository = new EventosRepository();
         $att = $eventosRepository->update($evento);
+      
         if ($att){
             $msg= "Atualizado com sucesso";
         }else{
@@ -142,27 +142,22 @@ class ControllerEventos{
 
     }
 
+   
     private function search(){  
-        
-            if(isset($_GET['buscar'])){
-            $idParam = $_GET['buscar']; //"%".$_GET['buscar']."%";
-            $pesquisarRepository = new EventosRepository();
-            $search = $pesquisarRepository->pesquisar($idParam);
-            $Resultado['buscas'] = $search;
-            if(!isset($idParam)){
-                  header("Location: search.php");
-                  echo "Evento não encontrado";
-              }else if(isset($idParam)) {   
-                  if(count($Resultado)){
-                      $this->loadView("pesquisar/search.php" . $Resultado);
-                  } else{
-                      echo "Evento não cadastrado";
-                  }  
-                 }     
-                }
 
+        $pesquisarRepository = new EventosRepository();
+        $data=[];
+        if(isset($_GET['buscar'])){
+
+           $search = $pesquisarRepository->pesquisar($_GET['buscar']);
+           $data['resultado'] = $search;
         }
-       
+        $this->loadView("pesquisar/pesquisar.php", $data);
+      }
 
+         
+    }
+   
 
-}
+    
+

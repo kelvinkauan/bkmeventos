@@ -144,13 +144,13 @@ return $this;
 
 /*<!-- getters e setters do cep --> */
 
-public function getCep():string{
+public function getCEP():string{
 
 return $this->cep_evento;
 
 }
 
-public function setCep(string $CEP){
+public function setCEP(string $CEP){
 
 $this->cep_evento = $CEP;
 
@@ -189,21 +189,40 @@ public function setCidade(string $cidade){
     return $this;
 }
 
-/*<!-- getters e setters da imagens --> *//*
+/*<!-- getters e setters da imagens --> */
 
-public function getImagem():int{
 
-return $this->foto_evento;
 
+/**
+ * Get the value of imagem
+ */ 
+public function getImagem():string
+{
+return $this->imagem_evento;
 }
 
-public function setImagem(int $imagem){
+/**
+ * Set the value of imagem
+ *
+ * @return  self
+ */ 
+public function setImagem(array $imagem)
+{
 
-$this->foto_evento = $imagem;
+    $error = $imagem ['error'];
+    $uploads_dir = realpath(__DIR__.'/../upload');
+    if ($error == UPLOAD_ERR_OK) {
+        $tmp_name = $imagem ["tmp_name"];
+        // basename() may prevent filesystem traversal attacks;
+        // further validation/sanitation of the filename may be appropriate
+        $name = uniqid().basename($imagem["name"]);
+        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+
+    }
+$this->imagem_evento = $name;
 
 return $this;
-
-}*/
+}
 }
 
 ?>

@@ -14,11 +14,9 @@ class Connection {
         if(self::$conn == null) {
 
             try {
-                self::$conn = new PDO("mysql:host=" . self::$host . ";dbname=" . self::$dbname, 
-                self::$user, 
-                self::$password);
-
+                self::$conn = new PDO("mysql:host=" . self::$host . ";dbname=" . self::$dbname, self::$user, self::$password);
                 self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+              // print("Successfully connected to the data base: " . self::$dbname);
 
             } catch(Exception $e) {
                 print("Erro ao conectar com o banco de dados" . $e->getMessage());
