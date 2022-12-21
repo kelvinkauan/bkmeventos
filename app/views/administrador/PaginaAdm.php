@@ -8,9 +8,11 @@
 </head>
 <body>
     
-
 <h1>Págia do Administrador</h1>
+
    <a href="./AdministradorController.php?action=findAll">Meus dados</a>
+
+   <a href="./LadingController.php?action=loadForm">sair</a>
 
 </body>
 </html>
