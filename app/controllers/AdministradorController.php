@@ -148,7 +148,7 @@
             session_start();
             $administrador = new AdministradorRepository();
             if($_SESSION["Logado"] == true){
-                $this->loadView("administrador/Admlist.php");// fazer view do adm
+                $this->loadView("administrador/PaginaAdm.php");// fazer view do adm
             }else{
                 header("Location: AdministradorController.php?action=login");
             }
@@ -158,16 +158,14 @@
 
             $administrador = new AdministradorRepository();
             if(isset($_POST['login'])){
+
                 $login = $administrador->loginOfAdm($_POST['email'], $_POST['senha']);
 
             if($login){
 
-                header("location: ./AdministradorController.php?action=FindAll");
-
+                header("location: ./AdministradorController.php?action=findAll");
              }
-
             }
-
             $this->loadView("login/login.php");
 
         }*/

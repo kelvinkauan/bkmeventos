@@ -190,7 +190,7 @@
  
         }
 
-      /*  private function login(){
+    /*  private function login(){
 
             $organizador = new OrganizadorRepository();
             if(isset($_POST['login'])){

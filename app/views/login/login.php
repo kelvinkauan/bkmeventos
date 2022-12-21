@@ -25,7 +25,7 @@
   </form>
  </div>
  <div class="form-container sign-in-container">
-  <form action="./LadingController.php?action=login" method="POST"> <!-- ./OrganizadorController.php?action=login or ./AdministradorController.php?action=login -->  
+  <form action="./LadingController.php?action=login" method="POST"> <!-- ./OrganizadorController.php?action=login or ./AdministradorController.php?action=login  or ./LadingController.php?action=login-->  
    <h1>Faça Login</h1>
     <span> insira seus dados</span>
 	   <input type="email" name="email" placeholder="Email" />

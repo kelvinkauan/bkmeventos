@@ -18,7 +18,7 @@
 ?>
 <header>   
 
-    <h1> Página do administrador</h1>
+    <h1> Meus dados</h1>
 
 </header>
  <ul>

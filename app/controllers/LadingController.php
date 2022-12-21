@@ -74,9 +74,9 @@ class ControllerLanding{
 
             header("location: ./OrganizadorController.php?action=PaginaOrganizador");
 
-        }else if($loginAdm){
+        } else if($loginAdm){
             
-               header("location: ./AdministradorController.php?action=FindAll");
+               header("location: ./AdministradorController.php?action=PaginaAdministrador");
             }
           }
           $this->loadView("login/login.php");

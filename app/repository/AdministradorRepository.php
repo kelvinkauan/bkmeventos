@@ -72,7 +72,7 @@ class AdministradorRepository{
 
     }
 
-    public function loginOfAdm($email , $senha) :bool{
+    public function loginOfAdm($email, $senha){
 
         try {
           $query = "SELECT idAdministrador, email_Adm, senha_Adm FROM administradores WHERE email_Adm = :email  AND senha_Adm = :senha";
@@ -80,18 +80,19 @@ class AdministradorRepository{
           $prepare->bindValue(":email", $email);
           $prepare->bindValue(":senha", $senha);
           $prepare->execute();
+          $result = $prepare->fetch();
+          if(!$result){
+            echo "Erro! Senha ou nome incorretos";
+          }else{
+            session_start();
+            $_SESSION['Logado'] = true;
+            $_SESSION['Adm'] = $result['idAdministrador'];
+          }
+          return $result;
         } catch (Exception $e) {
-
             $e = "Erro! Senha ou nome incorretos";
         }
-          if($result = true){
-          session_start();
-          $_SESSION['Logado'] = true;
-          $_SESSION['adm'] = $result['idAdministrador'];
-          }if(!$result){
-          print_r($e);
-          }
-         return $result; // matheus login 
+
     }
  }
 
