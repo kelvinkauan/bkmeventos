@@ -18,7 +18,7 @@ class OrganizadorRepository{
     public function create(OrganizadorModel $organizador): int {
         
         try{
-            $query = "INSERT INTO organziador (nc_Organizador, email_Organizador, senha_Organizador) VALUES (:nome, :email, :senha)";
+            $query = "INSERT INTO organizador (nc_Organizador, email_Organizador, senha_Organizador) VALUES (:nome, :email, :senha)";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(":nome", $organizador->getNome());
             $prepare->bindValue(":email", $organizador->getEmail());
@@ -33,15 +33,15 @@ class OrganizadorRepository{
 
         public function findAll(): array {
 
-            $table = $this->conn->query("SELECT * FROM organziador"); 
-            $organziador  = $table->fetchAll(PDO::FETCH_ASSOC);
-            return $organziador;
+            $table = $this->conn->query("SELECT * FROM organizador"); 
+            $organizador  = $table->fetchAll(PDO::FETCH_ASSOC);
+            return $organizador;
 
         }
  
         public function findOrganizadorById(int $id) {
 
-            $query = "SELECT * FROM organziador WHERE idOrganizador = ?"; //idOrganizador
+            $query = "SELECT * FROM organizador WHERE idOrganizador = ?"; //idOrganizador
             $prepare = $this->conn->prepare($query);
             $prepare->bindParam(1, $id, PDO::PARAM_INT);
             if($prepare->execute()){
@@ -55,7 +55,7 @@ class OrganizadorRepository{
 
         public function update(OrganizadorModel $organizador) : bool {
 
-            $query = "UPDATE organziador SET nc_Organizador = ?, email_Organizador = ?, senha_Organizador = ? WHERE idOrganizador = ?";
+            $query = "UPDATE organizador SET nc_Organizador = ?, email_Organizador = ?, senha_Organizador = ? WHERE idOrganizador = ?";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(1, $organizador->getNome());
             $prepare->bindValue(2, $organizador->getEmail());
@@ -68,7 +68,7 @@ class OrganizadorRepository{
 
          public function deleteById(int $id) : int {
 
-            $query = "DELETE FROM organziador WHERE idOrganizador = :id";
+            $query = "DELETE FROM organizador WHERE idOrganizador = :id";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(":id", $id);
             $prepare->execute();
@@ -80,7 +80,7 @@ class OrganizadorRepository{
         public function loginOfOrg( $email, $senha){
 
             try{
-                $query = "SELECT idOrganizador, email_Organizador, senha_Organizador FROM organziador WHERE email_Organizador = :email AND senha_Organizador = :senha ";
+                $query = "SELECT idOrganizador, email_Organizador, senha_Organizador FROM organizador WHERE email_Organizador = :email AND senha_Organizador = :senha ";
                 $prepare = $this->conn->prepare($query);
                 $prepare->bindValue(":email", $email);
                 $prepare->bindValue(":senha", $senha);
