@@ -8,6 +8,8 @@
 </head>
 <body>
     <h1> BEM-VINDO </h1>
+
+    <a href="./OrganizadorController.php?action=edit"> Editar dados </a>
     <a href="./OrganizadorController.php?action=login">sair</a>
     <a href="./EventosController.php?action=loadForm">Cadastrar evento</a>
 </body>

@@ -143,6 +143,8 @@
 
 
         // login abaixo e redirecionamento para atualizar ou excluir organizadores/eventos
+
+        
         private function PaginaAdministrador(){
             
             session_start();
