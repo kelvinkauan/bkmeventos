@@ -22,7 +22,7 @@ header{
 
 li{
     
-    display: inline-block;
+    display: inline;
     margin: 20px;
 
 }
@@ -48,9 +48,8 @@ main{
 }
 
 h2{
-    font-size: 56px;
-    line-height: 40px;
-    ;
+    font-size: 10px;
+    line-height: 30px;
     font-family: poppinsmedium;
 }
 
