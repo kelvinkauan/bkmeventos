@@ -160,11 +160,4 @@ class ControllerAdministrador
             header("Location: AdministradorController.php?action=login");
         }
     }
-
-    // private function findOrg(string $msg = null)
-    // {
-    //     $listaDeOrganizadores = new AdministradorRepository();
-
-    //     $this->loadView("administrador/PaginaAdm.php", $data, $msg);
-    // }
 }
