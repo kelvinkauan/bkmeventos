@@ -147,7 +147,7 @@ class ControllerAdministrador
         print("<h2>Ação indefinida...<h2>");
     }
 
-    private function PaginaAdministrador()
+    private function PaginaAdministrador(string $msg = null)
     {
 
         session_start();
@@ -155,7 +155,13 @@ class ControllerAdministrador
             $listaDeOrg = new AdministradorRepository();
             $ListaOrg = $listaDeOrg->findOrg();
             $data['organizadores'] = $ListaOrg;
-            $this->loadView("administrador/PaginaAdm.php", $data);
+
+            /*-----------------------------------------*/
+
+            $listaDeEvents = new AdministradorRepository();
+            $listOfEvents = $listaDeEvents->findEvents();
+            $data['eventos'] = $listOfEvents;
+            $this->loadView("administrador/PaginaAdm.php", $data, $msg);
         } else {
             header("Location: AdministradorController.php?action=login");
         }

@@ -44,8 +44,9 @@
 
 
     <div class="container">
+        <h4>Organizadores Cadastrados</h4>
         <div class="my-data">
-            <h4>Organizadores Cadastrados:</h4>
+
             <ul>
                 <?php if (isset($data['organizadores'])) {
                     foreach ($data['organizadores'] as $org) : ?>
@@ -59,8 +60,33 @@
                         </li>
                 <?php endforeach;
                 } ?>
+
             </ul>
         </div>
+    </div>
+    <div class="container">
+        <h4>Eventos Cadastrados</h4>
+        <div class="events-data">
+            <ul>
+                <?php foreach ($data['eventos'] as $cd) : ?>
+                    <li>
+                        <?= $cd['idCadastrar'] ?> -
+                        <?= $cd['nome_evento'] ?> -
+                        <?= $cd['data_evento'] ?> -
+                        <?= $cd['endereco_bairro'] ?> -
+                        <?= $cd['cidade_evento'] ?> -
+                        <?= $cd['cep_evento'] ?> -
+                        <?= $cd['descricao_evento'] ?> -
+                        [<a href="./EventosController.php?action=edit&id=<?= $cd['idCadastrar'] ?>">Editar</a>]
+                        [<a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd['idCadastrar'] ?>)"> Excluir </a>]
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+
+
+
+        </div>
+
     </div>
 </body>
 

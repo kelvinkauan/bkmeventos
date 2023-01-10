@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>cadastrar evento</title>
 
@@ -8,18 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
     <script src="../views/helpers/excluirevento.js" type="text/javascript"></script>
-    
+
 </head>
+
 <body>
-<?php
+    <?php
 
-	include_once __DIR__ . "/../helpers/mensagem.php";
+    include_once __DIR__ . "/../helpers/mensagem.php";
 
-?>
+    ?>
 
     <h1>Eventos</h1>
     <ul>
-        <?php foreach($data['cadastrar_evento'] as $cd): ?>
+        <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
             <li>
                 <?= $cd['idCadastrar'] ?> -
                 <br>
@@ -44,10 +46,11 @@
                 <?= $cd['descricao_evento'] ?> -
 
                 [<a href="./EventosController.php?action=edit&id=<?= $cd['idCadastrar'] ?>">Editar</a>]
-                [<a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd ['idCadastrar'] ?>)"> Excluir </a>]
+                [<a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd['idCadastrar'] ?>)"> Excluir </a>]
             </li>
         <?php endforeach; ?>
     </ul>
     <p>
-    [ <a href="./EventosController.php?action=loadForm">Cadastrar novo</a> ]  <!-- colocar no view principal -->
+        [ <a href="./EventosController.php?action=loadForm">Cadastrar novo</a> ] <!-- colocar no view principal -->
+
 </html>
