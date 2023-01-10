@@ -36,6 +36,13 @@
         <h2>Págia do Administrador</h2>
     </header>
 
+    <?php
+
+    include_once __DIR__ . "/../helpers/mensagem.php";
+
+    ?>
+
+
     <div class="container">
         <div class="my-data">
             <h4>Organizadores Cadastrados:</h4>
@@ -43,7 +50,7 @@
                 <?php if (isset($data['organizadores'])) {
                     foreach ($data['organizadores'] as $org) : ?>
                         <li>
-                            <? echo $org['idOrganizador']; ?> -
+                            <?= $org['idOrganizador'] ?> -
                             <?= $org['nc_Organizador'] ?> -
                             <?= $org['email_Organizador'] ?> -
                             <?= $org['senha_Organizador'] ?> -

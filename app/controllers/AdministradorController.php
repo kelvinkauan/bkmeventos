@@ -151,25 +151,20 @@ class ControllerAdministrador
     {
 
         session_start();
-        $administrador = new AdministradorRepository();
         if ($_SESSION["Logado"] == true) {
-            $listaDeOrganizadores = new AdministradorRepository();
-            $organizadores = $listaDeOrganizadores->findAllorg();
-            $data['titulo'] = "organizadores";
-            $data['organizadores'] = $organizadores;
-            $this->loadView("administrador/PaginaAdm.php"); // fazer view do adm
+            $listaDeOrg = new AdministradorRepository();
+            $ListaOrg = $listaDeOrg->findOrg();
+            $data['organizadores'] = $ListaOrg;
+            $this->loadView("administrador/PaginaAdm.php", $data);
         } else {
             header("Location: AdministradorController.php?action=login");
         }
     }
 
-    // private function findAllorg(string $msg = null)
+    // private function findOrg(string $msg = null)
     // {
-
     //     $listaDeOrganizadores = new AdministradorRepository();
-    //     $organizadores = $listaDeOrganizadores->findAllorg();
-    //     $data['titulo'] = "organizadores";
-    //     $data['organizadores'] = $organizadores;
+
     //     $this->loadView("administrador/PaginaAdm.php", $data, $msg);
     // }
 }
