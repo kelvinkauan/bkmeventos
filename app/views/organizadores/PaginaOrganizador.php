@@ -11,32 +11,40 @@
     <title>Página Organizador</title>
 </head>
 <body>
+
 <header>
         <div id="title">
             <h1> BKM </h1>
             <h1> EVENTOS </h1>
         </div>
+
+
+        <h2> BEM-VINDO </h2>
+
+
         <ul>
             <a href="./LadingController.php?action=LoadForm">
-                <li>  Início  </li>
+                <li>Início</li>
             </a>
-
             <a href="./OrganizadorController.php?action=findAll">
-                <li> Editar dados </li>
+                <li>Editar dados</li>
             </a>
             <a href="./EventosController.php?action=loadForm">
-            <li> Cadastrar evento </li>
+            <li>Cadastrar evento</li>
             </a>
             <a href="./OrganizadorController.php?action=login">
-            <li> sair </li>
+            <li>sair</li>
             </a>
-        
-
 
         </ul>
 </header>
 
-    <h2> BEM-VINDO </h2>
+
+<p class="dados"> seus dados</p>
+        
+
+
+    
 
    
 </body>

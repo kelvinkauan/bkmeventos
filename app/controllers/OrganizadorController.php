@@ -156,6 +156,8 @@
             }else{
                 header("Location: ./OrganizadorController.php?action=login");
             }
+
+            
  
         }
 
@@ -180,6 +182,8 @@
             $data['organizadores'] = $organizadores;
             $this->loadView("organizadores/list.php", $data, $msg );
         }
+
+    
 
     }
 ?>
