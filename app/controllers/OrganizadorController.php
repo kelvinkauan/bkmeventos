@@ -70,9 +70,10 @@ class ControllerOrganizador
         $organizadorRepository = new OrganizadorRepository();
         $id = $organizadorRepository->create($organizador);
         if ($id) {
-
             $msg = "Registro inserido com sucesso.";
             //$this->loadView("organizadores/PaginaOrganizador.php");
+            // } else if ($id == $organizador) {
+            //     $msg = "Usuário já cadastrado!";
         } else {
 
             $msg = "Erro ao inserir o registro no banco de dados."; // criar uma view para isso
@@ -83,7 +84,7 @@ class ControllerOrganizador
     }
 
     private function loadForm()
-    { //loadFormNew
+    {
 
         $this->loadView("login/login.php", null, "teste");
     }
@@ -95,9 +96,8 @@ class ControllerOrganizador
         $organizadores = $organizadorRepository->findAll();
         $data['titulo'] = "listar organizadores"; // ver sobre isso
         $data['organizadores'] = $organizadores;
-        $this->loadView("organizadores/PaginaOrganizador.php");
-        //$this->loadView("organizadores/list.php", $data, $msg);
-
+        // $this->loadView("organizadores/PaginaOrganizador.php", $data);
+        $this->loadView("organizadores/list.php", $data, $msg);
     }
 
     private function findOrganizadorById()

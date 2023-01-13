@@ -65,7 +65,7 @@ class AdministradorRepository
     public function findAdministradorById(int $id)
     {
 
-        $query = "SELECT * FROM administrador WHERE  idAdministrador = ?";
+        $query = "SELECT * FROM administrador WHERE idAdministrador = ?";
         $prepare = $this->conn->prepare($query);
         $prepare->bindParam(1, $id, PDO::PARAM_INT);
         if ($prepare->execute()) {

@@ -3,7 +3,7 @@
 body {
    background-color: #f6f5f7;
    color: black;
-    font-family: poppinssemibold;
+    font-family: 'poppinssemibold';
 
 }
 
@@ -13,6 +13,7 @@ h1 {
     margin-block-start: 0.30em; 
     font-weight: bold;
 }
+
 .log-out{
     display: flex;
     justify-content: flex-end;
@@ -35,8 +36,11 @@ a:-webkit-any-link {
 }
 
 header{
-    margin: 5em;
+    margin: 5.1em;
+}
 
+h2{
+    font-size: 50px;
 }
 
 .container{
@@ -45,8 +49,8 @@ header{
     border: 2px solid #6F3Df4;
     border-radius: 10px;
     padding: 15px;
-    width: 120vh;
-    height: 10cm;
+    width: auto;
+    height: auto;
     margin: auto;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     margin-bottom: 5vh;
@@ -60,6 +64,8 @@ header{
 h4{
     margin-top: 1rem;
     margin-left: 30px;
+    font-size: 1.9em;
+    height: 35px;
 }
 
 ul{
@@ -81,12 +87,47 @@ ul{
     margin-bottom: 4rem;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
-}    */
+}     */
 
 .events-data{
     width: 80vh;
     padding-top: 4rem;
 
+}
+
+.org{
+    font-family: 'Montserrat';
+    font-size: 15px;
+    margin: auto;
+    margin-left: -320px;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 180%;
+   
+}
+
+.org td, th{
+    border: 1.4px solid  #03000a;
+    padding: 8px;
+}
+
+.org tr:nth-child(even){
+   
+    background-color: #6e3df42f;
+}
+
+.org tr:hover {
+    background-color: #6F3Df4;
+    color: #FFFFFF;
+}
+
+.org th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #6F3Df4;
+    color: #FFFFFF;
+    text-align: center;
+    
 }
 
 
