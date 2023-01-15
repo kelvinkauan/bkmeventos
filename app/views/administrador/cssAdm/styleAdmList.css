@@ -1,0 +1,36 @@
+@CHARSET "utf-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+
+    background-color: beige;
+}
+
+header {
+    background-color: gray;
+    min-height: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+header>h1 {
+    color: Gainsboro;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 3px 3px 10px black;
+}
+
+.editar {
+    padding: 10 px;
+    align-items: left;
+    color: black;
+
+}
+
+.excluir {
+
+    padding: 10px;
+}

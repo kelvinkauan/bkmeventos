@@ -147,19 +147,20 @@
         }
 
 
-        private function PaginaOrganizador(){
+        private function PaginaOrganizador(string $msg = null){
 
             session_start();
-            $organizador = new OrganizadorRepository();
             if($_SESSION ["Logado"] == true){
-                $this->loadView("organizadores/PaginaOrganizador.php");
-            }else{
-                header("Location: ./OrganizadorController.php?action=login");
-            }
+                $dadosOrg = new OrganizadorRepository();
+                $organizador= $dadosOrg->findOrgById();
+                $data['organizadores'] = $organizador;
 
-            
- 
+                $this->loadView("organizadores/PaginaOrganizador.php", $data, $msg);
+            } else {
+                header("Location: OrganizadorController.php?action=login");
+            }
         }
+    
 
         private function login(){
 

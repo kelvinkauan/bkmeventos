@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../stylePaginaOrganizador/styles/style.css" rel="stylesheet">
-    <link href="../stylePaginaOrganizador/styles/fonts.css" rel="stylesheet">
+    <link href="../views/stylePaginaOrganizador/styles/style.css" rel="stylesheet">
+    <link href="../views/stylePaginaOrganizador/styles/fonts.css" rel="stylesheet">
    <!-- <link href="../views/landingPage/styles/media.css" rel="stylesheet">-->
    
     <title>Página Organizador</title>
@@ -19,7 +19,13 @@
         </div>
 
 
-        <h2> BEM-VINDO </h2>
+        <h2> BEM-VINDO    </h2> 
+        <?php     
+        if (isset($data['organizadores'])) {
+         $org = $data['organizadores'];
+         $org['nc_Organizador'] ;
+        }
+          ?>
 
 
         <ul>
@@ -41,10 +47,29 @@
 
 
 <p class="dados"> seus dados</p>
+     <div>   
+    <ul>
+    <?php 
+    if (isset($data['organizadores'])) {
         
+                    $org = $data['organizadores'];
 
 
-    
+                    ?>
+                       <li>
+                            <?=$org['idOrganizador'] ?> -
+                            <?= $org['nc_Organizador'] ?> -
+                            <?= $org['email_Organizador'] ?> -
+                            <?= $org['senha_Organizador'] ?> -
+                            [ <a href="./OrganizadorController.php?action=edit&id=<?= $org['idOrganizador'] ?>">Editar</a> ]
+                            [ <a href="javascript:confirmarExclusaoOrganizador('<?= $org['nc_Organizador'] ?>', <?= $org['idOrganizador'] ?>)">Excluir</a> ]
+                        
+                        </li> 
+              <?php 
+               }?>
+    </ul>
+
+    </div>
 
    
 </body>

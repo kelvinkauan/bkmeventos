@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+   background-color: #f6f5f7;
+   color: black;
+    font-family: poppinssemibold;
+
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.30em; 
+    font-weight: bold;
+}
+.log-out{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    margin-top: -90px;
+    margin-right: 1.2em; 
+
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+#Cadastre-se-btn {
+    border: 2px solid #6F3Df4;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+header{
+    margin: 5em;
+
+}
+
+.container{
+    display: flex;
+    background-color: #FFFFFF;
+    border: 2px solid #6F3Df4;
+    border-radius: 10px;
+    padding: 15px;
+    width: 120vh;
+    height: 10cm;
+    margin: auto;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    margin-bottom: 5vh;
+} 
+
+.my-data{
+    width: 60vh;
+    padding-top: 4rem;
+}
+
+h4{
+    margin-top: 1rem;
+    margin-left: 30px;
+}
+
+ul{
+    display: inline-flexbox;
+    align-items: center;
+
+}
+
+
+/* .container_events{
+    display: flex;
+    background-color: #FFFFFF;
+    border: 2px solid #6F3Df4;
+    border-radius: 10px;
+    padding: 15px;
+    width: 120vh;
+    height: 10cm;
+    margin: auto;
+    margin-bottom: 4rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+}    */
+
+.events-data{
+    width: 80vh;
+    padding-top: 4rem;
+
+}
+
+
+
+
+    
+
+
+

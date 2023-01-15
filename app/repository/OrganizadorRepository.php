@@ -146,8 +146,24 @@ class OrganizadorRepository{
         
 
          }
-    
 
+ 
+        public function findOrgById():array {
+            
+            $query = "SELECT idOrganizador, nc_Organizador, email_Organizador, senha_Organizador FROM organizadores WHERE idOrganizador = :id LIMIT 1";
+            $prepare = $this->conn->prepare($query);
+            $prepare->bindParam(":id",  $_SESSION['Org'], PDO::PARAM_INT );
+            $prepare->execute();
+          
+            if(($prepare) and ($prepare->rowCount() !=0)){
+                $row = $prepare ->fetch(PDO::FETCH_ASSOC);
+                
+                // echo "id".$row["idOrganizador"]; 
+                // echo "nome".$row["nc_Organizador"];
+                // echo "email".$row["email_Organizador"];
+                // echo "senha".$row["senha_Organizador"];    
+        return $row;
+            }       
     }
-        
+}      
 ?>

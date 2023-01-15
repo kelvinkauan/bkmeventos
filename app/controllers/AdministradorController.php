@@ -145,14 +145,23 @@
         // login abaixo e redirecionamento para atualizar ou excluir organizadores/eventos
 
         
-        private function PaginaAdministrador(){
-            
+        private function PaginaAdministrador(string $msg = null)
+        {
+    
             session_start();
-            $administrador = new AdministradorRepository();
-            if($_SESSION["Logado"] == true){
-               $this->loadView("administrador/PaginaAdministrador.php"); // fazer view do adm
-            }else{
-                header("Location: ./AdministradorController.php?action=login");
+            if ($_SESSION["Logado"] == true) {
+                $listaDeOrg = new AdministradorRepository();
+                $ListaOrg = $listaDeOrg->findOrg();
+                $data['organizadores'] = $ListaOrg;
+    
+                /*-----------------------------------------*/
+    
+                $listaDeEvents = new AdministradorRepository();
+                $listOfEvents = $listaDeEvents->findEvents();
+                $data['eventos'] = $listOfEvents;
+                $this->loadView("administrador/PaginaAdm.php", $data, $msg);
+            } else {
+                header("Location: AdministradorController.php?action=login");
             }
         }
 

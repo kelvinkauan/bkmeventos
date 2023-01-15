@@ -93,6 +93,28 @@ class AdministradorRepository{
     }
          
 
+
+
+    public function findOrg(): array
+    {
+
+        $table = $this->conn->query("SELECT * FROM organizador");
+        $organizador = $table->fetchAll(PDO::FETCH_ASSOC);
+        return $organizador;
+    }
+
+
+    public function findEvents(): array
+    {
+
+        $table = $this->conn->query("SELECT * FROM cadastrar_evento");
+        $evento = $table->fetchAll(PDO::FETCH_ASSOC);
+        return $evento;
+    }
+
+
+
+
         }
 
 ?>
