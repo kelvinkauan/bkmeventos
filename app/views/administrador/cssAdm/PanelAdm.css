@@ -107,8 +107,12 @@ ul{
     background-color: #6e3df42f;
 }
 
-.org tr:hover {
+.org tr:hover{
     background-color: #6F3Df4;
+    color: #FFFFFF;
+}
+
+.org svg:hover{
     color: #FFFFFF;
 }
 
@@ -128,7 +132,7 @@ ul{
     margin-left: -250px;
     margin-right: auto;
     border-collapse: collapse;
-    width: 180%;
+    width: 182%;
 
 }
 
@@ -145,6 +149,10 @@ ul{
 
 .event tr:hover {
     background-color: #6F3Df4;
+    color: #FFFFFF;
+}
+
+.event svg:hover{
     color: #FFFFFF;
 }
 
