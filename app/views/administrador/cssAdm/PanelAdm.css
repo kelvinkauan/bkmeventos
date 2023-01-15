@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 body {
-   background-color: #f6f5f7;
-   color: black;
+    background-color: #f6f5f7;
+    color: black;
     font-family: 'poppinssemibold';
 
 }
@@ -10,18 +10,19 @@ body {
 h1 {
     display: block;
     font-size: 2em;
-    margin-block-start: 0.30em; 
+    margin-block-start: 0.30em;
     font-weight: bold;
 }
 
-.log-out{
+.log-out {
     display: flex;
     justify-content: flex-end;
     font-size: 20px;
     margin-top: -90px;
-    margin-right: 1.2em; 
+    margin-right: 1.2em;
 
 }
+
 a:-webkit-any-link {
     color: -webkit-link;
     cursor: pointer;
@@ -35,15 +36,15 @@ a:-webkit-any-link {
     border-radius: 15px;
 }
 
-header{
+header {
     margin: 5.1em;
 }
 
-h2{
+h2 {
     font-size: 50px;
 }
 
-.container{
+.container {
     display: flex;
     background-color: #FFFFFF;
     border: 2px solid #6F3Df4;
@@ -54,37 +55,37 @@ h2{
     margin: auto;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     margin-bottom: 5vh;
-} 
+}
 
-.my-data{
-    
+.my-data {
+
     width: 60vh;
     padding-top: 5rem;
     padding-bottom: 2rem;
 }
 
-h4{
+h4 {
     margin-top: 1rem;
     margin-left: 30px;
     font-size: 1.9em;
     height: 35px;
 }
 
-ul{
+ul {
     display: inline-flexbox;
     align-items: center;
 
 }
 
 
-.events-data{
+.events-data {
     width: 60vh;
     padding-top: 5rem;
     padding-bottom: 2rem;
 }
 
 
-.org{
+.org {
     font-family: 'Montserrat';
     font-size: 15px;
     margin: auto;
@@ -92,40 +93,41 @@ ul{
     margin-right: auto;
     border-collapse: collapse;
     width: 180%;
-    
-   
+
+
 }
 
-.org td, th{
-    
-    border: 1.4px solid  #03000a;
+.org td,
+th {
+
+    border: 1.4px solid #03000a;
     padding: 8px;
 }
 
-.org tr:nth-child(even){
-   
+.org tr:nth-child(even) {
+
     background-color: #6e3df42f;
 }
 
-.org tr:hover{
+.org tr:hover {
     background-color: #6F3Df4;
     color: #FFFFFF;
 }
 
-.org svg:hover{
+.org svg:hover {
     color: #FFFFFF;
 }
 
-.org th{
+.org th {
     padding-top: 12px;
     padding-bottom: 12px;
     background-color: #6F3Df4;
     color: #FFFFFF;
     text-align: center;
-    
+
 }
 
-.event{
+.event {
     font-family: 'Montserrat';
     font-size: 15px;
     margin: auto;
@@ -136,14 +138,15 @@ ul{
 
 }
 
-.event td, th{
-    
-    border: 1.4px solid  #03000a;
+.event td,
+th {
+
+    border: 1.4px solid #03000a;
     padding: 8px;
 }
 
-.event tr:nth-child(even){
-   
+.event tr:nth-child(even) {
+
     background-color: #6e3df42f;
 }
 
@@ -152,27 +155,15 @@ ul{
     color: #FFFFFF;
 }
 
-.event svg:hover{
+.event svg:hover {
     color: #FFFFFF;
 }
 
-.event th{
+.event th {
     padding-top: 12px;
     padding-bottom: 12px;
     background-color: #6F3Df4;
     color: #FFFFFF;
     text-align: center;
-    
+
 }
-
-
-
-
-
-
-
-    
-
-
-
-

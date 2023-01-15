@@ -54,7 +54,7 @@ button {
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
-    border-color: red;
+    border-color: #6F3Df4;
 }
 
 button:active {
@@ -67,7 +67,7 @@ button:focus {
 
 button.ghost {
     background-color: transparent;
-    border-color: red;
+    border-color:#6F3Df4;
 }
 
 form {
@@ -219,7 +219,7 @@ input {
 }
 
 .social-container a {
-    border: 1px solid red;
+    border: 1px solid #6F3Df4;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;

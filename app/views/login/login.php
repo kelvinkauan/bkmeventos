@@ -29,8 +29,8 @@
         <!-- ./OrganizadorController.php?action=login or ./AdministradorController.php?action=login  or ./LadingController.php?action=login-->
         <h1>Faça Login</h1>
         <span> insira seus dados</span>
-        <input type="email" name="email" placeholder="Email" />
-        <input type="password" name="senha" placeholder="Senha" />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="senha" placeholder="Senha" required />
         <a href="#">Esqueceu sua senha?</a>
         <button type="submit" value="login">Entrar</button>
         <input value="1" name="login" type="hidden">
