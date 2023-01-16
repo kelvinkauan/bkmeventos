@@ -163,6 +163,7 @@ class ControllerAdministrador
             $listOfEvents = $listaDeEvents->findEvents();
             $data['eventos'] = $listOfEvents;
 
+
             $this->loadView("administrador/PaginaAdm.php", $data, $msg);
         } else {
             header("Location: AdministradorController.php?action=login");

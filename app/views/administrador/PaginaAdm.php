@@ -23,7 +23,8 @@
         </div>
 
         <h2> BEM-VINDO,</h2>
-        <!-- <h6>Adm</h6> -->
+
+
         <ul>
             <a href="./LadingController.php?action=LoadForm">
                 <li>Início</li>
