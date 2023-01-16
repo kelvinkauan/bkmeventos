@@ -79,6 +79,7 @@ class ControllerAdministrador
         $data['titulo'] = "administrador";
         $data['administradores'] = $administradores;
         $this->loadView("administrador/Admlist.php", $data, $msg);
+        $this->loadView("administrador/PaginaAdm.php", $data);
     }
 
     private function loadForm()
@@ -161,6 +162,7 @@ class ControllerAdministrador
             $listaDeEvents = new AdministradorRepository();
             $listOfEvents = $listaDeEvents->findEvents();
             $data['eventos'] = $listOfEvents;
+
             $this->loadView("administrador/PaginaAdm.php", $data, $msg);
         } else {
             header("Location: AdministradorController.php?action=login");

@@ -54,5 +54,6 @@
     </ul>
     <p>
         [ <a href="./EventosController.php?action=loadForm">Cadastrar novo</a> ] <!-- colocar no view principal -->
+        <a href="./LadingController.php?action=loadForm">sair</a>
 
 </html>

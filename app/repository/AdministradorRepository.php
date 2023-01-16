@@ -80,7 +80,7 @@ class AdministradorRepository
     {
 
         try {
-            $query = "SELECT idAdministrador, email_Adm, senha_Adm FROM administrador WHERE email_Adm = :email  AND senha_Adm = :senha";
+            $query = "SELECT idAdministrador, nome_Adm, email_Adm, senha_Adm FROM administrador WHERE email_Adm = :email  AND senha_Adm = :senha";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(":email", $email);
             $prepare->bindValue(":senha", $senha);

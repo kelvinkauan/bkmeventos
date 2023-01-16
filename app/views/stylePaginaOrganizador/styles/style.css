@@ -1,0 +1,63 @@
+body{
+    background-color: #F5f5f5;
+    color: black;
+    font-family: poppinssemibold;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title{
+    flex-direction: column;
+    line-height: 10px;
+
+}
+
+li{
+    
+    display: inline-block;
+    margin: 20px;
+    
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+   color:  #6F3Df4; 
+   transition: 0.3s all;
+}
+
+h1{
+    font-weight: 200px;
+}
+
+
+h2{
+    font-size: 25px;
+    line-height: 30px;
+    font-family: poppinsmedium;
+    text-align: center;
+
+}
+
+
+.dados{
+    text-align: center;
+    border: solid; 
+    border-color: #6F3Df4;
+    border-radius: 20%;
+    border-width: 2px;
+
+}
+
+
+

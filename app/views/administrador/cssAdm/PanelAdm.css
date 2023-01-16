@@ -7,11 +7,59 @@ body {
 
 }
 
+p{
+    margin: 35px;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    max-width: 1200px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+#title{
+    flex-direction: column;
+    line-height: 10px;
+
+}
+
+li{
+    display: inline-block;
+    margin: 20px;
+    
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    color:  #6F3Df4; 
+    transition: 0.3s all;
+ }
+
+.dados{
+    text-align: center;
+    border: solid; 
+    border-color: #6F3Df4;
+    border-radius: 20px;
+    border-width: 1.5px;
+}
+
 h1 {
     display: block;
     font-size: 2em;
     margin-block-start: 0.30em;
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-weight: 200px;
+    flex-direction: column;
+    line-height: 20px;
 }
 
 .log-out {
@@ -21,12 +69,6 @@ h1 {
     margin-top: -90px;
     margin-right: 1.2em;
 
-}
-
-a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
 }
 
 
@@ -40,8 +82,17 @@ header {
     margin: 5.1em;
 }
 
-h2 {
+
+h3{
     font-size: 50px;
+}
+h2 {
+    /* font-size: 50px; */
+    font-size: 25px;
+    line-height: 30px;
+    font-family: poppinsmedium;
+    font-weight: bold;
+    /* text-align: center; */
 }
 
 .container {
@@ -60,6 +111,7 @@ h2 {
 .my-data {
 
     width: 60vh;
+    margin-left: -100px;
     padding-top: 5rem;
     padding-bottom: 2rem;
 }
@@ -80,6 +132,8 @@ ul {
 
 .events-data {
     width: 60vh;
+    /* padding-right: 20px; */
+    margin-left: -70px;
     padding-top: 5rem;
     padding-bottom: 2rem;
 }
@@ -97,15 +151,12 @@ ul {
 
 }
 
-.org td,
-th {
-
+.org td, th {
     border: 1.4px solid #03000a;
     padding: 8px;
 }
 
 .org tr:nth-child(even) {
-
     background-color: #6e3df42f;
 }
 
@@ -138,15 +189,12 @@ th {
 
 }
 
-.event td,
-th {
-
+.event td, th {
     border: 1.4px solid #03000a;
     padding: 8px;
 }
 
 .event tr:nth-child(even) {
-
     background-color: #6e3df42f;
 }
 
