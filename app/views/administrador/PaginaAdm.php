@@ -22,7 +22,7 @@
             <h1> EVENTOS </h1>
         </div>
 
-        <h2> BEM-VINDO,</h2>
+        <h2> BEM-VINDO!</h2>
 
 
         <ul>
