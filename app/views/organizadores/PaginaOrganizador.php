@@ -20,12 +20,9 @@
 
 
         <h2> BEM-VINDO    </h2> 
-        <?php     
-        if (isset($data['organizadores'])) {
-         $org = $data['organizadores'];
-         $org['nc_Organizador'] ;
-        }
-          ?>
+
+
+
 
 
         <ul>
@@ -47,7 +44,7 @@
 
 
 <p class="dados"> seus dados</p>
-     <div>   
+     <div align="center">   
     <ul>
     <?php 
     if (isset($data['organizadores'])) {
@@ -57,10 +54,10 @@
 
                     ?>
                        <li>
-                            <?=$org['idOrganizador'] ?> -
-                            <?= $org['nc_Organizador'] ?> -
-                            <?= $org['email_Organizador'] ?> -
-                            <?= $org['senha_Organizador'] ?> -
+                           id: <?=$org['idOrganizador'] ?> <br> <br>
+                           nome: <?= $org['nc_Organizador'] ?> <br> <br>
+                           E-mail: <?= $org['email_Organizador'] ?> <br> <br>
+                           Senha:  <?= $org['senha_Organizador'] ?> <br> <br>
                             [ <a href="./OrganizadorController.php?action=edit&id=<?= $org['idOrganizador'] ?>">Editar</a> ]
                             [ <a href="javascript:confirmarExclusaoOrganizador('<?= $org['nc_Organizador'] ?>', <?= $org['idOrganizador'] ?>)">Excluir</a> ]
                         
