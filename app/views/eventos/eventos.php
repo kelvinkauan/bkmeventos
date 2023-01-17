@@ -98,18 +98,14 @@
                <input type="text" name="descricao" id="iddesc" placeholder="Descreva aqui seu evento, cronograma, atrações, etc." class="desc" required>
             </div>
 
-            <!-- <div class="input-box">
-               <label for="idig">Tipo de Ingresso:</label>
-               <input type="url" name="ingresso" id="idig" placeholder="tipo de ingresso" required>
-            </div> -->
-
+            <fieldset>
+               <legend>O evento é gratuíto? Caso Não coloque URL dos ingressos abaixo, caso sim informe que o evento é gratuito!</legend>
+               <div class="input-box">
+                  <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" required>
+               </div>
+            </fieldset>
             <div class="select-box">
-               <label for="idin">tipo de Ingresso - O evento é pago?</label>
-               <select name="ingresso" id="idin">
-                  <option value="">Escolha o tipo ingresso</option>
-                  <option value="Sim">Sim</option>
-                  <option value="Não">Não</option>
-               </select>
+
             </div>
 
             <div class="save-button">
