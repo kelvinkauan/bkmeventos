@@ -15,6 +15,7 @@ class EventosModel
     private $CEP;
     private $descricao;
     private $imagem;
+    private $ingresso;
 
     /*<!-- getters e setters do id--> */
 
@@ -222,6 +223,18 @@ class EventosModel
             move_uploaded_file($tmp_name, "$uploads_dir/$name");
         }
         $this->imagem_evento = $name;
+
+        return $this;
+    }
+
+    public function getIngresso()
+    {
+        return $this->ingresso;
+    }
+
+    public function setIngresso($ingresso)
+    {
+        $this->ingresso = $ingresso;
 
         return $this;
     }

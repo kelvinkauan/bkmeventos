@@ -245,7 +245,7 @@ a:hover{
     stroke:#6b63fff1;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: draw 10s;
+    animation: draw 5s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
@@ -291,7 +291,7 @@ a:hover{
     fill-opacity: 0;
     fill:#b6b9ba;
     animation: show 2s;
-    animation-delay: 3s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-timing-function: linear;

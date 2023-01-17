@@ -67,6 +67,11 @@ class ControllerEventos
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
         $evento->setImagem($_FILES["upload"]);
+        if (isset($_POST['ingresso']) == "Sim") {
+            $evento->setIngresso($_POST["ingresso"]);
+        } else {
+            echo "Evento Gratuito";
+        }
         $eventoRepository = new EventosRepository();
         $id = $eventoRepository->create($evento);
         if ($id) {
