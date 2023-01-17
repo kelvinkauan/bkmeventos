@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../views/stylePaginaOrganizador/styles/style.css" rel="stylesheet">
     <link href="../views/stylePaginaOrganizador/styles/fonts.css" rel="stylesheet">
-    
+    <script src="../views/helpers/excluirevento.js" type="text/javascript"></script>
+    <script src="../views/helpers/funcoescrud.js" type="text/javascript"></script>
+
    <!-- <link href="../views/landingPage/styles/media.css" rel="stylesheet">-->
    
     <title>Página Organizador</title>
@@ -88,6 +90,7 @@
                                    <?=  $event ['cidade_evento']?>
                                    <?=  $event ['cep_evento']?>
                                    <?=  $event ['descricao_evento']?>
+                                   <?= $event['ingresso']?>
                                     <img src="/bkmeventos/app/upload/<?= $event['imagem_evento'] ?>">
                                    [<a href="./EventosController.php?action=edit&id=<?= $event['idCadastrar'] ?>">Editar</a>]
                                     [<a href="javascript: confirmarExclusãoEvento('<?= $event['nome_evento'] ?>', <?= $event ['idCadastrar'] ?>)"> Excluir </a>]

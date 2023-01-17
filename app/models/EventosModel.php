@@ -14,7 +14,7 @@ private $numRua;
 private $CEP;
 private $descricao;
 private $imagem;
-
+private $ingresso;
 /*<!-- getters e setters do id--> */
 
 public function getId():int{
@@ -220,6 +220,26 @@ public function setImagem(array $imagem)
 
     }
 $this->imagem_evento = $name;
+
+return $this;
+}
+
+/**
+ * Get the value of ingresso
+ */ 
+public function getIngresso()
+{
+return $this->ingresso;
+}
+
+/**
+ * Set the value of ingresso
+ *
+ * @return  self
+ */ 
+public function setIngresso($ingresso)
+{
+$this->ingresso = $ingresso;
 
 return $this;
 }

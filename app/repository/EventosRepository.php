@@ -14,7 +14,7 @@ class EventosRepository {
 
         try {
               
-            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento,imagem_evento, idOrganizador ) VALUES (:nome,:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao, :imagem, :idOrg) ";
+            $query = "INSERT INTO cadastrar_evento (nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento,imagem_evento, idOrganizador, ingresso ) VALUES (:nome,:dia, :inicio, :final, :bairro, :rua, :numero, :cidade, :cep, :descricao, :imagem, :idOrg, :ingresso) ";
             $prepare =$this->conn->prepare($query);
             $prepare->bindValue(":nome", $evento->getNome());
             $prepare->bindValue(":dia", $evento->getData());
@@ -28,6 +28,7 @@ class EventosRepository {
             $prepare->bindValue(":descricao", $evento->getDescricao());
             $prepare->bindValue(":imagem",$evento->getImagem());
             $prepare->bindValue(":idOrg", $_SESSION['Org']);
+            $prepare->bindValue(":ingresso", $evento->getIngresso());
         
             $prepare -> execute();   
 
@@ -71,7 +72,7 @@ class EventosRepository {
 
         public function update(EventosModel $evento) : bool {
 
-            $query = "UPDATE cadastrar_evento SET  nome_evento = :nome,  data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem  WHERE idCadastrar = :id";
+            $query = "UPDATE cadastrar_evento SET  nome_evento = :nome,  data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem, ingresso = :ingresso WHERE idCadastrar = :id";
             $prepare = $this->conn->prepare($query);
             $prepare -> bindValue("nome", $evento ->getNome());
             $prepare->bindValue(":data_evento", $evento->getData());
@@ -85,6 +86,7 @@ class EventosRepository {
             $prepare->bindValue(":descricao", $evento->getDescricao());
             $prepare->bindValue(":id", $evento->getId());
             $prepare ->bindValue(":imagem", $evento->getImagem());
+            $prepare->bindValue(":ingresso", $evento->getIngresso());
             $result = $prepare->execute();
             return $result;
 

@@ -41,6 +41,14 @@
         <label for="iddesc">Descrição do Evento:</label>
         <input type="text" name="descricao" id="iddesc" required>
         <p/>
+        <fieldset>
+               <legend>O evento é gratuíto? Caso Não coloque URL dos ingressos abaixo, caso sim informe que o evento é gratuito!</legend>
+               <div class="input-box">
+                  <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" required>
+               </div>
+            </fieldset>
+            <div class="select-box">
+            </div>
         <label for="idf">Banner evento </label>
         <input type="file" name="upload">
         <p/>

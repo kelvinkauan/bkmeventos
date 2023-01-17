@@ -64,6 +64,7 @@ class ControllerEventos{
         $evento->setCEP($_POST["cep"]);
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
+        $evento->setIngresso($_POST["ingresso"]);
         $evento -> setImagem($_FILES["upload"]);
         $eventoRepository = new EventosRepository();
         $id = $eventoRepository->create($evento);
@@ -109,6 +110,7 @@ class ControllerEventos{
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
         $evento->setImagem($_FILES["upload"]);
+        $evento->setIngresso($_POST["ingresso"]);
         $evento->setId($_GET["id"]);
 
         $eventosRepository = new EventosRepository();
