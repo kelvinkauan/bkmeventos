@@ -8,8 +8,10 @@
     $organizador = new ControllerOrganizador();
 
     class ControllerOrganizador{
+        
 
         function __construct(){
+            session_start();
 
             if(isset($_POST["action"])){
                 $action = $_POST["action"];
@@ -137,7 +139,11 @@
             }else{
                 $msg = "Erro ao atualizar o registro no banco de dados.";
             }
-            $this->findAll($msg);
+            if($_SESSION['Logado']==true){
+                header("location:/bkmeventos/app/controllers/OrganizadorController.php?action=PaginaOrganizador");
+            }else{
+                $this->findAll($msg);
+            }
 
         }
 
@@ -149,7 +155,7 @@
 
         private function PaginaOrganizador(string $msg = null){
 
-            session_start();
+           
             if($_SESSION ["Logado"] == true){
                
                 $dadosOrg = new OrganizadorRepository();

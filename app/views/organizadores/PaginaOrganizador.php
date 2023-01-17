@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../views/stylePaginaOrganizador/styles/style.css" rel="stylesheet">
     <link href="../views/stylePaginaOrganizador/styles/fonts.css" rel="stylesheet">
-    <script src="../views/helpers/excluirevento.js" type="text/javascript"></script>
+    
    <!-- <link href="../views/landingPage/styles/media.css" rel="stylesheet">-->
    
     <title>Página Organizador</title>
@@ -30,7 +30,7 @@
             <a href="./LadingController.php?action=LoadForm">
                 <li>Início</li>
             </a>
-            <a href="./OrganizadorController.php?action=findAll">
+                <a href="./OrganizadorController.php?action=edit&id=<?=$_SESSION['Org'] ?>" >
                 <li>Editar dados</li>
             </a>
             <a href="./EventosController.php?action=loadForm">
@@ -59,7 +59,6 @@
                            nome: <?= $org['nc_Organizador'] ?> <br> <br>
                            E-mail: <?= $org['email_Organizador'] ?> <br> <br>
                            Senha:  <?= $org['senha_Organizador'] ?> <br> <br>
-                            [ <a href="./OrganizadorController.php?action=edit&id=<?= $org['idOrganizador'] ?>">Editar</a> ]
                             [ <a href="javascript:confirmarExclusaoOrganizador('<?= $org['nc_Organizador'] ?>', <?= $org['idOrganizador'] ?>)">Excluir</a> ]
                         
                         </li> 
