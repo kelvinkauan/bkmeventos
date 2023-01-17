@@ -151,9 +151,16 @@
 
             session_start();
             if($_SESSION ["Logado"] == true){
+               
                 $dadosOrg = new OrganizadorRepository();
                 $organizador= $dadosOrg->findOrgById();
                 $data['organizadores'] = $organizador;
+                
+
+                $dadosOrg = new OrganizadorRepository();
+                $dadosEvent =$dadosOrg->findEventoById();
+                $data['cadastrar_evento'] = $dadosEvent;
+
 
                 $this->loadView("organizadores/PaginaOrganizador.php", $data, $msg);
             } else {

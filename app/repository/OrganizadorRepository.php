@@ -165,5 +165,19 @@ class OrganizadorRepository{
         return $row;
             }       
     }
+
+    public function findEventoById():array{
+            $query = "SELECT*FROM  cadastrar_evento WHERE idOrganizador = :id";
+            $prepare = $this->conn->prepare($query);    
+            $prepare->bindParam(":id", $_SESSION['Org'], PDO::PARAM_INT);
+            $prepare->execute();
+            return $prepare->fetchAll(PDO::FETCH_ASSOC);
+
+            
+            
+
+    }
+    
+
 }      
 ?>

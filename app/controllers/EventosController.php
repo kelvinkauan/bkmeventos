@@ -10,6 +10,7 @@ $evento = new ControllerEventos();
 
 class ControllerEventos{
     function __construct(){
+        session_start();
 
         if(isset($_POST["action"])){
             $action = $_POST["action"];
@@ -71,7 +72,11 @@ class ControllerEventos{
         }else{
             $msg = "Erro ao cadastrar evento";
             }
-        $this->findAll($msg);
+            if($_SESSION['Logado']==true){
+                header("location:/bkmeventos/app/controllers/OrganizadorController.php?action=PaginaOrganizador");
+            }else{
+                $this->findAll($msg);
+            }
 
     }
 
@@ -114,7 +119,11 @@ class ControllerEventos{
         }else{
             $msg="Erro ao atuallizar";
         }
-        $this->findAll($msg);
+        if($_SESSION['Logado']==true){
+            header("location:/bkmeventos/app/controllers/OrganizadorController.php?action=PaginaOrganizador");
+        }else{
+            $this->findAll($msg);
+        }
 
     }
 
@@ -128,7 +137,11 @@ class ControllerEventos{
         }else{
             $msg = "Falha ao excluir evento";
         }
-        $this-> findAll($msg);
+        if($_SESSION['Logado']==true){
+            header("location:/bkmeventos/app/controllers/OrganizadorController.php?action=PaginaOrganizador");
+        }else{
+            $this->findAll($msg);
+        }
 
     }
 

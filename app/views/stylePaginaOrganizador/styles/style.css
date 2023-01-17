@@ -68,6 +68,14 @@ h2{
 }
 
 
+.eventos{
+    text-align: center;
+    border: solid; 
+    border-color: #6F3Df4;
+    border-radius: 20%;
+    border-width: 2px;
+}
+
 
 
 span{
