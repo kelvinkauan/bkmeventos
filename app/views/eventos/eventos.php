@@ -41,18 +41,53 @@
         <label for="iddesc">Descrição do Evento:</label>
         <input type="text" name="descricao" id="iddesc" required>
         <p/>
-        <fieldset>
-               <legend>O evento é gratuíto? Caso Não coloque URL dos ingressos abaixo, caso sim informe que o evento é gratuito!</legend>
+       
+
+        <div class="select-box">
+               <label for="idin">tipo de Ingresso - O evento é pago?</label>
+               <select name="ingresso" id="idin">
+                  <option value="">Escolha o tipo ingresso</option>
+                  <option value="Sim" id="ids"> Sim </option>
+                  <option value="Não" id="idn"> Não </option>
+               </select>
+            </div>
+                    
+
+            <fieldset>
+               <!--legend>Coloque URL dos ingressos abaixo !</legend>-->
                <div class="input-box">
-                  <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" required>
+
+                  <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" required  >
                </div>
             </fieldset>
-            <div class="select-box">
-            </div>
+        
+
+
+            
         <label for="idf">Banner evento </label>
         <input type="file" name="upload">
         <p/>
         <input type="submit" value="Cadastrar">
     </form>
+
+    <script type="text/javascript">
+                        function MostrarUrl(){
+                             var value = this.value;
+                            console.log(this.value);
+                            var input =  document.getElementById("idi");
+                            if(value == "Não"){
+                              
+                                input.style.display = 'none';
+                            }else if(value == "Sim"){
+                                input.style.display = ' block ';
+                            }
+
+
+                        }
+                       var ol = document.getElementById("idin");
+                       ol.addEventListener("change", MostrarUrl);
+                         
+                          
+                    </script>
 </body>
 </html>
