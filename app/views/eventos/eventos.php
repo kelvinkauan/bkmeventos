@@ -93,20 +93,32 @@
                <label for="idd">Cidade do Evento:</label>
                <input type="text" name="cidade" id="idcd" placeholder="cidade do evento" required>
             </div>
-            <div class="input-box">
+            <div class="input-box-desc">
                <label for="idhi">Descrição do Evento:</label>
                <input type="text" name="descricao" id="iddesc" placeholder="Descreva aqui seu evento, cronograma, atrações, etc." class="desc" required>
             </div>
-
             <fieldset>
-               <legend>O evento é gratuíto? Caso Não coloque URL dos ingressos abaixo, caso sim informe que o evento é gratuito!</legend>
-               <div class="input-box">
-                  <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" required>
+               <legend> TIPO DE INGRESSO </legend>
+               <div class="select-box">
+                  <label for="idin">O evento é pago?</label>
+                  <select name="ingresso" id="idin">
+                     <option value="">Escolha o tipo ingresso</option>
+                     <option value="Sim" id="ids"> Sim </option>
+                     <option value="Não" id="idn"> Não </option>
+                  </select>
+                  <div class="input-box">
+                     <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" required>
+                  </div>
                </div>
             </fieldset>
-            <div class="select-box">
 
-            </div>
+
+            <!-- <fieldset>
+               <legend>O evento é gratuíto? Caso Não coloque URL dos ingressos abaixo, caso sim informe que o evento é gratuito!</legend>
+               <div class="input-box">
+                  <input type="text" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" required>
+               </div>
+            </fieldset> -->
 
             <div class="save-button">
                <button><a type="submit" value="Cadastrar"> Salvar e Cadastrar Evento </a></button>
@@ -116,7 +128,6 @@
       <div class="form-cont">
          <form action="">
             <div class="container-img">
-
                <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg4176" viewBox="0 0 550 850.00002" height="850" width="450">
                   <g id="outline" style="display:inline;opacity:1">
                      <g id="bigcircle">
@@ -291,8 +302,27 @@
             </div>
       </div>
       </form>
+      <script type="text/javascript">
+         function MostrarUrl() {
+            var value = this.value;
+            console.log(this.value);
+            var input = document.getElementById("idi");
+            if (value == "Não") {
+               // input.style.transition = margin - btoa + '3s';
+               input.style.display = 'none';
+            } else if (value == "Sim") {
+               // input.style.transition = margin - top + '3s';
+               input.style.display = ' block ';
+            }
+         }
+         var ol = document.getElementById("idin");
+         ol.addEventListener("change", MostrarUrl);
+      </script>
+
    </div>
+
    <script src="../views/eventos/style/app.js"></script>
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
    </form>
    </div>

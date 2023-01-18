@@ -45,11 +45,8 @@
                 <br>
                 <?= $cd['descricao_evento'] ?> -
                 <br>
-                <?= $cd['ingresso'] ?> -
+                <?= $cd['ingresso'] ?>
                 <br>
-                <!-- <?php //$cd['ingresso'] 
-                        ?> -
-                <br> -->
                 <img width="500px" src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
                 <br>
                 [<a href="./EventosController.php?action=edit&id=<?= $cd['idCadastrar'] ?>">Editar</a>]

@@ -79,7 +79,7 @@ class ControllerAdministrador
         $data['titulo'] = "administrador";
         $data['administradores'] = $administradores;
         $this->loadView("administrador/Admlist.php", $data, $msg);
-        $this->loadView("administrador/PaginaAdm.php", $data);
+        // $this->loadView("administrador/PaginaAdm.php", $data);
     }
 
     private function loadForm()
@@ -135,7 +135,7 @@ class ControllerAdministrador
         $administradorRepository = new AdministradorRepository();
         $att = $administradorRepository->update($administrador);
         if ($att) {
-            $msg = "Atualização realizada com sucesso!";
+            $msg = "é isso um beijo da anitta";
         } else {
             $msg = "Erro ao atualizar os dados no banco de dados!";
         }

@@ -108,9 +108,44 @@ a:hover{
     margin-bottom: 1rem;
 }
 
-.desc {
-    height: 35vh;
+/* ---- descrição css  ---- */
+
+.input-box-desc {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
 }
+
+.input-box-desc input {
+    margin: 0.6rem 0;
+    padding: 0.9rem 1.2rem;
+    padding-bottom: 15vh;
+    height: 15px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+}
+
+.input-box-desc input:hover {
+    background-color: #eeeeee75;
+}
+
+.input-box-desc input:focus-visible {
+    outline: 1px solid #6c63ff;
+}
+
+.input-box-desc label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #000000c0;
+}
+
+.input-box-desc input::placeholder {
+    color: #000000be;
+}
+
+/* ---- descrição css  ---- */
 
 .input-box input {
     margin: 0.6rem 0;
@@ -238,8 +273,17 @@ a:hover{
     padding-top: 1px;
 }
 
+fieldset{
+    font-size: 25px;
+    padding: 12px;
+    color:#6F3Df4;
+    border: 1px solid #6F3Df4;
+   
+}
 
-/* teste */
+fieldset-labal{
+    font-weight: 100px;
+}
 
 #outline {
     stroke:#6b63fff1;
