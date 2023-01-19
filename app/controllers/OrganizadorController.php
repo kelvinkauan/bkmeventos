@@ -70,7 +70,12 @@
 		}else{
 			$msg = "Erro ao inserir o registro no banco de dados."; // criar uma view para isso
 		}
-        $this->findAll($msg);
+        if($_SESSION['Logado']==true){
+            header("location:/bkmeventos/app/controllers/OrganizadorController.php?action=PaginaOrganizador");
+        }else{
+            $this->findAll($msg);
+        }
+
 
        }
 
@@ -111,7 +116,7 @@
 	       }else{
 			 $msg = "Erro ao excluir o registro no banco de dados."; 
 	       }
-           $this->findAll($msg);
+          $this->findAll($msg); 
 
         }
 

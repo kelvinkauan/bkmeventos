@@ -64,11 +64,6 @@ class ControllerEventos{
         $evento->setCEP($_POST["cep"]);
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
-        if (isset($_POST['ingresso']) == "Sim") {
-            $evento->setIngresso($_POST["ingresso"]);
-        } else {
-            echo "Evento Gratuito";
-        }
         $evento->setIngresso($_POST["ingresso"]);
         $evento -> setImagem($_FILES["upload"]);
         $eventoRepository = new EventosRepository();

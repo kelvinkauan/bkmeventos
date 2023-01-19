@@ -57,7 +57,7 @@
                <!--legend>Coloque URL dos ingressos abaixo !</legend>-->
                <div class="input-box">
 
-                  <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" required  >
+                  <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso"  >
                </div>
             </fieldset>
         
@@ -76,7 +76,6 @@
                             console.log(this.value);
                             var input =  document.getElementById("idi");
                             if(value == "Não"){
-                              
                                 input.style.display = 'none';
                             }else if(value == "Sim"){
                                 input.style.display = ' block ';
