@@ -116,22 +116,23 @@ a:hover{
     margin-bottom: 1rem;
 }
 
-.input-box-desc input {
+.input-box-desc textarea {
     margin: 0.6rem 0;
     padding: 0.9rem 1.2rem;
     padding-bottom: 15vh;
-    height: 15px;
+    /* height: 15px; */
     border: none;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #0000001c;
     font-size: 0.8rem;
+    /* padding-top: 1.8em; */
 }
 
-.input-box-desc input:hover {
+.input-box-desc textarea:hover {
     background-color: #eeeeee75;
 }
 
-.input-box-desc input:focus-visible {
+.input-box-desc textarea:focus-visible {
     outline: 1px solid #6c63ff;
 }
 
@@ -219,8 +220,16 @@ a:hover{
     margin-top: 20px;
 }
 
+.save-button{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
 .save-button button {
-    width: auto;
+     width: 500px;
+    height: 50px;
+    /* width: auto; */
     margin-top: 2.5rem;
     border: none;
     background-color: #6c63ff;
@@ -295,6 +304,59 @@ fieldset-labal{
     animation-iteration-count: 1;
     animation-timing-function: linear;
   }
+
+  select{
+     width: 400px;
+     height: 2.5em;
+     border: solid 2px #6F3Df4;
+     transition: all .5s ease-in-out;
+     overflow: hidden;
+     border-radius: 10px;
+
+   }
+
+   select-option{
+    border-radius: 10px;
+    background-color: #6b63ff28;
+   }
+
+.input-box-ing{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transition: all .10s ;
+   }
+
+
+.input-box-ing input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+    overflow: hidden;
+}
+
+.input-box-ing input:hover {
+    background-color: #eeeeee75;
+}
+
+.input-box-ing input:focus-visible {
+    outline: 1px solid #6c63ff;
+}
+
+.input-box-ing label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #000000c0;
+}
+
+.input-box-ing input::placeholder {
+    color: #000000be;
+}
+
   #minicircles {
     stroke:#6b63fff1;
     fill:#6b63fff1;
