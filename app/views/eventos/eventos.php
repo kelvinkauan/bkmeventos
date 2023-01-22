@@ -48,19 +48,33 @@
                <select name="ingresso" id="idin">
                   <option value="">Escolha o tipo ingresso</option>
                   <option value="Sim" id="ids"> Sim </option>
-                  <option value="Não" id="idn"> Não </option>
+                  <option value="Evento gratuíto" id="idn"> Não </option>
                </select>
             </div>
+            
+            <?php
+                if(isset($_POST['ingresso'])){
                     
-
+                    $ingresso = $_POST['ingresso'];
+                    
+                        if($ingresso == "Não"){
+                            echo "";
+                        }
+                }
+              
+                   
+            ?>
+                    
+                
             <fieldset>
                <!--legend>Coloque URL dos ingressos abaixo !</legend>-->
                <div class="input-box">
 
-                  <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso"  >
+                  <input type="url" name="url" id="idi" placeholder="Coloque aqui a URL do ingresso"  >
                </div>
             </fieldset>
-        
+
+          
 
 
             
@@ -75,8 +89,9 @@
                              var value = this.value;
                             console.log(this.value);
                             var input =  document.getElementById("idi");
-                            if(value == "Não"){
+                            if(value == "Evento gratuíto"){
                                 input.style.display = 'none';
+                                
                             }else if(value == "Sim"){
                                 input.style.display = ' block ';
                             }
@@ -86,7 +101,6 @@
                        var ol = document.getElementById("idin");
                        ol.addEventListener("change", MostrarUrl);
                          
-                          
                     </script>
 </body>
 </html>
