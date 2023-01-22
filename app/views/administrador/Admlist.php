@@ -14,17 +14,6 @@
 </head>
 
 <body>
-  <div class="toast">
-    <div class="toast-content">
-      <i class="fas fa-solid fa-check check"></i>
-      <div class="message">
-        <span class="text text-1">Successo</span>
-        <span class="text text-2">Suas alterações foram salvas.</span>
-      </div>
-    </div>
-    <i class="fa-solid fa-xmark close"></i>
-    <div class="progress"></div>
-  </div>
 
   <?php
 

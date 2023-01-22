@@ -286,11 +286,10 @@
                         <button class="btn">
                            Selecionar o arquivo
                         </button>
-                        <input type="file" id="upfile" name="upload" onchange="readURL(this); ">
+                        <input type="file" id="upfile" name="upload" onchange="readURL(this);" required>
                      </div>
                      <img class="upload_img" id="file_upload">
                   </div>
-
                </div>
             </div>
       </div>
@@ -301,13 +300,13 @@
             console.log(this.value);
             var input = document.getElementById("idi");
             if (value == "Não") {
-
+               let text = document.getElementById("idi").innerText = "Evento Gratuito";
                input.style.display = 'none';
 
             } else if (value == "Sim") {
 
                input.style.display = ' block ';
-               // input.style.transition = "all 5s ease-in-out";
+
             }
          }
          var ol = document.getElementById("idin");

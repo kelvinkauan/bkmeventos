@@ -11,14 +11,14 @@
 <body>
     <?php
 
-    include_once __DIR__ . "/../helpers/mensagem.php";
+    include_once __DIR__ . "./../JS/mensagem.php";
 
     ?>
 
     <h2> Editar Organizadores </h2>
     <p />
     <?php foreach ($data['organizadores'] as $org) : ?> <!-- $organizadores -->
-        <form action="./OrganizadorController.php?action=AdmUpdateOrg&id=<?= $org->getId() ?>" method="POST"> <!--  &id= -->
+        <form action="./AdministradorController.php?action=AdmUpdateOrg&id=<?= $org->getId() ?>" method="POST"> <!--  &id= -->
             <label for="idn">Nome: </label>
             <input type="text" name="nome" id="idn" value="<?= $org->getNome(); ?>">
             <p />

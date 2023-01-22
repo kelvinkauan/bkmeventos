@@ -1,4 +1,3 @@
-
 function confirmarExclusaoOrganizador(nome, id) {
 
     var resposta = confirm("Deseja remover o registro '" + nome + "' ?");

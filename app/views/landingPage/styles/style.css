@@ -19,6 +19,7 @@ header {
     padding: 30px;
 }
 
+
 #title {
     flex-direction: column;
     line-height: 10px;
@@ -28,9 +29,11 @@ header {
 li {
     display: inline-block;
     margin: 20px;
+    list-style: none; 
 }
 
 a {
+    list-style: none;
     color: black;
 }
 

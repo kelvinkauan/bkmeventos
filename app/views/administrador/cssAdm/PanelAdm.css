@@ -215,3 +215,14 @@ ul {
     text-align: center;
 
 }
+
+#mensagem {
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #FF0000;
+    margin-left: auto;
+    margin-right: auto;
+}

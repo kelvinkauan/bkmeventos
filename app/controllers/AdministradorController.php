@@ -78,8 +78,8 @@ class ControllerAdministrador
         $administradores = $administradorRepository->findAll();
         $data['titulo'] = "administrador";
         $data['administradores'] = $administradores;
-        $this->loadView("administrador/Admlist.php", $data, $msg);
-        // $this->loadView("administrador/PaginaAdm.php", $data);
+        //  $this->loadView("administrador/Admlist.php", $data, $msg);
+        $this->loadView("administrador/PaginaAdm.php", $data, $msg);
     }
 
     private function loadForm()
@@ -135,7 +135,7 @@ class ControllerAdministrador
         $administradorRepository = new AdministradorRepository();
         $att = $administradorRepository->update($administrador);
         if ($att) {
-            $msg = "é isso um beijo da anitta";
+            $msg = '';
         } else {
             $msg = "Erro ao atualizar os dados no banco de dados!";
         }
@@ -168,5 +168,52 @@ class ControllerAdministrador
         } else {
             header("Location: AdministradorController.php?action=login");
         }
+    }
+    private function AdmEditOrg()
+    {
+
+        $idParam = $_GET['id'];
+        $organizadorRepository = new OrganizadorRepository();
+        $organizador = $organizadorRepository->findOrganizadorById($idParam);
+        $data['organizadores'][0] = $organizador;
+        $this->loadView("administrador/editarOrg/AdmEditOrg.php", $data); // criar uma view para issoa
+
+    }
+
+    private function AdmUpdateOrg()
+    {
+
+        $organizador = new OrganizadorModel();
+        $organizador->setId($_GET["id"]);
+        $organizador->setNome($_POST["nome"]);
+        $organizador->setEmail($_POST["email"]);
+        $organizador->setSenha($_POST["senha"]); // $organizador->setSenha($_POST["senha"]);
+        $organizadorRepository = new OrganizadorRepository();
+        $atualizou = $organizadorRepository->update($organizador);
+        if ($atualizou) {
+
+            $msg = "Registro atualizado com sucesso.";
+        } else {
+
+            $msg = "Erro ao atualizar o registro no banco de dados.";
+        }
+
+        $this->PaginaAdministrador($msg);
+    }
+    private function AdmDeleteOrganizadorById()
+    {
+
+        $idParam = $_GET['id'];
+        $organizadorRepository = new OrganizadorRepository();
+        $qt = $organizadorRepository->deleteById($idParam);
+        if ($qt) {
+
+            $msg = "Registro excluído com sucesso.";
+        } else {
+
+            $msg = "Erro ao excluir o registro no banco de dados.";
+        }
+
+        $this->findAll($msg);
     }
 }
