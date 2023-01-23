@@ -105,13 +105,22 @@
                   <select name="ingresso" id="idin">
                      <option value="idS" selected>Escolha o tipo ingresso aqui!</option>
                      <option value="Sim" id="ids"> Sim! </option>
-                     <option value="Não" id="idn"> Não! </option>
+                     <option value="O Evento é gratuíto!" id="idn"> Não! </option>
                   </select>
                   <div class="input-box-ing">
-                     <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso">
+                     <input type="url" name="url" id="idi" placeholder="Coloque aqui a URL do ingresso">
                   </div>
                </div>
             </fieldset>
+
+            <?php if (isset($_POST['ingresso'])) {
+
+               $ingresso = $_POST['ingresso'];
+
+               if ($ingresso == "Não") {
+                  echo "";
+               }
+            } ?>
 
             <div class="save-button">
                <button><a type="submit" value="Cadastrar"> Salvar e Cadastrar Evento </a></button>
@@ -296,20 +305,16 @@
       </form>
       <script type="text/javascript">
          function MostrarUrl() {
-            var value = this.value;
+            const value = this.value;
             console.log(this.value);
-            var input = document.getElementById("idi");
-            if (value == "Não") {
-               let text = document.getElementById("idi").innerText = "Evento Gratuito";
+            const input = document.getElementById("idi");
+            if (value == "O Evento é gratuíto!") {
                input.style.display = 'none';
-
             } else if (value == "Sim") {
-
                input.style.display = ' block ';
-
             }
          }
-         var ol = document.getElementById("idin");
+         const ol = document.getElementById("idin");
          ol.addEventListener("change", MostrarUrl);
       </script>
 

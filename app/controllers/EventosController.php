@@ -67,12 +67,7 @@ class ControllerEventos
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
         $evento->setImagem($_FILES["upload"]);
-        if (isset($_POST['ingresso']) == "Sim") {
-            $evento->setIngresso($_POST["ingresso"]);
-        } else if (isset($_POST['ingresso']) == "Não") {
-            echo "Evento gratuito";
-        }
-        //$evento->setIngresso($_POST["ingresso"]);
+        $evento->setIngresso($_POST["ingresso"]);
         $eventoRepository = new EventosRepository();
         $id = $eventoRepository->create($evento);
         if ($id) {
@@ -114,8 +109,8 @@ class ControllerEventos
         $evento->setCidade($_POST["cidade"]);
         $evento->setDescricao($_POST["descricao"]);
         $evento->setImagem($_FILES["upload"]);
+        $evento->setIngresso($_POST["ingresso"]);
         $evento->setId($_GET["id"]);
-
         $eventosRepository = new EventosRepository();
         $att = $eventosRepository->update($evento);
 
