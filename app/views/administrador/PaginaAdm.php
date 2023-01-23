@@ -130,6 +130,10 @@
         </div>
 
     </div>
+    
+    <footer>
+     <p class="footer-p">&copy; BKM EVENTOS </p>
+    </footer>
 </body>
 
 </html>

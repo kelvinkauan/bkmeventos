@@ -227,3 +227,15 @@ ul {
     padding-bottom: 5rem;
     font-size: 25px;
 }
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-p{
+    display: flex;
+    font-size: 1.2em;
+    font-weight: bold;
+
+}

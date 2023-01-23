@@ -23,6 +23,7 @@ header {
 #title {
     flex-direction: column;
     line-height: 10px;
+    list-style: none;
 
 }
 
@@ -34,7 +35,6 @@ li {
 }
 
 a {
-    list-style: none;
     color: black;
 }
 
@@ -131,3 +131,16 @@ aside {
     margin-bottom: 15px;
 
 }
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-p{
+    font-size: 1.2em;
+    font-weight: bold;
+
+}
+
+
