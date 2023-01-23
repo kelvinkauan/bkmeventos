@@ -32,6 +32,7 @@
             </a>
         </ul>
     </nav>
+
     <?php
 
     include_once __DIR__ . "/../helpers/mensagem.php";
