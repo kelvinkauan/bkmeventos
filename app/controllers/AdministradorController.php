@@ -192,7 +192,7 @@ class ControllerAdministrador
         $atualizou = $organizadorRepository->update($organizador);
         if ($atualizou) {
 
-            $msg = "Registro atualizado com sucesso.";
+            $msg = "Registro atualizado com sucesso!";
         } else {
 
             $msg = "Erro ao atualizar o registro no banco de dados.";

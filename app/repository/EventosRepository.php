@@ -69,7 +69,7 @@ class EventosRepository
     public function update(EventosModel $evento): bool
     {
 
-        $query = "UPDATE cadastrar_evento SET  nome_evento = :nome,  data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem , ingreso = :ingresso WHERE idCadastrar = :id";
+        $query = "UPDATE cadastrar_evento SET  nome_evento = :nome,  data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem , ingresso = :ingresso WHERE idCadastrar = :id";
         $prepare = $this->conn->prepare($query);
         $prepare->bindValue("nome", $evento->getNome());
         $prepare->bindValue(":data_evento", $evento->getData());

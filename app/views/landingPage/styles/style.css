@@ -27,6 +27,7 @@ header {
 }
 
 li {
+    list-style: none;
     display: inline-block;
     margin: 20px;
     list-style: none; 

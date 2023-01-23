@@ -115,7 +115,7 @@ class ControllerEventos
         $att = $eventosRepository->update($evento);
 
         if ($att) {
-            $msg = "Atualizado com sucesso";
+            $msg = "Atualizado com sucesso!";
         } else {
             $msg = "Erro ao atuallizar";
         }

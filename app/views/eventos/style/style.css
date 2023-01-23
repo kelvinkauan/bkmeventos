@@ -305,7 +305,7 @@ fieldset-labal{
     animation-timing-function: linear;
   }
 
-  select{
+select{
      width: 400px;
      height: 2.5em;
      border: solid 2px #6F3Df4;
@@ -313,12 +313,12 @@ fieldset-labal{
      overflow: hidden;
      border-radius: 10px;
 
-   }
+}
 
-   select-option{
+select-option{
     border-radius: 10px;
     background-color: #6b63ff28;
-   }
+}
 
 .input-box-ing{
     display: flex;

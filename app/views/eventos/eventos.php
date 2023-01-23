@@ -42,7 +42,6 @@
                <div class="title">
                   <h1>Crie seu evento!</h1>
                </div>
-
             </div>
 
             <div class="input-group">
@@ -93,9 +92,9 @@
                <label for="idd">Cidade do Evento:</label>
                <input type="text" name="cidade" id="idcd" placeholder="cidade do evento" required>
             </div>
+
             <div class="input-box-desc">
                <label for="idhi">Descrição do Evento:</label>
-               <!-- <input type="text" name="descricao" id="iddesc" placeholder="Descreva aqui seu evento, cronograma, atrações, etc." class="desc" required> -->
                <textarea type="text" name="descricao" id="iddesc" placeholder="Descreva aqui seu evento, cronograma, atrações, etc." class="desc" required cols="30" rows="5"></textarea>
             </div>
             <fieldset>
@@ -108,7 +107,7 @@
                      <option value="O Evento é gratuíto!" id="idn"> Não! </option>
                   </select>
                   <div class="input-box-ing">
-                     <input type="url" name="url" id="idi" placeholder="Coloque aqui a URL do ingresso">
+                     <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso">
                   </div>
                </div>
             </fieldset>
@@ -305,16 +304,17 @@
       </form>
       <script type="text/javascript">
          function MostrarUrl() {
-            const value = this.value;
+            var value = this.value;
             console.log(this.value);
-            const input = document.getElementById("idi");
+            var input = document.getElementById("idi");
             if (value == "O Evento é gratuíto!") {
+               //let text = document.getElementById("idi").innerText = "Evento Gratuito";
                input.style.display = 'none';
             } else if (value == "Sim") {
                input.style.display = ' block ';
             }
          }
-         const ol = document.getElementById("idin");
+         var ol = document.getElementById("idin");
          ol.addEventListener("change", MostrarUrl);
       </script>
 
