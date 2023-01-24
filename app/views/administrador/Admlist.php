@@ -10,6 +10,12 @@
   <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
   <script src="../views/helpers/excluiradm.js" type="text/javascript"></script>
 
+  <style>
+    h1:hover {
+      color: #6F3Df4;
+    }
+  </style>
+
 
 
   <title>Página do Administrador</title>

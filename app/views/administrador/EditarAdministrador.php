@@ -5,65 +5,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="../views/administrador/cssAdm/ButtonStyles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../views/administrador/cssAdm/PanelAdm.css">
+    <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
+    <script src="../views/helpers/excluiradm.js" type="text/javascript"></script>
 
-    <title>editar administrador</title>
+    <style>
+        h1:hover {
+            color: #6F3Df4;
+        }
+    </style>
+    <title>Página do Administrador</title>
+
 </head>
 
 <body>
-    <div class="toast">
-        <div class="toast-content">
-            <i class="fas fa-solid fa-check check"></i>
-            <div class="message">
-                <span class="text text-1">Salvo com successo!</span>
-                <span class="text text-2">Suas alterações foram salvas.</span>
-            </div>
+    <nav>
+        <div id=" title">
+            <h1> BKM </h1>
+            <h1> EVENTOS </h1>
         </div>
-        <i class="fa-solid fa-xmark close"></i>
-        <div class="progress"></div>
-    </div>
-    <script src="../views/adminstrador/JS/ButtonScript.js"></script>
+
+        <h2> BEM-VINDO!</h2>
+
+
+        <ul>
+            <a href="AdministradorController.php?action=findAll">
+                <li>Início</li>
+            </a>
+
+            </a>
+            <a href="./LadingController.php?action=loadForm">
+                <li>sair</li>
+            </a>
+
+        </ul>
+    </nav>
+
+    <p class=" dados"> seus dados</p>
+
+    <header>
+        <h3>Mantenha seus dados sempre atualizados! </h3>
+    </header>
+
     <?php
-
     include_once __DIR__ . "/../helpers/mensagem.php";
-
     ?>
-    <div class="conteiner">
-        <div class="right-main">
-            <h3>Mantenha seus dados sempre atualizados!</h3>
-        </div>
-        <div class="left-main">
-            <div class="card-edit">
-                <div class="middle-main">
-                    <h2> Editar administrador </h2>
-                </div>
+
+    <div class="container">
+        <h4>Editar meu dados</h4>
+        <div class="my-data">
+            <table class="org">
+
                 <?php foreach ($data['administradores'] as $adm) : ?>
-                    <div class="textfield">
-                        <form action="./AdministradorController.php?action=update&id=<?= $adm->getId() ?>" method="POST">
-                            <label for="idn">Nome: </label>
-                            <input type="text" name="nome" id="idn" value="<?= $adm->getNome(); ?>">
-                            <p />
-                            <label for="ide">Email: </label>
-                            <input type="text" name="email" id="ide" value="<?= $adm->getEmail(); ?>">
-                            <p />
-                            <label for="ids">Senha:</label>
-                            <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>">
-                            <p />
-                            <!--     -->
-                            <!--input type="submit" value="Atualizar"-->
+                    <form action="./AdministradorController.php?action=update&id=<?= $adm->getId() ?>" method="POST">
+                        <label for="idn">Nome: </label>
+                        <input type="text" name="nome" id="idn" value="<?= $adm->getNome(); ?>">
+                        <p />
+                        <label for="ide">Email: </label>
+                        <input type="text" name="email" id="ide" value="<?= $adm->getEmail(); ?>">
+                        <p />
+                        <label for="ids">Senha:</label>
+                        <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>">
+                        <p />
+                        <!--     -->
+                        <!--input type="submit" value="Atualizar"-->
 
-                            <button type="submit" class="btn">Salvar</button>
-                            <!-- <script src="../views/administrador/JS/ButtonScript.js"></script> -->
+                        <button type="submit" class="btn">Salvar</button>
+                        <!-- <script src="../views/administrador/JS/ButtonScript.js"></script> -->
 
-                            <button>Cancelar</button>
-                    </div>
-            </div>
+                        <button>Cancelar</button>
+
+                    </form>
+                <?php endforeach; ?>
+
+            </table>
+
+
+            </ul>
         </div>
-        </form>
-    <?php endforeach; ?>
     </div>
+
+    </table>
+
     </div>
+
+    </div>
+
+    <footer style="padding-top: 5vh">
+        <p class="footer-p">&copy; BKM EVENTOS </p>
+    </footer>
 </body>
 
 </html>
