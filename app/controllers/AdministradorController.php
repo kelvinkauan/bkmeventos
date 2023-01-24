@@ -78,8 +78,8 @@ class ControllerAdministrador
         $administradores = $administradorRepository->findAll();
         $data['titulo'] = "administrador";
         $data['administradores'] = $administradores;
-        //  $this->loadView("administrador/Admlist.php", $data, $msg);
-        $this->loadView("administrador/PaginaAdm.php", $data, $msg);
+        $this->loadView("administrador/Admlist.php", $data, $msg);
+        // $this->loadView("administrador/PaginaAdm.php", $data, $msg);
     }
 
     private function loadForm()
@@ -208,12 +208,12 @@ class ControllerAdministrador
         $qt = $organizadorRepository->deleteById($idParam);
         if ($qt) {
 
-            $msg = "Registro excluído com sucesso.";
+            $msg = "Registro excluído com sucesso!";
         } else {
 
             $msg = "Erro ao excluir o registro no banco de dados.";
         }
 
-        $this->findAll($msg);
+        $this->PaginaAdministrador($msg);
     }
 }

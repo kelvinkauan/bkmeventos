@@ -486,7 +486,7 @@ select-option{
     animation-timing-function: linear;
   }
   #white {
-    fill-opacity: 0;
+    fill-opacity: 5;
     fill:#ffffff;
     stroke:#ffffff;
     animation: show 2s;
