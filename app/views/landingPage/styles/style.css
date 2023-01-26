@@ -12,26 +12,32 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    
 }
-
+/* ul{
+    list-style: none;
+} */
 #title{
     flex-direction: column;
     line-height: 10px;
-
+    
 }
 
 li{
     display: inline-block;
     margin: 20px;
+    
 }
 
 a{
     color: black;
+    text-decoration: none;
 }
 
 a:hover{
    color: #6F3Df4; 
    transition: 0.3s all;
+   
 }
 
 #Cadastre-se-btn{

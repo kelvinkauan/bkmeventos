@@ -1,30 +1,75 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 body {
-   background-color: #f6f5f7;
-   color: black;
-    font-family: poppinssemibold;
+    background-color: #f6f5f7;
+    color: black;
+    font-family: 'poppinssemibold';
 
 }
+
+p{
+    margin: 35px;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    max-width: 1200px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+#title{
+    flex-direction: column;
+    line-height: 10px;
+
+}
+
+li{
+    display: inline-block;
+    margin: 20px;
+    
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    color:  #6F3Df4; 
+    transition: 0.3s all;
+ }
+
+.dados{
+    text-align: center;
+    border: solid; 
+    border-color: #6F3Df4;
+    border-radius: 20px;
+    border-width: 1.5px;
+}
+
 
 h1 {
     display: block;
     font-size: 2em;
-    margin-block-start: 0.30em; 
-    font-weight: bold;
+    margin-block-start: 0.30em;
+    /* font-weight: bold; */
+    font-weight: 200px;
+    flex-direction: column;
+    line-height: 20px;
 }
-.log-out{
+
+.log-out {
     display: flex;
     justify-content: flex-end;
     font-size: 20px;
     margin-top: -90px;
-    margin-right: 1.2em; 
+    margin-right: 1.2em;
 
-}
-a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
 }
 
 
@@ -34,65 +79,164 @@ a:-webkit-any-link {
     border-radius: 15px;
 }
 
-header{
-    margin: 5em;
-
+header {
+    margin: 5.1em;
 }
 
-.container{
+
+h3{
+    font-size: 50px;
+}
+h2 {
+    /* font-size: 50px; */
+    font-size: 25px;
+    line-height: 30px;
+    font-family: poppinsmedium;
+    font-weight: bold;
+    /* text-align: center; */
+}
+
+.container {
     display: flex;
     background-color: #FFFFFF;
     border: 2px solid #6F3Df4;
     border-radius: 10px;
     padding: 15px;
-    width: 120vh;
-    height: 10cm;
+    width: auto;
+    height: auto;
     margin: auto;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     margin-bottom: 5vh;
-} 
-
-.my-data{
-    width: 60vh;
-    padding-top: 4rem;
 }
 
-h4{
+.my-data {
+
+    width: 50%;
+    margin-left: -100px;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+}
+
+h4 {
     margin-top: 1rem;
     margin-left: 30px;
+    font-size: 1.9em;
+    height: 35px;
 }
 
-ul{
+ul {
     display: inline-flexbox;
     align-items: center;
 
 }
 
 
-/* .container_events{
-    display: flex;
-    background-color: #FFFFFF;
-    border: 2px solid #6F3Df4;
-    border-radius: 10px;
-    padding: 15px;
-    width: 120vh;
-    height: 10cm;
-    margin: auto;
-    margin-bottom: 4rem;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-
-}    */
-
-.events-data{
-    width: 80vh;
-    padding-top: 4rem;
-
+.events-data {
+    width: 60vh;
+    padding-right: 20px;
+    margin-left: -70px;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
 }
 
 
+.org {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    margin: auto;
+    margin-left: -320px;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 180%;
 
 
-    
+}
 
+.org td, th {
+    border: 1.4px solid #03000a;
+    padding: 8px;
+}
 
+.org tr:nth-child(even) {
+    background-color: #6e3df42f;
+}
 
+.org tr:hover {
+    background-color: #6F3Df4;
+    color: #FFFFFF;
+}
+
+.org svg:hover {
+    color: #FFFFFF;
+}
+
+.org th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #6F3Df4;
+    color: #FFFFFF;
+    text-align: center;
+
+}
+
+.event {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    margin: auto;
+    margin-left: -250px;
+    margin-right: 250px;
+    border-collapse: collapse;
+    width: 280%;
+
+}
+
+.event td, th {
+    border: 1.4px solid #03000a;
+    padding: 8px;
+}
+
+.event tr:nth-child(even) {
+    background-color: #6e3df42f;
+}
+
+.event tr:hover {
+    background-color: #6F3Df4;
+    color: #FFFFFF;
+}
+
+.event svg:hover {
+    color: #FFFFFF;
+}
+
+.event th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #6F3Df4;
+    color: #FFFFFF;
+    text-align: center;
+
+}
+
+#mensagem {
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: #FF0000;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5rem;
+    font-size: 25px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-p{
+    display: flex;
+    font-size: 1.2em;
+    font-weight: bold;
+
+}

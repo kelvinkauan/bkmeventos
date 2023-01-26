@@ -165,7 +165,7 @@
                
                 $dadosOrg = new OrganizadorRepository();
                 $organizador= $dadosOrg->findOrgById();
-                $data['organizadores'] = $organizador;
+                $data['organizador'] = $organizador;
                 
 
                 $dadosOrg = new OrganizadorRepository();

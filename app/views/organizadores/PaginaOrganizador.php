@@ -50,9 +50,9 @@
      <div align="center">   
     <ul>
     <?php 
-    if (isset($data['organizadores'])) {
+    if (isset($data['organizador'])) {
         
-                    $org = $data['organizadores'];
+                    $org = $data['organizador'];
 
 
                     ?>

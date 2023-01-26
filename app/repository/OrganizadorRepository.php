@@ -19,7 +19,7 @@ class OrganizadorRepository{
         
         try{
 
-            $query = "INSERT INTO organizadores (nc_Organizador, email_Organizador, senha_Organizador) VALUES (:nome, :email, :senha)";
+            $query = "INSERT INTO organizador (nc_Organizador, email_Organizador, senha_Organizador) VALUES (:nome, :email, :senha)";
 
             $prepare = $this->conn->prepare($query);
             
@@ -43,7 +43,7 @@ class OrganizadorRepository{
 
         public function findAll(): array {
 
-            $table = $this->conn->query("SELECT * FROM organizadores"); 
+            $table = $this->conn->query("SELECT * FROM organizador"); 
 
             $organizadores  = $table->fetchAll(PDO::FETCH_ASSOC);
 
@@ -52,7 +52,7 @@ class OrganizadorRepository{
  
         public function findOrganizadorById(int $id) {
 
-            $query = "SELECT * FROM organizadores WHERE idOrganizador = ?"; //idOrganizador
+            $query = "SELECT * FROM organizador WHERE idOrganizador = ?"; //idOrganizador
 
             $prepare = $this->conn->prepare($query);
 
@@ -74,7 +74,7 @@ class OrganizadorRepository{
 
         public function update(OrganizadorModel $organizador) : bool {
 
-            $query = "UPDATE organizadores SET nc_Organizador = ?, email_Organizador = ?, senha_Organizador = ? WHERE idOrganizador = ?";
+            $query = "UPDATE organizador SET nc_Organizador = ?, email_Organizador = ?, senha_Organizador = ? WHERE idOrganizador = ?";
 
             $prepare = $this->conn->prepare($query);
 
@@ -94,7 +94,7 @@ class OrganizadorRepository{
 
          public function deleteById( int $id) : int {
 
-            $query = "DELETE FROM organizadores WHERE idOrganizador = :id";
+            $query = "DELETE FROM organizador WHERE idOrganizador = :id";
             $prepare = $this->conn->prepare($query);
             $prepare->bindValue(":id", $id);
             $prepare->execute();
@@ -108,7 +108,7 @@ class OrganizadorRepository{
 
             try{
 
-                $query = "SELECT idOrganizador, email_Organizador, senha_Organizador FROM organizadores WHERE email_Organizador = :email AND senha_Organizador = :senha ";
+                $query = "SELECT idOrganizador, email_Organizador, senha_Organizador FROM organizador WHERE email_Organizador = :email AND senha_Organizador = :senha ";
 
                 $prepare = $this->conn->prepare($query);
 
@@ -150,7 +150,7 @@ class OrganizadorRepository{
  
         public function findOrgById():array {
             
-            $query = "SELECT idOrganizador, nc_Organizador, email_Organizador, senha_Organizador FROM organizadores WHERE idOrganizador = :id LIMIT 1";
+            $query = "SELECT idOrganizador, nc_Organizador, email_Organizador, senha_Organizador FROM organizador WHERE idOrganizador = :id LIMIT 1";
             $prepare = $this->conn->prepare($query);
             $prepare->bindParam(":id",  $_SESSION['Org'], PDO::PARAM_INT );
             $prepare->execute();
