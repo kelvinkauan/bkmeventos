@@ -216,4 +216,9 @@ class ControllerAdministrador
 
         $this->PaginaAdministrador($msg);
     }
+
+    private function showAdmins()
+    {
+        $this->loadView("sobrenos/aboutUs.html");
+    }
 }

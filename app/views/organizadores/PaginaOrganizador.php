@@ -31,7 +31,7 @@
 
 
         <ul>
-            <a href="./LadingController.php?action=LoadForm">
+            <a href="./LandingController.php?action=LoadForm">
                 <li>Início</li>
             </a>
             <a href="./OrganizadorController.php?action=findAll">
@@ -40,7 +40,7 @@
             <a href="./EventosController.php?action=loadForm">
                 <li>Cadastrar evento</li>
             </a>
-            <a href="./LadingController.php?action=loadForm">
+            <a href="./LandingController.php?action=loadForm">
                 <li>sair</li>
             </a>
 
