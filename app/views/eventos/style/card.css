@@ -14,7 +14,7 @@ ul{
 }
 
 nav{
-  color: #fff;
+  /* color: #fff; */
   display: flex;
   flex-direction: row;
   justify-content:space-around;
@@ -39,7 +39,7 @@ li{
 }
 
 a{
-  color: #fff;
+  color: black;
   text-decoration: none;
   
 }
@@ -54,7 +54,7 @@ h1:hover {
 }
 
 h4{
-  color: aliceblue;
+  /* color: aliceblue; */
   /* display: flex; */
   text-align: center;
   font-size: 70px;
@@ -62,7 +62,8 @@ h4{
 
 
 body {
-  background-image: url("../../administrador/img/background.png");
+  background-color:  #f6f5f7;
+  /* background-image: url("../../administrador/img/background.png"); */
   font-family: 'poppinssemibold';
   align-items: center;
   justify-content: center;
@@ -71,7 +72,7 @@ body {
 } 
 
 .img-block a{
-  color: black;
+  color: white;
 }
 
 container-card{ 
@@ -151,6 +152,8 @@ figure:hover {
   border: 3.5px solid #6c63ff;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   transform: scale(1.1);
+  transition: 0.1s;
+
 }
 
 figure:hover h2 {
@@ -228,6 +231,7 @@ figure figcaption button {
 }
 
 .container{
+  background-color:  rgba(230, 228, 228, 0.733);
   width: auto;
   height: auto;
   /* background-color: #fafafa; */
@@ -246,7 +250,7 @@ figure figcaption button {
 }
 
 .button-link:hover{
-  color: #fff;
+  color: rgb(2, 2, 2);
 }
 
 /* serch bar */
@@ -255,8 +259,9 @@ figure figcaption button {
   /* position: absolute; */
   top: 50%;
   left: 50%;
+  border: 1px solid #6F3Df4;
   transform:  translate(-50%,50%);
-background: #fff;
+  /* background: #fff; */
   /* background: #2f3; */
   /* height: 40px; */
   border-radius: 40px;
@@ -273,16 +278,18 @@ background: #fff;
 
 .searchBox:hover > .searchButton {
 background: white;
-color : #2f3640;
+color : #6F3Df4; 
+/* transition: 0.9s;  */
 }
 
 .searchButton {
+  background-color: black;
   color: white;
   float: right;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #2f3640;
+  /* background: transparent; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -295,7 +302,7 @@ color : #2f3640;
   outline:none;
   float:left;
   padding: 0;
-  color: white;
+  /* color: white; */
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;

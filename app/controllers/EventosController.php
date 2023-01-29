@@ -157,6 +157,6 @@ class ControllerEventos
             $search = $pesquisarRepository->pesquisar($_GET['buscar']);
             $data['resultado'] = $search;
         }
-        $this->loadView("pesquisar/pesquisar.php", $data);
+        $this->loadView("eventos/pesquisar.php", $data);
     }
 }
