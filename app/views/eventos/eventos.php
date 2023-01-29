@@ -20,7 +20,7 @@
       <h2> EDITE SEU EVENTO </h2>
 
       <ul>
-         <a href="./LadingController.php?action=LoadForm">
+         <a href="./LandingController.php?action=LoadForm">
             <li>Início</li>
          </a>
 

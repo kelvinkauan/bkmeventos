@@ -2,23 +2,20 @@
 <html lang="en">
 
 <head>
-    <title>cadastrar evento</title>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../views/administrador/cssAdm/PanelAdm.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
-    <script src="../views/helpers/excluirevento.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../views/eventos/style/card.css">
 
+
+    <title>Eventos</title>
 </head>
 
 <body>
 
     <nav>
-        <div id=" title">
+        <div id="title">
             <h1> BKM </h1>
             <h1> EVENTOS </h1>
         </div>
@@ -27,12 +24,16 @@
 
 
         <ul>
-            <a href="./LadingController.php?action=LoadForm">
+            <a href="./LandingController.php?action=LoadForm">
                 <li>Início</li>
             </a>
+
+            <a href="./LandingController.php?action=loadForm">
+                <li>sair</li>
+            </a>
+
         </ul>
     </nav>
-
     <?php
 
     include_once __DIR__ . "/../helpers/mensagem.php";
@@ -40,42 +41,31 @@
     ?>
 
     <h1>Eventos</h1>
-    <ul>
-        <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
-            <li>
-                <?= $cd['idCadastrar'] ?>
-                <br>
-                <?= $cd['nome_evento'] ?>
-                <br>
-                <?= $cd['data_evento'] ?>
-                <br>
-                <?= $cd['horaI_evento'] ?>
-                <br>
-                <?= $cd['horaF_evento'] ?>
-                <br>
-                <?= $cd['endereco_bairro'] ?>
-                <br>
-                <?= $cd['endereco_rua'] ?>
-                <br>
-                <?= $cd['endereco_num'] ?>
-                <br>
-                <?= $cd['cidade_evento'] ?>
-                <br>
-                <?= $cd['cep_evento'] ?>
-                <br>
-                <?= $cd['descricao_evento'] ?>
-                <br>
-                <?= $cd['ingresso'] ?>
-                <br>
-                <img width="500px" src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
-                <br>
-                <!-- <a href="./EventosController.php?action=edit&id=<?= $cd['idCadastrar'] ?>">Editar</a>
-                <a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd['idCadastrar'] ?>)"> Excluir </a> -->
-            </li>
-        <?php endforeach; ?>
-    </ul>
-    <p>
-        <!-- <a href="./EventosController.php?action=loadForm">Cadastrar novo</a>  <!-- colocar no view principal -->
-        <!-- <a href="./LadingController.php?action=loadForm">sair</a> -->
+    <div class="container">
+        <div class="container-card">
+            <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
+                <span class="sp">
+                    <figure class="img-block">
+
+                        <h2> <?= $cd['nome_evento']
+                                ?></h2>
+                        <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>" alt="Imagem do evento!">
+
+                        <figcaption>
+                            <h3>Mais informações!</h3>
+                            <p>
+                                <?= $cd['descricao_evento'] ?>
+                            </p>
+                            <button><a class="button-link" href="./LandingController.php?action=loadForm">Mais informações!</a></button>
+                        </figcaption>
+
+                    </figure>
+                </span>
+            <?php endforeach; ?>
+            <p>
+
+        </div>
+    </div>
+</body>
 
 </html>

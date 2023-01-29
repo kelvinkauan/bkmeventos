@@ -67,8 +67,6 @@
                             <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>">
                         </div>
 
-                        <!--     -->
-                        <!--input type="submit" value="Atualizar"-->
                         <div class="save-button">
                             <button>
                                 <a type="submit" class="btn">Salvar</a>

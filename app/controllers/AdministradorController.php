@@ -3,8 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once __DIR__ . "/../repository/AdministradorRepository.php";
+require_once __DIR__ . "./../repository/AdministradorRepository.php";
 require_once __DIR__ . "./../repository/OrganizadorRepository.php";
+require_once __DIR__ . "./../repository/EventosRepository.php";
 
 $administrador = new ControllerAdministrador();
 
@@ -79,7 +80,6 @@ class ControllerAdministrador
         $data['titulo'] = "administrador";
         $data['administradores'] = $administradores;
         $this->loadView("administrador/Admlist.php", $data, $msg);
-        // $this->loadView("administrador/PaginaAdm.php", $data, $msg);
     }
 
     private function loadForm()
@@ -169,6 +169,9 @@ class ControllerAdministrador
             header("Location: AdministradorController.php?action=login");
         }
     }
+
+    /* -------------------- Admin edit and delete org -------------------- */
+
     private function AdmEditOrg()
     {
 
@@ -207,18 +210,75 @@ class ControllerAdministrador
         $organizadorRepository = new OrganizadorRepository();
         $qt = $organizadorRepository->deleteById($idParam);
         if ($qt) {
-
-            $msg = "Registro excluído com sucesso!";
+            $msg = "Organizador excluído com sucesso!";
         } else {
 
-            $msg = "Erro ao excluir o registro no banco de dados.";
+            $msg = "Erro ao excluir o organizador no banco de dados!";
         }
 
         $this->PaginaAdministrador($msg);
     }
 
+
+    /* -------------------- end of Admin edit and delete org -------------------- */
+
     private function showAdmins()
     {
         $this->loadView("sobrenos/aboutUs.html");
+    }
+
+    /* -------------------- Admin edit and delete event -------------------- */
+
+
+
+    private function AdmUpdateEvent()
+    {
+
+        $evento = new EventosModel;
+        $evento->setNome($_POST["nome"]);
+        $evento->setData($_POST["dia"]);
+        $evento->setHorarioI($_POST["inicio"]);
+        $evento->setHorarioF($_POST["final"]);
+        $evento->setNomeRua($_POST["rua"]);
+        $evento->setBairro($_POST["bairro"]);
+        $evento->setNumRua($_POST["numero"]);
+        $evento->setCEP($_POST["cep"]);
+        $evento->setCidade($_POST["cidade"]);
+        $evento->setDescricao($_POST["descricao"]);
+        $evento->setImagem($_FILES["upload"]);
+        $evento->setIngresso($_POST["ingresso"]);
+        $evento->setId($_GET["id"]);
+        $eventosRepository = new EventosRepository();
+        $att = $eventosRepository->update($evento);
+
+        if ($att) {
+            $msg = "Atualizado com sucesso!";
+        } else {
+            $msg = "Erro ao atuallizar!";
+        }
+        $this->findAll($msg);
+    }
+
+    private function AdmEditEvent()
+    {
+
+        $idParam = $_GET['id'];
+        $eventosRepository = new EventosRepository();
+        $evento = $eventosRepository->findEventoById($idParam);
+        $data['eventos'][0] = $evento;
+        $this->loadView("eventos/editarEvento.php", $data);
+    }
+
+    private function AdmDeleteEventoById()
+    {
+        $idParam = $_GET['id'];
+        $eventosRepository = new EventosRepository();
+        $qt = $eventosRepository->deleteById($idParam);
+        if ($qt) {
+            $msg = "Evento excluído com sucesso!";
+        } else {
+            $msg = "Falha ao excluir evento!";
+        }
+        $this->PaginaAdministrador($msg);
     }
 }

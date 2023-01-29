@@ -1,0 +1,234 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  outline: none;
+  
+}
+
+nav{
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  max-width: 1200px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+#title{
+  flex-direction: column;
+  line-height: 10px;
+
+}
+
+li{
+  display: inline-block;
+  margin: 20px;
+  text-decoration: none;
+}
+
+a{
+  color: #fff;
+  text-decoration: none;
+  
+}
+
+a:hover{
+  color:  #6F3Df4; 
+  transition: 0.3s all;
+  text-decoration: none;
+}
+
+
+body {
+  background-image: url("../../administrador/img/background.png");
+  font-family: 'poppinssemibold';
+  align-items: center;
+  justify-content: center;
+  width: 99%;
+ 
+} 
+
+.img-block a{
+  color: black;
+}
+
+container-card{ 
+  /* position: absolute; */
+  inset: 5px;
+  border-radius: 10px;
+  background: black;
+  z-index:1;
+}
+
+figure {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  min-width: 500px;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden; 
+}
+
+/* .sp {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 510px;
+  min-width: 500px;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  
+} 
+.sp::after{
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background-image: conic-gradient(transparent, transparent, transparent,transparent, transparent,transparent, #e6cf00);
+  animation: animate 4.5s linear infinite;
+  
+} 
+.sp::before{
+  content: '';
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background-image: conic-gradient(transparent, transparent, transparent,transparent, transparent,transparent, #6c63ff);
+  animation: animate 4.5s linear infinite;
+  animation-delay: 2.2s; 
+  
+}  
+
+ @keyframes animate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}  
+.sp{
+  position: absolute;
+  inset: 5px;
+  border-radius: 16px;
+  background: black;
+  z-index: 1;
+} */
+figure:hover {
+  border: 3.5px solid #6c63ff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: scale(1.1);
+}
+
+figure:hover h2 {
+  opacity: 0;
+  transform: scale(0.7);
+}
+figure:hover img {
+  transform: scale(1.25);
+}
+figure:hover figcaption {
+  bottom: 0;
+}
+figure h2 {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 40px;
+  font-weight: 100;
+  line-height: 1;
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.25s ease;
+  z-index: 999;
+}
+figure img {
+  height: 100%;
+  transition: 0.25s;
+}
+
+/* figure img:hover{
+  color: hsla(120,100%,25%,0.3);
+} */
+
+figure figcaption {
+  position: absolute;
+  border-radius: 5px;
+  bottom: -36%;
+  left: auto; 
+  right: auto;
+  max-width: 150%;
+  width: 100%;
+  margin: 0;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  color: white;
+  line-height: 1;
+  transition: 0.25s;
+  
+}
+figure figcaption h3 {
+  margin: 0 0 20px;
+  padding: 0;
+}
+figure figcaption p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+figure figcaption button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 0;
+  padding: 10px 30px;
+  background-color:  #6c63ff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.container{
+  width: auto;
+  height: auto;
+  /* background-color: #fafafa; */
+  /* border: 1px solid #6F3Df4; */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 3%;
+  border-radius: 15px;
+  
+}
+
+.container-card{
+  display: flex; 
+  flex-wrap: wrap;
+}
+
+.button-link:hover{
+  color: #fff;
+}
+
