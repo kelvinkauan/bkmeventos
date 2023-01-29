@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
     <link rel="stylesheet" href="../views/eventos/style/card.css">
-
-
     <title>Eventos</title>
 </head>
 
@@ -22,17 +20,34 @@
 
         <h2> BEM-VINDO!</h2>
 
+        <div class="searchBox">
+            <input class="searchInput" type="text" name="" placeholder="Search">
+            <button class="searchButton" href="#">
+                <i class="material-icons">
+                    search
+                </i>
+            </button>
+        </div>
+        <!-- <form action="" method="GET">
+            <input type="text" name="buscar" placeholder="Buscar Evento">
+            <input type="submit" value="search" name="action" id="pesqEvento">
+        </form> -->
+
+        <?php
+
+        if (isset($data['resultado'])) {
+            foreach ($data['resultado']  as $res) :
+                echo $res['nome_evento'];
+            endforeach;
+        }
+        ?>
 
         <ul>
             <a href="./LandingController.php?action=LoadForm">
                 <li>Início</li>
             </a>
-
-            <a href="./LandingController.php?action=loadForm">
-                <li>sair</li>
-            </a>
-
         </ul>
+
     </nav>
     <?php
 
@@ -40,8 +55,9 @@
 
     ?>
 
-    <h1>Eventos</h1>
+
     <div class="container">
+        <h4>Eventos</h4>
         <div class="container-card">
             <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
                 <span class="sp">
