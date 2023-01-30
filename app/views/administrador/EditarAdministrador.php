@@ -9,19 +9,13 @@
     <link rel="stylesheet" href="../views/administrador/cssAdm/PanelAdm.css">
     <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
     <script src="../views/helpers/excluiradm.js" type="text/javascript"></script>
-
-    <style>
-        h1:hover {
-            color: #6F3Df4;
-        }
-    </style>
     <title>Página do Administrador</title>
 
 </head>
 
 <body>
     <nav>
-        <div id=" title">
+        <div id="title">
             <h1> BKM </h1>
             <h1> EVENTOS </h1>
         </div>
@@ -35,7 +29,7 @@
             </a>
 
             </a>
-            <a href="./LadingController.php?action=loadForm">
+            <a href="LandingController.php?action=loadForm">
                 <li>sair</li>
             </a>
 
@@ -54,34 +48,39 @@
 
     <div class="container">
         <h4>Editar meu dados</h4>
-        <div class="my-data">
+        <div class="edit-adm">
             <table class="org">
-
                 <?php foreach ($data['administradores'] as $adm) : ?>
                     <form action="./AdministradorController.php?action=update&id=<?= $adm->getId() ?>" method="POST">
-                        <label for="idn">Nome: </label>
-                        <input type="text" name="nome" id="idn" value="<?= $adm->getNome(); ?>">
-                        <p />
-                        <label for="ide">Email: </label>
-                        <input type="text" name="email" id="ide" value="<?= $adm->getEmail(); ?>">
-                        <p />
-                        <label for="ids">Senha:</label>
-                        <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>">
-                        <p />
+                        <div class="input-box">
+                            <label for="idn">Nome: </label>
+                            <input type="text" name="nome" id="idn" value="<?= $adm->getNome(); ?>">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="ide">Email: </label>
+                            <input type="text" name="email" id="ide" value="<?= $adm->getEmail(); ?>">
+                        </div>
+
+                        <div class="input-box">
+                            <label for="ids">Senha:</label>
+                            <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>">
+                        </div>
+
                         <!--     -->
                         <!--input type="submit" value="Atualizar"-->
+                        <div class="save-button">
+                            <button>
+                                <a type="submit" class="btn">Salvar</a>
+                            </button>
 
-                        <button type="submit" class="btn">Salvar</button>
-                        <!-- <script src="../views/administrador/JS/ButtonScript.js"></script> -->
-
-                        <button>Cancelar</button>
-
+                            <button>
+                                <a type="submit" href="AdministradorController.php?action=findAll" class="btn">Cancelar</a></button>
+                        </div>
                     </form>
                 <?php endforeach; ?>
 
-            </table>
-
-
+            </table>    
             </ul>
         </div>
     </div>

@@ -21,27 +21,37 @@
     <ul>
         <?php foreach($data['cadastrar_evento'] as $cd): ?>
             <li>
-                <?= $cd['idCadastrar'] ?> -
+                <?= $cd['idCadastrar'] ?> 
                 <br>
-                <?= $cd['nome_evento'] ?> -
+                <?= $cd['nome_evento'] ?> 
                 <br>
-                <?= $cd['data_evento'] ?> -
+                <?= $cd['data_evento'] ?> 
                 <br>
-                <?= $cd['horaI_evento'] ?> -
+                <?= $cd['horaI_evento'] ?> 
                 <br>
-                <?= $cd['horaF_evento'] ?> -
+                <?= $cd['horaF_evento'] ?> 
                 <br>
-                <?= $cd['endereco_bairro'] ?> -
+                <?= $cd['endereco_bairro'] ?> 
                 <br>
-                <?= $cd['endereco_rua'] ?> -
+                <?= $cd['endereco_rua'] ?> 
                 <br>
-                <?= $cd['endereco_num'] ?> -
+                <?= $cd['endereco_num'] ?> 
                 <br>
-                <?= $cd['cidade_evento'] ?> -
+                <?= $cd['cidade_evento'] ?> 
                 <br>
-                <?= $cd['cep_evento'] ?> -
+                <?= $cd['cep_evento'] ?> 
                 <br>
-                <?= $cd['descricao_evento'] ?> -
+                <?= $cd['descricao_evento'] ?> 
+                <br>
+                <?= $cd['ingresso'] ?>
+                <?php
+                if($cd['ingresso'] == ""){
+                    echo  "Evento gratuíto";
+                }else{
+                    echo $cd['ingresso'];
+                }
+
+                ?>
                 <br>
                 <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
                 <br>

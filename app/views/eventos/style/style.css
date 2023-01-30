@@ -50,6 +50,7 @@ li{
 
 a{
     color: black;
+    text-decoration: none;
 }
 
 a:hover{
@@ -307,7 +308,7 @@ fieldset-labal{
   }
 
 select{
-     width: 400px;
+     width: 250px;
      height: 2.5em;
      border: solid 2px #6F3Df4;
      transition: all .5s ease-in-out;

@@ -105,25 +105,19 @@
             <legend> TIPO DE INGRESSO </legend>
             <div class="select-box">
               <label for="idin">O evento é pago?</label>
-              <select name="ingresso" id="idin">
+              <select  id="idin">
                 <option value="" selected>Escolha o tipo ingresso aqui!</option>
-                <option value="<?= $cd->getIngresso(); ?>" id="ids"> Sim! </option>
-                <option value="O Evento é gratuíto!" id="idn"> Não! </option>
+                <option value="Sim" id="ids"> Sim! </option>
+                <option value="Não" id="idn"> Não! </option>
               </select>
               <div class="input-box-ing">
-                <input type="url" name="url" id="idi" placeholder="Coloque aqui a URL do ingresso" value="<?= $cd->getIngresso(); ?>">
+                <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" value="<?= $cd->getIngresso(); ?>">
               </div>
             </div>
-          </fieldset>
+          </fieldset> 
+          
 
-          <?php if (isset($_POST['ingresso'])) {
 
-            $ingresso = $_POST['ingresso'];
-
-            if ($ingresso == "Não") {
-              echo "";
-            }
-          } ?>
 
           <div class="save-button">
             <button><a type="submit" value="Cadastrar"> Atualizar </a></button>
@@ -307,19 +301,25 @@
     </div>
     </form>
     <script type="text/javascript">
-      function MostrarUrl() {
-        var value = this.value;
-        console.log(this.value);
-        var input = document.getElementById("idi");
-        if (value == "O Evento é gratuíto!") {
-          input.style.display = 'none';
-        } else if (value == "<?= $cd->getIngresso(); ?>") {
-          input.style.display = ' block ';
-        }
-      }
-      var ol = document.getElementById("idin");
-      ol.addEventListener("change", MostrarUrl);
-    </script>
+         function MostrarUrl() {
+            var value = this.value;
+            var para = document.querySelector('p')
+            console.log(this.value);
+            var input = document.getElementById("idi");
+            if (value == "Não") {
+               input.style.display = 'none';
+               input.value = "";
+               para.textContent= "Evento gratuíto";
+               
+
+            } else if (value == "Sim") {
+               input.style.display = ' block ';
+            }
+         }
+         var ol = document.getElementById("idin");
+         ol.addEventListener("change", MostrarUrl);
+      </script>
+
 
   </div>
 

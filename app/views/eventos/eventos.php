@@ -17,10 +17,10 @@
          <h1> EVENTOS </h1>
       </div>
 
-      <h2> EDITE SEU EVENTO </h2>
+      <h2> CRIE SEU EVENTO </h2>
 
       <ul>
-         <a href="./LadingController.php?action=LoadForm">
+         <a href="./LandingController.php?action=LoadForm">
             <li>Início</li>
          </a>
 
@@ -28,7 +28,7 @@
             <li>Meus dados </li>
          </a>
 
-         <a href="./LadingController.php?action=loadForm">
+         <a href="./LandingController.php?action=loadForm">
             <li>Sair</li>
          </a>
 
@@ -101,25 +101,19 @@
                <legend> TIPO DE INGRESSO </legend>
                <div class="select-box">
                   <label for="idin">O evento é pago?</label>
-                  <select name="ingresso" id="idin">
+                  <select  id="idin">
                      <option value="idS" selected>Escolha o tipo ingresso aqui!</option>
                      <option value="Sim" id="ids"> Sim! </option>
-                     <option value="O Evento é gratuíto!" id="idn"> Não! </option>
+                     <option value="Não" id="idn"> Não! </option>
                   </select>
                   <div class="input-box-ing">
-                     <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso">
+                     <input type="url" name="ingresso" id="idi" placeholder="Coloque aqui a URL do ingresso" >
                   </div>
+                  <p></p>
                </div>
             </fieldset>
 
-            <?php if (isset($_POST['ingresso'])) {
 
-               $ingresso = $_POST['ingresso'];
-
-               if ($ingresso == "Não") {
-                  echo "";
-               }
-            } ?>
 
             <div class="save-button">
                <button><a type="submit" value="Cadastrar"> Salvar e Cadastrar Evento </a></button>
@@ -305,11 +299,15 @@
       <script type="text/javascript">
          function MostrarUrl() {
             var value = this.value;
+            var para = document.querySelector('p')
             console.log(this.value);
             var input = document.getElementById("idi");
-            if (value == "O Evento é gratuíto!") {
-               //let text = document.getElementById("idi").innerText = "Evento Gratuito";
+            if (value == "Não") {
                input.style.display = 'none';
+               input.value = "";
+               para.textContent= "Evento gratuíto";
+               
+
             } else if (value == "Sim") {
                input.style.display = ' block ';
             }
