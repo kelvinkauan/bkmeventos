@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <title>cadastrar evento</title>
-
+    <title>Evento</title>
 
     <!-- MOSTRAR O EVENTO POR ID -->
 
@@ -22,49 +21,80 @@
 
     ?>
 
-    <h1>Eventos</h1>
+    <h1>Evento</h1>
     <ul>
-        <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
-            <li>
-                <?= $cd['idCadastrar'] ?>
-                <br>
-                <?= $cd['nome_evento'] ?>
-                <br>
-                <?= $cd['data_evento'] ?>
-                <br>
-                <?= $cd['horaI_evento'] ?>
-                <br>
-                <?= $cd['horaF_evento'] ?>
-                <br>
-                <?= $cd['endereco_bairro'] ?>
-                <br>
-                <?= $cd['endereco_rua'] ?>
-                <br>
-                <?= $cd['endereco_num'] ?>
-                <br>
-                <?= $cd['cidade_evento'] ?>
-                <br>
-                <?= $cd['cep_evento'] ?>
-                <br>
-                <?= $cd['descricao_evento'] ?>
-                <br>
-                <?= $cd['ingresso'] ?>
-                <?php
-                if ($cd['ingresso'] == "") {
-                    echo  "Evento gratuíto";
-                } else {
-                    echo $cd['ingresso'];
-                }
-                ?>
-                <br>
-                <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
-                <br>
-                [<a href="./EventosController.php?action=edit&id=<?= $cd['idCadastrar'] ?>">Editar</a>]
-                [<a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd['idCadastrar'] ?>)"> Excluir </a>]
-            </li>
+        <?php foreach ($data['showEvent'] as $event) : ?>
+
+            <form action="./EventosController.php?action=Show&id=<?= $event->getId() ?>" method="POST">
+                <?= $event->getNome(); ?>
+
+            </form>
+
+
+
+
+
         <?php endforeach; ?>
+
+        // var_dump($data);
+        ?>
+        <? // $event['idCadastrar'] 
+        ?>
+        <br>
+        <? //$event['nome_evento'] 
+        ?>
+        <br>
+        <? //$event['data_evento'] 
+        ?>
+        <br>
+        <? //$event['horaI_evento'] 
+        ?>
+        <br>
+        <? // $event['horaF_evento'] 
+        ?>
+        <br>
+        <? //$event['endereco_bairro'] 
+        ?>
+        <br>
+        <? // $event['endereco_rua'] 
+        ?>
+        <br>
+        <? // $event['endereco_num'] 
+        ?>
+        <br>
+        <? //$event['cidade_evento'] 
+        ?>
+        <br>
+        <? //$event['cep_evento'] 
+        ?>
+        <br>
+        <? // $event['descricao_evento'] 
+        ?>
+        <br>
+        <? // $event['ingresso'] 
+        ?>
+        <?php
+        // if (//$event['ingresso'] == "") {
+        //     echo // "Evento gratuíto";
+        // } else {
+        //     echo //$event['ingresso'];
+        // }
+        ?>
+        <br>
+        <img src="/bkmeventos/app/upload/<? //$event['imagem_evento'] 
+                                            ?>">
+        <br>
+
+        </form>
+        <!-- [<a href="./EventosController.php?action=edit&id=<? //$event['idCadastrar'] 
+                                                                ?>">Editar</a>] -->
+        <!-- [<a href="javascript: confirmarExclusãoEvento('<?= $event['nome_evento'] ?>', <?= $event['idCadastrar'] ?>)"> Excluir </a>] -->
+
+        <?php
+        // } 
+        ?>
     </ul>
     <p>
-        [ <a href="./EventosController.php?action=loadForm">Cadastrar novo</a> ] <!-- colocar no view principal -->
+        <!-- [ <a href="./EventosController.php?action=loadForm">Cadastrar novo</a> ] colocar no view principal -->
 
 </html>

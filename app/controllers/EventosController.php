@@ -161,7 +161,36 @@ class ControllerEventos
     }
 
 
-    private function ShowEvent()
+    /* show event  */
+
+
+    private function Show()
     {
+        $evento = new EventosModel;
+        $evento->setNome($_POST["nome"]);
+        $evento->setData($_POST["dia"]);
+        $evento->setHorarioI($_POST["inicio"]);
+        $evento->setHorarioF($_POST["final"]);
+        $evento->setNomeRua($_POST["rua"]);
+        $evento->setBairro($_POST["bairro"]);
+        $evento->setNumRua($_POST["numero"]);
+        $evento->setCEP($_POST["cep"]);
+        $evento->setCidade($_POST["cidade"]);
+        $evento->setDescricao($_POST["descricao"]);
+        $evento->setImagem($_FILES["upload"]);
+        $evento->setIngresso($_POST["ingresso"]);
+        $evento->setId($_GET["id"]);
+        $eventosRepository = new EventosRepository();
+        $att = $eventosRepository->Show($evento);
+    }
+
+
+    private function ShowEventoById()
+    {
+        $idParam = $_GET['id'];
+        $eventos = new EventosRepository();
+        $showEvent = $eventos->findEventoById($idParam);
+        $data['showEvent'] = $showEvent;
+        $this->loadView("eventos/mostrarEvento.php", $data);
     }
 }

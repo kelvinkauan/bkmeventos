@@ -73,7 +73,7 @@
                             <p>
                                 <?= $cd['descricao_evento'] ?>
                             </p>
-                            <button><a class="button-link" href="./LandingController.php?action=loadForm">Mais informações!</a></button>
+                            <button><a class="button-link" href="./EventosController.php?action=ShowEventoById">Mais informações!</a></button>
                         </figcaption>
 
                     </figure>

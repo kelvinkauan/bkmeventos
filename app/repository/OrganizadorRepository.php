@@ -147,7 +147,7 @@ class OrganizadorRepository
 
         $query = "SELECT idOrganizador, nc_Organizador, email_Organizador, senha_Organizador FROM organizador WHERE idOrganizador = :id LIMIT 1";
         $prepare = $this->conn->prepare($query);
-        $prepare->bindParam(":id",  $_SESSION['Org'], PDO::PARAM_INT);
+        $prepare->bindParam(":id", $_SESSION['Org'], PDO::PARAM_INT);
         $prepare->execute();
 
         if (($prepare) and ($prepare->rowCount() != 0)) {

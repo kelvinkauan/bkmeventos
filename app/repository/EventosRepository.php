@@ -32,7 +32,6 @@ class EventosRepository
             $prepare->bindValue(":imagem", $evento->getImagem());
             $prepare->bindValue(":ingresso", $evento->getIngresso());
             $prepare->execute();
-
             return $this->conn->lastInsertId();
         } catch (Exception $e) {
 
@@ -56,13 +55,10 @@ class EventosRepository
         $prepare = $this->conn->prepare($query);
         $prepare->bindParam(1, $id, PDO::PARAM_INT);
         if ($prepare->execute()) {
-
             $evento = $prepare->fetchObject("EventosModel");
         } else {
-
             $evento = null;
         }
-
         return $evento;
     }
 
@@ -108,5 +104,30 @@ class EventosRepository
         $prepare->execute();
         $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
         return $result;
+    }
+
+    /* sho event*/
+
+    public function Show(EventosModel $evento)
+    {
+
+        $query = "SELECT nome_evento = :nome,  data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem , ingresso = :ingresso FROM cadastrar_evento WHERE idCadastrar = :id";
+        $prepare = $this->conn->prepare($query);
+        $prepare->bindValue("nome", $evento->getNome());
+        $prepare->bindValue(":data_evento", $evento->getData());
+        $prepare->bindValue(":inicio", $evento->getHorarioI());
+        $prepare->bindValue(":final", $evento->getHorarioF());
+        $prepare->bindValue(":bairro", $evento->getBairro());
+        $prepare->bindValue(":rua", $evento->getNomeRua());
+        $prepare->bindValue(":numero", $evento->getNumRua());
+        $prepare->bindValue(":cidade", $evento->getCidade());
+        $prepare->bindValue(":cep", $evento->getCEP());
+        $prepare->bindValue(":descricao", $evento->getDescricao());
+        $prepare->bindValue(":id", $evento->getId());
+        $prepare->bindValue(":imagem", $evento->getImagem());
+        $prepare->bindValue(":ingresso", $evento->getIngresso());
+        $result = $prepare->execute();
+        return $result;
+    
     }
 }
