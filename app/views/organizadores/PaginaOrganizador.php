@@ -10,8 +10,6 @@
     <script src="../views/helpers/excluirevento.js" type="text/javascript"></script>
     <script src="../views/helpers/funcoescrud.js" type="text/javascript"></script>
 
-    <!-- <link href="../views/landingPage/styles/media.css" rel="stylesheet">-->
-
     <title>Página Organizador</title>
 </head>
 

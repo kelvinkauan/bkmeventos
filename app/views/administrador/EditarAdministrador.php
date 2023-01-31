@@ -54,17 +54,17 @@
                     <form action="./AdministradorController.php?action=update&id=<?= $adm->getId() ?>" method="POST">
                         <div class="input-box">
                             <label for="idn">Nome: </label>
-                            <input type="text" name="nome" id="idn" value="<?= $adm->getNome(); ?>">
+                            <input type="text" name="nome" id="idn" value="<?= $adm->getNome(); ?>" class="inp">
                         </div>
 
                         <div class="input-box">
                             <label for="ide">Email: </label>
-                            <input type="text" name="email" id="ide" value="<?= $adm->getEmail(); ?>">
+                            <input type="text" name="email" id="ide" value="<?= $adm->getEmail(); ?>" class="inp">
                         </div>
 
                         <div class="input-box">
                             <label for="ids">Senha:</label>
-                            <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>">
+                            <input type="password" name="senha" id="ids" value="<?= $adm->getSenha(); ?>" class="inp">
                         </div>
 
                         <div class="save-button">

@@ -159,4 +159,9 @@ class ControllerEventos
         }
         $this->loadView("eventos/pesquisar.php", $data);
     }
+
+
+    private function ShowEvent()
+    {
+    }
 }
