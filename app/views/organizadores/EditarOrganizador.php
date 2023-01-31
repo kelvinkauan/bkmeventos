@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="../views/administrador/cssAdm/PanelAdm.css">
     <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
     <script src="../views/helpers/excluiradm.js" type="text/javascript"></script>
+    <style>
+        h1:hover {
+            color: #6F3Df4;
+        }
+    </style>
     <title>Página do Organizador</title>
 
 </head>
@@ -48,22 +53,25 @@
 
     <div class="container">
         <h4>Editar meu dados</h4>
-        <div class="edit-adm">
+        <div class="edit-org">
             <table class="org">
                 <?php foreach ($data['organizadores'] as $org) : ?>
-                    <form action="./OrganizadorController.php?action=update&id=<?= $org->getId()?>" method="POST"> <!--  &id= -->
+             <form action="./OrganizadorController.php?action=update&id=<?= $org->getId()?>" method="POST"> <!--  &id= -->
+             <div class="input-box">
 	        <label for="idn">Nome: </label> 
             <input type="text" name="nome" id="idn" value="<?= $org->getNome(); ?>">
-	            <p/>
+	        
+                        </div>
+            <div class="input-box">
 	        <label for="ide">Email:</label>  
             <input type="email" name="email" id="ide" value="<?= $org->getEmail(); ?>">
-                <p/>
+                        </div>
+                <div class="input-box">
             <label for="ids">Senha:</label>
             <input type="password" name="senha" id="ids" value="<?= $org->getSenha(); ?>">
-                <p/>
-            <input type="submit" value="Atualizar">
-            <input type="reset" value="Limpar">
-                            
+                        </div>
+                
+            
 
                         <!--     -->
                         <!--input type="submit" value="Atualizar"-->

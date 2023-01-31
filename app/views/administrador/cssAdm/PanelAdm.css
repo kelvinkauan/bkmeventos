@@ -338,3 +338,10 @@ h1:hover {
     font-weight: 600;
     color: #000000c0;
 }
+.edit-org{
+    width: 50%;
+    margin-left: -10px;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+
+}
