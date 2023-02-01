@@ -23,18 +23,13 @@
 
     <h1>Evento</h1>
     <ul>
-        <?php foreach ($data['showEvent'] as $event) : ?>
-
-            <form action="./EventosController.php?action=Show&id=<?= $event->getId() ?>" method="POST">
-                <?= $event->getNome(); ?>
-
-            </form>
+        <?php
+        foreach ($data['showEvent'] as $event) : ?>
+            <?= $event['nome_evento']; ?>
 
 
-
-
-
-        <?php endforeach; ?>
+        <?php endforeach;
+        ?>
 
         // var_dump($data);
         ?>

@@ -108,26 +108,11 @@ class EventosRepository
 
     /* sho event*/
 
-    public function Show(EventosModel $evento)
+    public function Show($id)
     {
-
-        $query = "SELECT nome_evento = :nome,  data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem , ingresso = :ingresso FROM cadastrar_evento WHERE idCadastrar = :id";
+        $query = "SELECT nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento, imagem_evento, ingresso FROM eventos WHERE idCadastrar = :id LIMIT 1";
         $prepare = $this->conn->prepare($query);
-        $prepare->bindValue("nome", $evento->getNome());
-        $prepare->bindValue(":data_evento", $evento->getData());
-        $prepare->bindValue(":inicio", $evento->getHorarioI());
-        $prepare->bindValue(":final", $evento->getHorarioF());
-        $prepare->bindValue(":bairro", $evento->getBairro());
-        $prepare->bindValue(":rua", $evento->getNomeRua());
-        $prepare->bindValue(":numero", $evento->getNumRua());
-        $prepare->bindValue(":cidade", $evento->getCidade());
-        $prepare->bindValue(":cep", $evento->getCEP());
-        $prepare->bindValue(":descricao", $evento->getDescricao());
-        $prepare->bindValue(":id", $evento->getId());
-        $prepare->bindValue(":imagem", $evento->getImagem());
-        $prepare->bindValue(":ingresso", $evento->getIngresso());
-        $result = $prepare->execute();
-        return $result;
-    
+        $prepare->execute(array(':id' => $id));
+        return $prepare->fetch();
     }
 }

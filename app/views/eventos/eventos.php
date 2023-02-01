@@ -28,7 +28,7 @@
             <li>Meus dados </li>
          </a>
 
-         <a href="./LadingController.php?action=loadForm">
+         <a href="./LandingController.php?action=loadForm">
             <li>Sair</li>
          </a>
 
