@@ -2,10 +2,10 @@
 
 class OrganizadorModel{
 
-private $id;
-private $nome;
-private $email;
-private $senha;
+private $idOrganizador;
+private $nc_Organizador;
+private $email_Organizador;
+private $senha_Organizador;
 
 /*<!-- getters e setters do email--> */ 
 

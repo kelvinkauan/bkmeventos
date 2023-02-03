@@ -2,10 +2,10 @@
 class AdministradorModel
 {
 
-    private $id;
-    private $nome;
-    private $senha;
-    private $email;
+    private $idAdministrador;
+    private $nome_Adm;
+    private $senha_Adm;
+    private $email_Adm;
 
     public function getId(): int
     {
@@ -47,9 +47,9 @@ class AdministradorModel
 
         return $this->email_Adm;
     }
-    public function setEmail(string $senha)
+    public function setEmail(string $email_Adm)
     {
 
-        $this->email_Adm = $senha;
+        $this->email_Adm = $email_Adm;
     }
 }

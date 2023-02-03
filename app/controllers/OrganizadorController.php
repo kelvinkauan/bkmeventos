@@ -66,15 +66,13 @@
         
         $id = $organizadorRepository->create($organizador);
         if($id){
-			$msg = "Registro inserido com sucesso.";
+            echo "Cadastrado com sucesso!";
+            $this->loadView("login/login.php");
+            
 		}else{
 			$msg = "Erro ao inserir o registro no banco de dados."; // criar uma view para isso
 		}
-        if($_SESSION['Logado']==true){
-            header("location:/bkmeventos/app/controllers/OrganizadorController.php?action=PaginaOrganizador");
-        }else{
-            $this->findAll($msg);
-        }
+      
 
 
        }
@@ -202,7 +200,9 @@
             $this->loadView("organizadores/list.php", $data, $msg );
         }
 
-    
 
-    }
+
+        
+}
+
 ?>

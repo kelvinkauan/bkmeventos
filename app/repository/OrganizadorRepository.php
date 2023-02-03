@@ -34,6 +34,7 @@ class OrganizadorRepository{
 
             return $this->conn->lastInsertId();
 
+
         }catch (Exception $e){
             
             print("Erro ao inserir organizador no banco de dados!");
@@ -62,6 +63,7 @@ class OrganizadorRepository{
             if($prepare->execute()){
 
                 $organizador = $prepare->fetchObject("OrganizadorModel");
+                
 
             } else {
 
