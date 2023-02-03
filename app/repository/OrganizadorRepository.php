@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "./../connection/connection.php";
 require_once __DIR__ . "./../models/OrganizadorModel.php";
+require_once __DIR__ . "./../repository/AdministradorRepository.php";
 
 //$dados = filter_input_array(INPUT_POST, FILTER_DEFAULT); colocar no models
 
@@ -147,7 +148,7 @@ class OrganizadorRepository{
 
          }
 
- 
+  
         public function findOrgById():array {
             
             $query = "SELECT idOrganizador, nc_Organizador, email_Organizador, senha_Organizador FROM organizador WHERE idOrganizador = :id LIMIT 1";
@@ -163,7 +164,9 @@ class OrganizadorRepository{
                 // echo "email".$row["email_Organizador"];
                 // echo "senha".$row["senha_Organizador"];    
         return $row;
-            }       
+        
+            } 
+                  
     }
 
     public function findEventoById():array{

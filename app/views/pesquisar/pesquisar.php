@@ -18,8 +18,10 @@
 if(isset($data['resultado'])){
 foreach ($data['resultado']  as $res):
     echo $res['nome_evento'];
+    
 endforeach;
 }
+
 ?>
 
 

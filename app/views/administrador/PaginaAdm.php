@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../views/administrador/cssAdm/PanelAdm.css">
     <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
     <script src="./../views/administrador/JS/AdmExcluirOrg.js" type="text/javascript"></script>
-    <style>
+    <script src="./../views/helpers/excluirevento.js" type="text/javascript"></script>
+   <style>
         h1:hover {
             color: #6F3Df4;
         }

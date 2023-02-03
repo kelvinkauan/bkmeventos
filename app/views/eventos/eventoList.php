@@ -1,65 +1,91 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>cadastrar evento</title>
 
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-    <script src="../views/helpers/excluirevento.js" type="text/javascript"></script>
-    
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
+    <!-- <link rel="stylesheet" href="../stylePaginaOrganizador/styles/fonts.css"> -->
+    <link rel="stylesheet" href="../views/eventos/style/card.css">
+    <!-- <link rel="stylesheet" href="../eventos/style/card.css"> -->
+    <title>Eventos</title>
 </head>
+
 <body>
-<?php
 
-	include_once __DIR__ . "/../helpers/mensagem.php";
+    <nav>
+        <div id="title">
+            <h1> BKM </h1>
+            <h1> EVENTOS </h1>
+        </div>
 
-?>
+        <h2> BEM-VINDO!</h2>
 
-    <h1>Eventos</h1>
-    <ul>
-        <?php foreach($data['cadastrar_evento'] as $cd): ?>
-            <li>
-                <?= $cd['idCadastrar'] ?> 
-                <br>
-                <?= $cd['nome_evento'] ?> 
-                <br>
-                <?= $cd['data_evento'] ?> 
-                <br>
-                <?= $cd['horaI_evento'] ?> 
-                <br>
-                <?= $cd['horaF_evento'] ?> 
-                <br>
-                <?= $cd['endereco_bairro'] ?> 
-                <br>
-                <?= $cd['endereco_rua'] ?> 
-                <br>
-                <?= $cd['endereco_num'] ?> 
-                <br>
-                <?= $cd['cidade_evento'] ?> 
-                <br>
-                <?= $cd['cep_evento'] ?> 
-                <br>
-                <?= $cd['descricao_evento'] ?> 
-                <br>
-                <?= $cd['ingresso'] ?>
-                <?php
-                if($cd['ingresso'] == ""){
-                    echo  "Evento gratuíto";
-                }else{
-                    echo $cd['ingresso'];
-                }
+        <div class="searchBox">
+            <input class="searchInput" type="text" name="" placeholder="Search">
+            <button class="searchButton" href="#">
+                <i class="material-icons">
+                    search
+                </i>
+            </button>
+        </div>
+        <!-- <form action="" method="GET">
+            <input type="text" name="buscar" placeholder="Buscar Evento">
+            <input type="submit" value="search" name="action" id="pesqEvento">
+        </form> -->
 
-                ?>
-                <br>
-                <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
-                <br>
-                [<a href="./EventosController.php?action=edit&id=<?= $cd['idCadastrar'] ?>">Editar</a>]
-                [<a href="javascript: confirmarExclusãoEvento('<?= $cd['nome_evento'] ?>', <?= $cd ['idCadastrar'] ?>)"> Excluir </a>]
-            </li>
-        <?php endforeach; ?>
-    </ul>
-    <p>
-    [ <a href="./EventosController.php?action=loadForm">Cadastrar novo</a> ]  <!-- colocar no view principal -->
+        <?php
+            if(isset($data['resultado'])){
+            foreach ($data['resultado']  as $res):
+                echo $res['nome_evento'];
+                endforeach;
+                  }
+    ?>
+    
+
+        <ul>
+            <a href="./LandingController.php?action=LoadForm">
+                <li>Início</li>
+            </a>
+        </ul>
+
+    </nav>
+    <?php
+
+    include_once __DIR__ . "/../helpers/mensagem.php";
+
+    ?>
+
+
+    <div class="container">
+        <h4>Eventos</h4>
+        <div class="container-card">
+            <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
+                <span class="sp">
+                    <figure class="img-block">
+                         <?= $cd['idCadastrar']?>
+                        <h2> <?= $cd['nome_evento']
+                                ?></h2>
+                        <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>" alt="Imagem do evento!">
+
+                        <figcaption>
+                            <h3>Mais informações!</h3>
+                            <p>
+                                <?= $cd['descricao_evento'] ?>
+                            </p>
+                            <button><a class="button-link" href="./EventosController.php?action=TesteShowById<?= $cd['idCadastrar']?>"> Mais informações!</a></button>
+                        </figcaption>
+
+                    </figure>
+                </span>
+            <?php endforeach; ?>
+            <p>
+
+        </div>
+    </div>
+</body>
+
 </html>

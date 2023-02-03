@@ -85,7 +85,7 @@
 
             <div class="input-box">
                <label for="idn">CEP:</label>
-               <input type="text" name="cep" id="idc" placeholder="_____-___" minlength="8" max="10" required>
+               <input type="text" name="cep" id="idc" placeholder="_____-___" minlength="8" max="8" required>
             </div>
 
             <div class="input-box">

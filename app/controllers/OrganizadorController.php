@@ -165,7 +165,7 @@
                
                 $dadosOrg = new OrganizadorRepository();
                 $organizador= $dadosOrg->findOrgById();
-                $data['organizador'] = $organizador;
+                $data['organizador'] = $organizador; 
                 
 
                 $dadosOrg = new OrganizadorRepository();
@@ -180,18 +180,18 @@
         }
     
 
-        private function login(){
+        // private function login(){
 
-            $organizador = new OrganizadorRepository();
-            if(isset($_POST['login'])){
-                $login = $organizador->loginOfOrg($_POST['email'], $_POST['senha']);
-            if($login){
-                header("location: ./OrganizadorController.php?action=PaginaOrganizador");
-             }
-            }
-            $this->loadView("login/login.php");
+        //     $organizador = new OrganizadorRepository();
+        //     if(isset($_POST['login'])){
+        //         $login = $organizador->loginOfOrg($_POST['email'], $_POST['senha']);
+        //     if($login){
+        //         header("location: ./OrganizadorController.php?action=PaginaOrganizador");
+        //      }
+        //     }
+        //     $this->loadView("login/login.php");
 
-        }
+        // }
 
         private function voltar(string $msg = null){
 

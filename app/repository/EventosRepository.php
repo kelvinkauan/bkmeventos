@@ -74,7 +74,7 @@ class EventosRepository {
 
             $query = "UPDATE cadastrar_evento SET  nome_evento = :nome,  data_evento = :data_evento , horaI_evento = :inicio, horaF_evento = :final, endereco_bairro = :bairro, endereco_rua = :rua, endereco_num = :numero, cidade_evento = :cidade, cep_evento = :cep, descricao_evento = :descricao, imagem_evento = :imagem, ingresso = :ingresso WHERE idCadastrar = :id";
             $prepare = $this->conn->prepare($query);
-            $prepare -> bindValue("nome", $evento ->getNome());
+            $prepare -> bindValue(":nome", $evento ->getNome());
             $prepare->bindValue(":data_evento", $evento->getData());
             $prepare->bindValue(":inicio", $evento->getHorarioI());
             $prepare->bindValue(":final", $evento->getHorarioF());
@@ -114,7 +114,37 @@ class EventosRepository {
     
          }
 
-         
-    
-        
+         public function Show(EventosModel $evento): array{
+            
+            $query = "SELECT nome_evento,data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento,imagem_evento, ingresso FROM cadastrar_evento WHERE idCadastrar = :id";
+            $prepare=$this->conn->prepare($query);
+            $prepare->bindValue(':id', $evento->getId(), $evento->getNome());
+            $prepare->execute();
+            $result=$prepare->fetch(PDO::FETCH_ASSOC);
+            return $result;
+         }
+
+         public function ShowEvent(EventosModel $evento){
+
+        $query = "SELECT * FROM cadastrar_evento WHERE idCadastrar = :id";
+        $prepare = $this->conn->prepare($query);
+        $prepare->bindValue(":id", $evento->getId());
+        $result = $prepare->execute();
+        return $result;
+
+         }
+
+
     }
+
+
+
+
+
+
+            
+        
+
+
+
+    
