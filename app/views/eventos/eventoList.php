@@ -66,7 +66,7 @@
             <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
                 <span class="sp">
                     <figure class="img-block">
-                         <?= $cd['idCadastrar']?>
+                         
                         <h2> <?= $cd['nome_evento']
                                 ?></h2>
                         <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>" alt="Imagem do evento!">
@@ -74,7 +74,9 @@
                         <figcaption>
                             <h3>Mais informações!</h3>
                             <p>
+                                          
                                 <?= $cd['descricao_evento'] ?>
+                                
                             </p>
                             <button><a class="button-link" href="./EventosController.php?action=TesteShowById&id=<?= $cd['idCadastrar']?>"> Mais informações!</a></button>
                         </figcaption>

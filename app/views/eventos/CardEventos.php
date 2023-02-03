@@ -31,23 +31,42 @@
   <body>
     <div class="event-container">
       <div class="event-header">
-        kkkk
+        informações do evento
       </div>
       <div class="event-details">
         <ul>
       
       <?php $cd = $data['dados_evento'] ?>
           <li><?= $cd['nome_evento'] ?></li>
+          <br>
           <li><?= $cd['data_evento'] ?></li>
+          <br>
           <li><?= $cd['horaI_evento'] ?></li>
+          <br>
           <li><?= $cd['horaF_evento'] ?></li>
+          <br>
           <li><?= $cd['endereco_num'] ?></li>
+          <br>
           <li><?= $cd['endereco_bairro'] ?></li>
+          <br>
           <li><?= $cd['endereco_rua'] ?></li>
+          <br>
           <li><?= $cd['cidade_evento'] ?></li>
+          <br>
           <li><?= $cd['CEP_evento'] ?></li>
+          <br>
           <li><?= $cd['descricao_evento'] ?></li>
-          <li><?= $cd['imagem_evento'] ?></li>
+          <br>
+          
+          <?php 
+              if($cd['ingresso'] == ""){
+                  echo "Evento Gratuíto";
+              }else{
+                echo $cd['ingresso'];
+              }
+          ?>
+                 <br>
+          <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>" alt="Imagem do evento!">
           
         </ul>
      </form>
