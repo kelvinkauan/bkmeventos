@@ -184,10 +184,10 @@ class ControllerEventos{
         private function TesteShowById(){
             $evento = new EventosModel;
             $evento->setId($_GET["id"]);
-            $evento->setNome($_POST["nome"]);
+            // $evento->setNome($_POST["nome"]);
             $eventosRepository = new EventosRepository();
-            $vv = $eventosRepository->Show($evento);
-            $data['cadastrar_evento'] = $vv;
+            $data['dados_evento'] = $eventosRepository->Show($evento);
+            //var_dump($data['dados_evento']);
             $this->loadView("eventos/CardEventos.php",$data);
         }
 

@@ -2,18 +2,18 @@
 
 class EventosModel{
 
-private $id;
-private $nome;
-private $data;
-private $horarioI;
-private $horarioF;
-private $nomeRua;
-private $bairro;
-private $cidade;
-private $numRua;
-private $CEP;
-private $descricao;
-private $imagem;
+private $idCadastrar;
+private $nome_evento;
+private $data_evento;
+private $horaI_evento;
+private $horaF_evento;
+private $endereco_rua;
+private $endereco_bairro;
+private $cidade_evento;
+private $endereco_num;
+private $cep_evento;
+private $descricao_evento;
+private $imagem_evento;
 private $ingresso;
 /*<!-- getters e setters do id--> */
 

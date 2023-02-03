@@ -34,23 +34,22 @@
         kkkk
       </div>
       <div class="event-details">
-      <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
-        <form action="./EventosController?action=TesteShowById=<?= $cd->getId()?>">
-          <li><?=$cd['idCadastrar'] ?></li>
-          <li><?=$cd['nome_evento'] ?></li>
-          <li><?=$cd['data_evento'] ?></li>
-          <li><?=$cd['horaI_evento'] ?></li>
-          <li><?=$cd['horaF_evento'] ?></li>
-          <li><?=$cd['endereco_num'] ?></li>
-          <li><?=$cd['endereco_bairro'] ?></li>
-          <li><?=$cd['endereco_rua'] ?></li>
-          <li><?=$cd['cidade_evento'] ?></li>
-          <li><?=$cd['cep_evento'] ?></li>
-          <li><?=$cd['descricao_evento'] ?></li>
-          <li><?=$cd['imagem_evento'] ?></li>
-          <li><?=$cd['ingresso'] ?></li>
-          <?php endforeach;
-          ?>
+        <ul>
+      
+      <?php $cd = $data['dados_evento'] ?>
+          <li><?= $cd['nome_evento'] ?></li>
+          <li><?= $cd['data_evento'] ?></li>
+          <li><?= $cd['horaI_evento'] ?></li>
+          <li><?= $cd['horaF_evento'] ?></li>
+          <li><?= $cd['endereco_num'] ?></li>
+          <li><?= $cd['endereco_bairro'] ?></li>
+          <li><?= $cd['endereco_rua'] ?></li>
+          <li><?= $cd['cidade_evento'] ?></li>
+          <li><?= $cd['CEP_evento'] ?></li>
+          <li><?= $cd['descricao_evento'] ?></li>
+          <li><?= $cd['imagem_evento'] ?></li>
+          
+        </ul>
      </form>
     </div>
   </body>

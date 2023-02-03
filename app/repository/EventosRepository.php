@@ -118,7 +118,7 @@ class EventosRepository {
             
             $query = "SELECT nome_evento,data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento,imagem_evento, ingresso FROM cadastrar_evento WHERE idCadastrar = :id";
             $prepare=$this->conn->prepare($query);
-            $prepare->bindValue(':id', $evento->getId(), $evento->getNome());
+            $prepare->bindValue(':id', $evento->getId());
             $prepare->execute();
             $result=$prepare->fetch(PDO::FETCH_ASSOC);
             return $result;
@@ -126,11 +126,11 @@ class EventosRepository {
 
          public function ShowEvent(EventosModel $evento){
 
-        $query = "SELECT * FROM cadastrar_evento WHERE idCadastrar = :id";
-        $prepare = $this->conn->prepare($query);
-        $prepare->bindValue(":id", $evento->getId());
-        $result = $prepare->execute();
-        return $result;
+            $query = "SELECT * FROM cadastrar_evento WHERE idCadastrar = :id";
+            $prepare = $this->conn->prepare($query);
+            $prepare->bindValue(":id", $evento->getId());
+            $result = $prepare->execute();
+            return $result;
 
          }
 
