@@ -172,25 +172,17 @@ class ControllerEventos{
 
 
       
-        private function ShowEventById(string $msg =null){
-            $idParam = $_GET['id'];
-            var_dump($_GET);
-            $eventosRepository = new EventosRepository();
-            $evento = $eventosRepository->Show($idParam);
-            $data['cadastrar_evento'] = $evento;
-            $this->loadView("eventos/CardEventos.php", $data); 
-
-        }
-        private function TesteShowById(){
-            $evento = new EventosModel;
-            $evento->setId($_GET["id"]);
-            // $evento->setNome($_POST["nome"]);
-            $eventosRepository = new EventosRepository();
-            $data['dados_evento'] = $eventosRepository->Show($evento);
-            //var_dump($data['dados_evento']);
-            $this->loadView("eventos/CardEventos.php",$data);
-        }
-
+      
+      private function ShowEventById()
+      {
+          $evento = new EventosModel;
+          $evento->setId($_GET["id"]);
+          // $evento->setNome($_POST["nome"]);
+          $eventosRepository = new EventosRepository();
+          $data['dados_evento'] = $eventosRepository->Show($evento);
+          //var_dump($data['dados_evento']);
+          $this->loadView("eventos/mostrarEvento.php", $data);
+      }
 
 }
        

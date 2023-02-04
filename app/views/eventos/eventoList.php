@@ -78,7 +78,7 @@
                                 <?= $cd['descricao_evento'] ?>
                                 
                             </p>
-                            <button><a class="button-link" href="./EventosController.php?action=TesteShowById&id=<?= $cd['idCadastrar']?>"> Mais informações!</a></button>
+                            <button><a class="button-link" href="./EventosController.php?action=ShowEventById&id=<?= $cd['idCadastrar']?>"> Mais informações!</a></button>
                         </figcaption>
 
                     </figure>
