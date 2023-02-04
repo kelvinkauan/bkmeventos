@@ -163,14 +163,15 @@ class ControllerEventos
 
     /* show event  */
 
-    private function ShowEventoById()
+
+    private function ShowEventById()
     {
-        $idParam = isset($_GET['id']) ? filter_var($_GET['id'], FILTER_VALIDATE_INT) : NULL;
-        if ($idParam) {
-            $eventos = new EventosRepository();
-            $showEvent = $eventos->Show($idParam);
-            $data['showEvent'][0] = $showEvent;
-            $this->loadView("eventos/mostrarEvento.php", $data);
-        }
+        $evento = new EventosModel;
+        $evento->setId($_GET["id"]);
+        // $evento->setNome($_POST["nome"]);
+        $eventosRepository = new EventosRepository();
+        $data['dados_evento'] = $eventosRepository->Show($evento);
+        //var_dump($data['dados_evento']);
+        $this->loadView("eventos/mostrarEvento.php", $data);
     }
 }

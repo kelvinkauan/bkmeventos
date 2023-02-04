@@ -108,11 +108,24 @@ class EventosRepository
 
     /* sho event*/
 
-    public function Show($id)
+    public function Show(EventosModel $evento): array
     {
-        $query = "SELECT nome_evento, data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento, imagem_evento, ingresso FROM eventos WHERE idCadastrar = :id LIMIT 1";
+
+        $query = "SELECT nome_evento,data_evento, horaI_evento, horaF_evento, endereco_bairro, endereco_rua, endereco_num, cidade_evento, CEP_evento, descricao_evento,imagem_evento, ingresso FROM cadastrar_evento WHERE idCadastrar = :id";
         $prepare = $this->conn->prepare($query);
-        $prepare->execute(array(':id' => $id));
-        return $prepare->fetch();
+        $prepare->bindValue(':id', $evento->getId());
+        $prepare->execute();
+        $result = $prepare->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function ShowEvent(EventosModel $evento)
+    {
+
+        $query = "SELECT * FROM cadastrar_evento WHERE idCadastrar = :id";
+        $prepare = $this->conn->prepare($query);
+        $prepare->bindValue(":id", $evento->getId());
+        $result = $prepare->execute();
+        return $result;
     }
 }

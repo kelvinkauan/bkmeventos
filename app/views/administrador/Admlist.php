@@ -29,7 +29,7 @@
       <h1> EVENTOS </h1>
     </div>
 
-    <h2> BEM-VINDO!</h2>
+    <h2> BEM-VINDO! </h2>
 
     <ul>
       <a href="AdministradorController.php?action=PaginaAdministrador">
@@ -40,9 +40,6 @@
         <li>Meus dados</li>
       </a>
 
-      <a href="./EventosController.php?action=loadForm">
-        <li>Cadastrar evento</li>
-      </a>
       <a href="./LandingController.php?action=loadForm">
         <li>sair</li>
       </a>

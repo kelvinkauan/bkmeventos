@@ -22,8 +22,8 @@
         <h2> BEM-VINDO!</h2>
 
         <div class="searchBox">
-            <input class="searchInput" type="text" name="" placeholder="Search">
-            <button class="searchButton" href="#">
+            <input class="searchInput" type="text" name="buscar" placeholder="Buscar Evento...">
+            <button class="searchButton" type="submit" value="search" name="action" id="pesqEvento">
                 <i class="material-icons">
                     search
                 </i>
@@ -73,7 +73,7 @@
                             <p>
                                 <?= $cd['descricao_evento'] ?>
                             </p>
-                            <button><a class="button-link" href="./EventosController.php?action=ShowEventoById">Mais informações!</a></button>
+                            <button><a class="button-link" href="./EventosController.php?action=ShowEventById&id=<?= $cd['idCadastrar'] ?>"> Mais informações!</a></button>
                         </figcaption>
 
                     </figure>

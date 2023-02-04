@@ -11,7 +11,7 @@ private $senha;
 
 public function getId(): int{ // esse "int" indica que vai retornar um int
 
-return $this-> idOrganizador;
+return $this->idOrganizador;
 
 }
  

@@ -10,86 +10,134 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-    <script src="../views/helpers/excluirevento.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
+    <link rel="stylesheet" href="../views/eventos/style/CardEvent.css">
+    <!-- <script src="../views/helpers/excluirevento.js" type="text/javascript"></script> -->
 
 </head>
 
 <body>
-    <?php
+    <header>
+        <nav>
+            <div id="title">
+                <h1> BKM </h1>
+                <h1> EVENTOS </h1>
+            </div>
 
-    include_once __DIR__ . "/../helpers/mensagem.php";
+            <h2> BEM-VINDO!</h2>
 
-    ?>
+            <!-- <div class="searchBox">
+                <input class="searchInput" type="text" name="buscar" placeholder="Buscar Evento...">
+                <button class="searchButton" type="submit" value="search" name="action" id="pesqEvento">
+                    <i class="material-icons">
+                        search
+                    </i>
+                </button>
+            </div> -->
+            <!-- <form action="" method="GET">
+            <input type="text" name="buscar" placeholder="Buscar Evento">
+            <input type="submit" value="search" name="action" id="pesqEvento">
+        </form> -->
 
-    <h1>Evento</h1>
-    <ul>
-        <?php
-        foreach ($data['showEvent'] as $event) : ?>
-            <?= $event['nome_evento']; ?>
+            <?php
+
+            if (isset($data['resultado'])) {
+                foreach ($data['resultado']  as $res) :
+                    echo $res['nome_evento'];
+                endforeach;
+            }
+            ?>
+
+            <ul>
+                <a href="./LandingController.php?action=LoadForm">
+                    <li>Início</li>
+                </a>
+            </ul>
+
+        </nav>
+    </header>
+    <main>
+
+        <!-- <h1>Evento</h1> -->
+        <?php $cd = $data['dados_evento'] ?>
+        <div class="container-back">
+            <div class="img-back" style="img src: /bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
+                <img height="650px" width="auto" src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>" alt="Imagem do evento!">
+                <? //= $cd['nome_evento']
+                ?>
+            </div>
+            <? //= $cd['nome_evento'] 
+            ?>
+        </div>
+        <div class="card-event">
+            <img height="500" width="865" src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>" alt="Imagem do evento!">
+            <div class="name-event">
+                <h2><?= $cd['nome_evento'] ?></h2>
+            </div>
+
+        </div>
+        <div class="container">
+
+            <div class="info-event">
+
+                <div class="data-event">
+                    <h5> data do evento: </h5>
+                    <label for="">dia: </label>
+                    <?= $cd['data_evento'] ?>
+
+                    <label for="">Horário :</label>
+                    <?= $cd['horaI_evento'] ?>
+                    >
+                    <?= $cd['horaF_evento'] ?>
+                </div>
+
+                <div class="endereco-event">
+                    <h5> Endereço: </h5>
+                    <?= $cd['endereco_num']
+                    ?>
+                    <?= $cd['endereco_bairro']
+                    ?>
+                    <?= $cd['endereco_rua']
+                    ?>
+                    <?= $cd['cidade_evento']
+                    ?>
+                    <?= $cd['CEP_evento']
+                    ?>
+                </div>
 
 
-        <?php endforeach;
-        ?>
+                <div class="desc">
+                    <h5> Descrição: </h5>
+                    <?= $cd['descricao_evento']
+                    ?>
+                </div>
 
-        // var_dump($data);
-        ?>
-        <? // $event['idCadastrar'] 
-        ?>
-        <br>
-        <? //$event['nome_evento'] 
-        ?>
-        <br>
-        <? //$event['data_evento'] 
-        ?>
-        <br>
-        <? //$event['horaI_evento'] 
-        ?>
-        <br>
-        <? // $event['horaF_evento'] 
-        ?>
-        <br>
-        <? //$event['endereco_bairro'] 
-        ?>
-        <br>
-        <? // $event['endereco_rua'] 
-        ?>
-        <br>
-        <? // $event['endereco_num'] 
-        ?>
-        <br>
-        <? //$event['cidade_evento'] 
-        ?>
-        <br>
-        <? //$event['cep_evento'] 
-        ?>
-        <br>
-        <? // $event['descricao_evento'] 
-        ?>
-        <br>
-        <? // $event['ingresso'] 
-        ?>
-        <?php
-        // if (//$event['ingresso'] == "") {
-        //     echo // "Evento gratuíto";
-        // } else {
-        //     echo //$event['ingresso'];
-        // }
-        ?>
-        <br>
-        <img src="/bkmeventos/app/upload/<? //$event['imagem_evento'] 
-                                            ?>">
-        <br>
+                <span>
+                    <h5> Mais informações sobre o ingresso: </h5>
+                    <?php if ($cd['ingresso'] == "") {
+                        echo "Evento Gratuito";
+                    } else {
+                        echo  $cd['ingresso'];
+                    }
+                    ?>
+                </span>
 
-        </form>
-        <!-- [<a href="./EventosController.php?action=edit&id=<? //$event['idCadastrar'] 
-                                                                ?>">Editar</a>] -->
-        <!-- [<a href="javascript: confirmarExclusãoEvento('<?= $event['nome_evento'] ?>', <?= $event['idCadastrar'] ?>)"> Excluir </a>] -->
+            </div>
+        </div>
 
-        <?php
-        // } 
-        ?>
-    </ul>
-    <p>
-        <!-- [ <a href="./EventosController.php?action=loadForm">Cadastrar novo</a> ] colocar no view principal -->
+
+
+    </main>
+
+
+
+
+
+    <!-- <img src="/bkmeventos/app/upload/<? //$cd['imagem_evento'] 
+                                            ?>" alt="Imagem do evento!"> -->
+
+
+
 
 </html>

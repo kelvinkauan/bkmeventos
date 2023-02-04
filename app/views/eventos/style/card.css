@@ -5,6 +5,7 @@
   outline: none;
   
 }
+
 h2{
   margin-right: 70px;
 }
@@ -68,7 +69,6 @@ body {
   align-items: center;
   justify-content: center;
   width: 99%;
- 
 } 
 
 .img-block a{
