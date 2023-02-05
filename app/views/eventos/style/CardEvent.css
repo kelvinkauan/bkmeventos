@@ -104,12 +104,11 @@ body {
 }
 
 .name-event{
-  color: #f6f5f7;
-  position: absolute;
   margin: 0;
-  margin-top: -70px;
+  padding: 35px;
   font-size: 60px;
-  padding-top: 450px;
+  display: flex;
+  justify-content: center;
 }
 
 .name-event h2{
@@ -124,7 +123,7 @@ body {
   top: 5px;
   margin: 0;
   padding: auto;
-  background-color: #fff;
+  /* background-color: #fff; */
   width: auto;
 }
 .info-event{
@@ -133,7 +132,7 @@ body {
   margin: 10px;
   width: 50vw;
   height: auto;
-  background-color: #f6f5f7;
+  background-color: #fff;
   flex-direction: column;
   border: 1px solid #6F3Df4;
   border-radius: 5px;
@@ -145,6 +144,32 @@ body {
   font-size: 25px;
 }
 
+.info-event h5::after{
+  content: '';
+  background-color: #6c63ff;
+  /* content: '';
+  display: block;
+  width: 16rem;
+  height: 0.3rem;
+  background-color: #6c63ff;
+  margin: 0 auto;
+  position: absolute;
+  border-radius: 10px; */
+}
+
 .data-event{
     flex-direction: column;
 }
+
+p{
+  margin-left: 6em;
+  padding: 10px;
+  /* justify-content: space-between; */
+  justify-content: flex-start;
+ 
+
+}
+.name-evento{
+
+}
+

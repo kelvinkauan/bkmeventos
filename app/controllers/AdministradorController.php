@@ -219,7 +219,6 @@ class ControllerAdministrador
         $this->PaginaAdministrador($msg);
     }
 
-
     /* -------------------- end of Admin edit and delete org -------------------- */
 
     private function showAdmins()

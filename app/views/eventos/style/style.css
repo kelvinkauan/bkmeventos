@@ -81,8 +81,6 @@ a:hover{
     justify-content: space-between;
 }
 
-
-
 .form-header h1::after {
     content: '';
     display: block;
