@@ -103,16 +103,16 @@ class EventosRepository {
 
         }
 
-        public function pesquisar(string $pesquisa): array{
+        public function Pesquisar(string $pesquisa): array
+        {
             $pesquisa = "%$pesquisa%";
-             $query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE :nome";  // or %:nome%  
-             $prepare = $this->conn->prepare($query);
-             $prepare->bindParam(':nome', $pesquisa, PDO::PARAM_STR); //PDO::PARAM_STR
-             $prepare->execute();
-             $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
-             return $result;
-    
-         }
+            $query = "SELECT * FROM cadastrar_evento WHERE nome_evento LIKE :nome";  // or %:nome%  
+            $prepare = $this->conn->prepare($query);
+            $prepare->bindParam(':nome', $pesquisa, PDO::PARAM_STR); //PDO::PARAM_STR
+            $prepare->execute();
+            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
 
          public function Show(EventosModel $evento): array{
             
@@ -124,15 +124,27 @@ class EventosRepository {
             return $result;
          }
 
-         public function ShowEvent(EventosModel $evento){
 
-            $query = "SELECT * FROM cadastrar_evento WHERE idCadastrar = :id";
-            $prepare = $this->conn->prepare($query);
-            $prepare->bindValue(":id", $evento->getId());
-            $result = $prepare->execute();
+         public function sliderEvento(EventosModel $evento){
+            $query = "SELECT*FROM cadastrar_evento WHERE idCadastrar = :id ";
+            $prepare=$this->conn->prepare($query);
+            $prepare->bindValue(':id', $evento->getId());
+            $prepare->execute();
+            $result=$prepare->fetchAll(PDO::FETCH_ASSOC);
             return $result;
-
          }
+
+         
+
+        // //  public function ShowEvent(EventosModel $evento){
+
+        //     $query = "SELECT * FROM cadastrar_evento WHERE idCadastrar = :id";
+        //     $prepare = $this->conn->prepare($query);
+        //     $prepare->bindValue(":id", $evento->getId());
+        //     $result = $prepare->execute();
+        //     return $result;
+
+        //  }
 
 
     }

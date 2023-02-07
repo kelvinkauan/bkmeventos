@@ -81,7 +81,7 @@
                             </button>
 
                             <button>
-                                <a type="submit" href="AdministradorController?action=PaginaAdministrador" class="btn">Cancelar</a></button>
+                                <a type="submit" href="AdministradorController.php?action=PaginaAdministrador" class="btn">Cancelar</a></button>
                         </div>
                     </form>
                 <?php endforeach; ?>

@@ -42,7 +42,7 @@
                 <li>Cadastrar evento</li>
             </a>
             <a href="./LandingController.php?action=loadForm">
-                <li>sair</li>
+                <li>Sair</li>
             </a>
 
         </ul>

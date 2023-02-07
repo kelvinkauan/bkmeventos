@@ -32,16 +32,19 @@ nav{
 li{
     display: inline-block;
     margin: 20px;
+list-style: none;
     
 }
 
 a{
     color: black;
+    text-decoration: none;
 }
 
 a:hover{
     color:  #6F3Df4; 
     transition: 0.3s all;
+    text-decoration: none;
  }
 
 .dados{
@@ -344,4 +347,8 @@ h1:hover {
     padding-top: 5rem;
     padding-bottom: 2rem;
 
+}
+
+aside{
+    margin-top: 50px;
 }

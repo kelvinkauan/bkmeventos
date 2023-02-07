@@ -8,8 +8,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../views/stylePaginaOrganizador/styles/fonts.css">
-    <!-- <link rel="stylesheet" href="../stylePaginaOrganizador/styles/fonts.css"> -->
+    <link rel="stylesheet" href="../stylePaginaOrganizador/styles/fonts.css">
     <link rel="stylesheet" href="../views/eventos/style/card.css">
+    <!-- <link href="../views/landingPage/styles/style.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
     <!-- <link rel="stylesheet" href="../eventos/style/card.css"> -->
     <title>Eventos</title>
 </head>
@@ -25,17 +28,18 @@
         <h2> BEM-VINDO!</h2>
 
         <div class="searchBox">
-            <input class="searchInput" type="text" name="" placeholder="Search">
-            <button class="searchButton" href="#">
+            <form action="./EventosController.php?action=Search" method="GET"> 
+             <input class="searchInput" type="text" name="buscar" placeholder="Buscar Evento">
+             <button class="searchButton" value="search" name="action"  id="pesqEvento">
+             <form action="./EventosController.php?action=Search" method="GET">
+            
                 <i class="material-icons">
                     search
                 </i>
             </button>
+            </form>
         </div>
-        <!-- <form action="" method="GET">
-            <input type="text" name="buscar" placeholder="Buscar Evento">
-            <input type="submit" value="search" name="action" id="pesqEvento">
-        </form> -->
+    
 
         <?php
             if(isset($data['resultado'])){
@@ -44,8 +48,6 @@
                 endforeach;
                   }
     ?>
-    
-
         <ul>
             <a href="./LandingController.php?action=LoadForm">
                 <li>Início</li>
@@ -60,7 +62,9 @@
     ?>
 
 
-    <div class="container">
+
+    <main>
+       <div class="container_evento">
         <h4>Eventos</h4>
         <div class="container-card">
             <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
@@ -88,6 +92,9 @@
 
         </div>
     </div>
+    </main>
+     
+    
 </body>
 
 </html>

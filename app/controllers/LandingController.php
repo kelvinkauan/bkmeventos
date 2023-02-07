@@ -4,6 +4,7 @@
     error_reporting(E_ALL);
     require_once __DIR__ . "/../repository/OrganizadorRepository.php";
     require_once __DIR__ . "/../repository/AdministradorRepository.php";
+    require_once __DIR__ . "/../repository/EventosRepository.php";
     
 
 $lading = new ControllerLanding();
@@ -56,7 +57,7 @@ class ControllerLanding{
     
     private function loadForm(){ //loadFormNew
 
-        $this->loadView("landingPage/index.html", null, "teste");
+        $this->loadView("landingPage/index.php", null, "teste");
 
     }
 
@@ -77,5 +78,16 @@ class ControllerLanding{
         }
         $this->loadView("login/login.php");
     }
+    
+    private function ShowEvetsData(){
+        $evento = new EventosModel;
+        $evento->setId($_GET["id"]);
+        $eventosRepository = new EventosRepository();
+        $data['slider_evento'] = $eventosRepository->sliderEvento($evento);
+        $this->loadView("landingPage/index.php", $data);
+
+    }
+
+ 
 
 } 

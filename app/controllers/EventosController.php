@@ -158,21 +158,23 @@ class ControllerEventos{
     }
 
    
-    private function search(){  
+    private function Search()
+    {
 
         $pesquisarRepository = new EventosRepository();
-        $data=[];
-        if(isset($_GET['buscar'])){
-
-           $search = $pesquisarRepository->pesquisar($_GET['buscar']);
-           $data['resultado'] = $search;
+        $data = [];
+        
+        
+        if (isset($_GET['buscar'])) {
+            
+            // $search = $pesquisarRepository->pesquisar($_GET['buscar']);
+            $search = $pesquisarRepository->Pesquisar($_GET['buscar']);
+            $data['resultado'] = $search;
+            
         }
         $this->loadView("pesquisar/pesquisar.php", $data);
-      }
+    }
 
-
-      
-      
       private function ShowEventById()
       {
           $evento = new EventosModel;
@@ -183,6 +185,9 @@ class ControllerEventos{
           //var_dump($data['dados_evento']);
           $this->loadView("eventos/mostrarEvento.php", $data);
       }
+
+     
+      
 
 }
        

@@ -99,7 +99,7 @@
 
           <div class="input-box-desc">
             <label for="idhi">Descrição do Evento:</label>
-            <textarea type="text" name="descricao" id="iddesc" placeholder="Descreva aqui seu evento, cronograma, atrações, etc." class="desc" required cols="30" rows="5" value="<?= $cd->getDescricao(); ?>"></textarea>
+            <textarea type="text" name="descricao" id="iddesc" placeholder="Descreva aqui seu evento, cronograma, atrações, etc." class="desc" required cols="30" rows="5" ><?= $cd->getDescricao(); ?></textarea>
           </div>
           <fieldset>
             <legend> TIPO DE INGRESSO </legend>
@@ -292,9 +292,10 @@
                 <button class="btn">
                   Selecionar o arquivo
                 </button>
-                <input type="file" id="upfile" name="upload" onchange="readURL(this);" value="<?= $cd->getImagem; ?>">
+                <input type="file" id="upfile" name="upload" onchange="readURL(this);" value="" >
+
               </div>
-              <img class="upload_img" id="file_upload">
+              <img class="upload_img" id="file_upload" value="<?= $cd->getImagem();?>" alt="imagem do evento">
             </div>
           </div>
         </div>
