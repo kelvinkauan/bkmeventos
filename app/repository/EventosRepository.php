@@ -125,11 +125,11 @@ class EventosRepository {
          }
 
 
-         public function sliderEvento(){
-            $table = $this->conn->query("SELECT * FROM cadastrar_evento WHERE idCadastrar =:id"); 
-            $evento = $table->fetchAll(PDO::FETCH_ASSOC);
-            return $evento;
-         }
+
+
+         
+
+        
 
          
 

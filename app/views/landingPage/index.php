@@ -10,7 +10,7 @@
     <link href="../views/landingPage/styles/media.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-
+   
     <style>
         h1:hover {
             color: #6F3Df4;
@@ -83,36 +83,32 @@
 
     
     <section>
-        <form action="./LandingController?action=ShowEvetsData<?= $cd['idCadastrar']?>" >
-    <?php  
-    isset($data['dados_evento']);
-    foreach( $data['dados_evento'] as $cd):?>
+  
     
-    <?php  ?>
         
-        <div class="container">
+    <div class="container">
           <span id="previous"><i data-feather="chevron-left"></i></span>
           
           <span id="next"><i data-feather="chevron-right"></i></span>
       
           <div id="slider" class="slider">
+          <?php  
+   
+            foreach( $data['cadastrar_evento'] as $cd):?>
 
-            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
-            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
-            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
-            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
-            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
+            <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
            
+            <?php endforeach;?>
           </div>
         </div>
-        <?php endforeach;?>
         <div class="bullets-container">
-          
         </div>
         </form>
+        <script src='https://unpkg.com/feather-icons'></script><script  src="../views/landingPage/script.js"></script>
+    
     </section>
       <!-- partial -->
-        <script src='https://unpkg.com/feather-icons'></script><script  src="../views/landingPage/script.js"></script>
+        
       
        </footer>
 

@@ -56,8 +56,12 @@ class ControllerLanding{
     }
     
     private function loadForm(){ //loadFormNew
-  
-        $this->loadView("landingPage/index.php");
+        
+        $eventosRepository = new EventosRepository();
+        $eventos = $eventosRepository->findAll();
+        $data['titulo'] = "listar eventos";
+        $data['cadastrar_evento'] = $eventos;
+        $this->loadView("landingPage/index.php", $data);
 
     }
 
@@ -79,14 +83,14 @@ class ControllerLanding{
         $this->loadView("login/login.php");
     }
     
-    private function ShowEvetsData(){
-        $evento = new EventosModel;
-        $evento->setId($_GET["id"]);
-        $eventosRepository = new EventosRepository();
-        $data['slider_evento'] = $eventosRepository->sliderEvento($evento);
-        $this->loadView("landingPage/index.php", $data);
+    // private function ShowEvetsData(){
+    //     $evento = new EventosModel;
+    //     $evento->setId($_GET["id"]);
+    //     $eventosRepository = new EventosRepository();
+    //     $data['slider_evento'] = $eventosRepository->Show($evento);
+    //     $this->loadView("landingPage/index.php", $data);
 
-    }
+    // }
 
  
 
