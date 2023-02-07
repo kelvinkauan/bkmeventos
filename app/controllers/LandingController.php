@@ -56,8 +56,8 @@ class ControllerLanding{
     }
     
     private function loadForm(){ //loadFormNew
-
-        $this->loadView("landingPage/index.php", null, "teste");
+  
+        $this->loadView("landingPage/index.php");
 
     }
 

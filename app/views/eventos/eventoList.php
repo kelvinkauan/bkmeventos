@@ -25,34 +25,27 @@
             <h1> EVENTOS </h1>
         </div>
 
-        <h2> BEM-VINDO!</h2>
-
-        <div class="searchBox">
-            <form action="./EventosController.php?action=Search" method="GET"> 
-             <input class="searchInput" type="text" name="buscar" placeholder="Buscar Evento">
-             <button class="searchButton" value="search" name="action"  id="pesqEvento">
-             <form action="./EventosController.php?action=Search" method="GET">
-            
-                <i class="material-icons">
-                    search
-                </i>
-            </button>
-            </form>
-        </div>
-    
-
-        <?php
-            if(isset($data['resultado'])){
-            foreach ($data['resultado']  as $res):
-                echo $res['nome_evento'];
-                endforeach;
-                  }
-    ?>
         <ul>
             <a href="./LandingController.php?action=LoadForm">
                 <li>Início</li>
             </a>
         </ul>
+
+      
+        <form action="">
+            <div class="searchBox">
+                <input class="searchInput" type="text" name="buscar" placeholder="Buscar Evento...">
+                <button class="searchButton" type="submit" value="search" name="action" id="pesqEvento">
+                    <i class="material-icons">
+                        search
+                    </i>
+                </button>
+            </div>
+        </form>
+    
+
+
+    
 
     </nav>
     <?php
@@ -67,6 +60,7 @@
        <div class="container_evento">
         <h4>Eventos</h4>
         <div class="container-card">
+       
             <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
                 <span class="sp">
                     <figure class="img-block">
@@ -79,7 +73,8 @@
                             <h3>Mais informações!</h3>
                             <p>
                                           
-                                <?= $cd['descricao_evento'] ?>
+                                <?= $cd['data_evento'] ?> , 
+                                <?= $cd['cidade_evento'] ?>
                                 
                             </p>
                             <button><a class="button-link" href="./EventosController.php?action=ShowEventById&id=<?= $cd['idCadastrar']?>"> Mais informações!</a></button>

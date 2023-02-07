@@ -83,10 +83,12 @@
 
     
     <section>
-    <?php  isset( $data['cadastrar_evento'])?>
-    <?php var_dump($data) ?>
-        <?php $cd = $data['cadastrar_evento']?>
-        <?=$cd['nome_evento' ]?>
+        <form action="./LandingController?action=ShowEvetsData<?= $cd['idCadastrar']?>" >
+    <?php  
+    isset($data['dados_evento']);
+    foreach( $data['dados_evento'] as $cd):?>
+    
+    <?php  ?>
         
         <div class="container">
           <span id="previous"><i data-feather="chevron-left"></i></span>
@@ -94,18 +96,20 @@
           <span id="next"><i data-feather="chevron-right"></i></span>
       
           <div id="slider" class="slider">
-            <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
-            <img src="../views/landingPage/componentes/img/Nahida.jpg">
-            <img src="../views/landingPage/componentes/img/genshin.jpg">
-            <img src="../views/landingPage/componentes/img/HD wallpaper_ Spider-Man, Spider-Man (PS4).jpg">
-            <img src="../views/landingPage/componentes/img/HD wallpaper_ Video Game, The King Of Fighters XIV, Mai Shiranui.jpg">
+
+            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
+            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
+            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
+            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
+            <img src="/bkmeventos/app/upload/?= $cd['imagem_evento'] ?>">
+           
           </div>
         </div>
-        
+        <?php endforeach;?>
         <div class="bullets-container">
           
         </div>
-        
+        </form>
     </section>
       <!-- partial -->
         <script src='https://unpkg.com/feather-icons'></script><script  src="../views/landingPage/script.js"></script>

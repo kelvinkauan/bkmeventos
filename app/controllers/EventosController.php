@@ -169,10 +169,10 @@ class ControllerEventos{
             
             // $search = $pesquisarRepository->pesquisar($_GET['buscar']);
             $search = $pesquisarRepository->Pesquisar($_GET['buscar']);
-            $data['resultado'] = $search;
+            $data['cadastrar_evento'] = $search;
             
         }
-        $this->loadView("pesquisar/pesquisar.php", $data);
+        $this->loadView("eventos/eventoList.php", $data);
     }
 
       private function ShowEventById()
@@ -186,8 +186,18 @@ class ControllerEventos{
           $this->loadView("eventos/mostrarEvento.php", $data);
       }
 
-     
-      
+      private function Slide()
+      {
+          $evento = new EventosModel;
+          $evento->setId($_GET["id"]);
+          // $evento->setNome($_POST["nome"]);
+          $eventosRepository = new EventosRepository();
+          $data['dados_evento'] = $eventosRepository->Show($evento);
+          //var_dump($data['dados_evento']);
+          $this->loadView("eventos/mostrarEvento.php", $data);
+      }
+
+          
 
 }
        

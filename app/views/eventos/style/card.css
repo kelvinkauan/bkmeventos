@@ -247,6 +247,7 @@ figure figcaption button {
 .container-card{
   display: flex; 
   flex-wrap: wrap;
+  margin-left: 50px;
 }
 
 .button-link:hover{
@@ -256,20 +257,24 @@ figure figcaption button {
 /* serch bar */
 
 .searchBox {
-  /* position: absolute; */
   top: 50%;
   left: 50%;
   border: 1px solid #6F3Df4;
-  transform:  translate(-50%,50%);
-  /* background: #fff; */
-  /* background: #2f3; */
-  /* height: 40px; */
+  transform: translate(-50%,50%);
+  /* background: #fff; /
+  / background: #2f3; */
+  height: 60px;
   border-radius: 40px;
   padding: 10px;
   margin-bottom: 50px;
-  margin-right: -200px;
+  /* margin-right: -200px; */
 
 }
+
+
+
+
+
 
 .searchBox:hover > .searchInput {
   width: 240px;
@@ -316,6 +321,7 @@ color : #6F3Df4;
   padding: 0 6px;
 }
   
+
 
 
 
