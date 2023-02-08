@@ -31,9 +31,9 @@
 
 
         <ul>
-            <a href="./LandingController.php?action=LoadForm">
+            <!-- <a href="./LandingController.php?action=LoadForm">
                 <li>Início</li>
-            </a>
+            </a> -->
 
             <a href="./AdministradorController.php?action=findAll">
                 <li>Meus dados</li>

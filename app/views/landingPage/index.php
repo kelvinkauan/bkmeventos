@@ -36,9 +36,9 @@
         </div>
 
         <ul>
-            <a href="LadingController.php?action=LoadForm">
+            <!-- <a href="LadingController.php?action=LoadForm">
                 <li>  Início  </li>
-            </a>
+            </a> -->
             <a href="EventosController.php?action=findAll">
                 <li>  Eventos  </li>
             </a>
@@ -96,7 +96,7 @@
    
             foreach( $data['cadastrar_evento'] as $cd):?>
 
-            <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
+            <img height="500" width="1000" src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>">
            
             <?php endforeach;?>
           </div>
@@ -105,8 +105,38 @@
         </div>
         </form>
         <script src='https://unpkg.com/feather-icons'></script><script  src="../views/landingPage/script.js"></script>
-    
+        <br>
+        <p><h1>Eventos Recentes</h1></p>
+        <div class="container_evento">
+        <div class="container-card">
+       
+            <?php foreach ($data['cadastrar_evento'] as $cd) : ?>
+                <span class="sp">
+                    <figure class="img-block">
+                         
+                        <h2> <?= $cd['nome_evento']
+                                ?></h2>
+                        <img src="/bkmeventos/app/upload/<?= $cd['imagem_evento'] ?>" alt="Imagem do evento!">
+
+                        <figcaption>
+                            <h3>Mais informações!</h3>
+                            <p>
+                                          
+                                <?= $cd['data_evento'] ?> , 
+                                <?= $cd['cidade_evento'] ?>
+                                
+                            </p>
+                            <button><a class="button-link" href="./EventosController.php?action=ShowEventById&id=<?= $cd['idCadastrar']?>"> Mais informações!</a></button>
+                        </figcaption>
+
+                    </figure>
+                </span>
+            <?php endforeach; ?>
+            <p>
+        </div>
+    </div>
     </section>
+
       <!-- partial -->
         
       

@@ -29,7 +29,7 @@
 
 
         <ul>
-            <a href="LandingController.php?action=loadForm">
+            <a href="OrganizadorController.php?action=PaginaOrganizador">
                 <li>Início</li>
             </a>
 

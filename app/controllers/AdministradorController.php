@@ -256,7 +256,7 @@ class ControllerAdministrador
         } else {
             $msg = "Erro ao atuallizar!";
         }
-        $this->findAll($msg);
+         $this->PaginaAdministrador($msg);
     }
 
     private function AdmEditEvent()
@@ -266,7 +266,7 @@ class ControllerAdministrador
         $eventosRepository = new EventosRepository();
         $evento = $eventosRepository->findEventoById($idParam);
         $data['eventos'][0] = $evento;
-        $this->loadView("eventos/editarEvento.php", $data);
+        $this->loadView("administrador/admEditEvento/AdmEditEvento.php", $data);
     }
 
     private function AdmDeleteEventoById()

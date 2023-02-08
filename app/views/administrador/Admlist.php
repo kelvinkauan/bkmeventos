@@ -37,9 +37,9 @@
         <li>Início</li>
       </a>
 
-      <a href="./AdministradorController.php?action=findAll">
+      <!-- <a href="./AdministradorController.php?action=findAll">
         <li>Meus dados</li>
-      </a>
+      </a> -->
 
       <a href="./LandingController.php?action=loadForm">
         <li>sair</li>

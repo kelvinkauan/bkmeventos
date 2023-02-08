@@ -30,9 +30,9 @@
 
 
         <ul>
-            <a href="./LandingController.php?action=LoadForm">
+            <!-- <a href="./LandingController.php?action=LoadForm">
                 <li>Início</li>
-            </a>
+            </a> -->
 
             <a  href="./OrganizadorController.php?action=edit&id=<?=$_SESSION['Org'] ?>" >
                 <li>Editar dados</li>
