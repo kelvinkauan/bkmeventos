@@ -29,7 +29,6 @@
         <span> insira seus dados</span>
         <input type="email" name="email" placeholder="Email" required />
         <input type="password" name="senha" placeholder="Senha" required />
-        <a href="#">Esqueceu sua senha?</a>
         <button type="submit" value="login">Entrar</button>
         <input value="1" name="login" type="hidden">
       </form>
